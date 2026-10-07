@@ -91,6 +91,8 @@
   .porta:hover .ir span{transform:translateX(4px)}
   .porta .midia{width:150px;align-self:stretch;border-radius:10px;overflow:hidden;background:var(--sup2)}
   .porta .midia img,.porta .midia video{width:100%;height:100%;object-fit:cover;display:block}
+  .porta .midia.mosaico{display:grid;grid-template-columns:1fr 1fr;gap:8px;align-content:center;padding:10px;background:transparent}
+  .porta .midia.mosaico img{aspect-ratio:1;border-radius:50%;transform:scale(1.02)}
   @media (max-width:860px){.portas{grid-template-columns:1fr}}
   @media (max-width:440px){.porta{grid-template-columns:1fr}.porta .midia{width:100%;height:180px}}
 
@@ -149,6 +151,31 @@
   .cartao .qtd{position:absolute;top:10px;right:10px;z-index:1;background:rgba(15,12,10,.75);color:#fff;font-size:.75rem;font-weight:700;
     padding:4px 9px;border-radius:999px}
   .cartao.p:hover,.cartao.s:hover{outline:2px solid var(--laranja);outline-offset:2px}
+
+  /* ---------- perfis atendidos ---------- */
+  .soma{margin-top:40px;display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 18px}
+  .soma strong{font-size:clamp(2.6rem,6vw,4.2rem);font-weight:800;line-height:1;color:var(--laranja-txt);letter-spacing:-.03em}
+  .soma span{color:var(--sub);font-size:1.05rem;max-width:34ch}
+  .nicho{margin-top:44px}
+  .nicho h3{display:flex;align-items:center;gap:12px;font-size:1.2rem;font-weight:800}
+  .nicho h3 small{font-size:.8rem;font-weight:600;color:var(--fraco)}
+  .perfis{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px;margin-top:16px}
+  .perfil{display:grid;grid-template-columns:auto 1fr;gap:6px 16px;align-items:center;padding:20px;border-radius:var(--raio);
+    background:var(--sup);border:1px solid var(--linha);text-decoration:none;transition:border-color .2s,transform .2s}
+  .perfil:hover{border-color:var(--laranja);transform:translateY(-2px)}
+  .perfil .foto{grid-row:span 2;width:68px;height:68px;border-radius:50%;padding:3px;
+    background:conic-gradient(from 210deg,#FF872F,#F5C542,#FF5E8A,#FF872F)}
+  .perfil .foto span{display:block;width:100%;height:100%;border-radius:50%;overflow:hidden;border:3px solid var(--sup)}
+  .perfil .foto img{width:100%;height:100%;object-fit:cover;transform:scale(1.14);display:block}
+  .perfil .arroba{font-weight:800;font-size:.95rem;display:flex;align-items:center;gap:5px;min-width:0}
+  .perfil .arroba b{overflow-wrap:anywhere;line-height:1.2}
+  .perfil .arroba svg{width:15px;height:15px;flex:none}
+  .perfil .nome{color:var(--sub);font-size:.88rem;line-height:1.3}
+  .perfil .nums{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px;padding-top:12px;border-top:1px solid var(--linha)}
+  .perfil .nums strong{display:block;font-size:1.35rem;font-weight:800;line-height:1.1}
+  .perfil .nums small{color:var(--fraco);font-size:.78rem}
+  .perfil .nums .seg strong{color:var(--txt)}
+  .fonte-perfis{margin-top:18px;color:var(--fraco);font-size:.85rem}
 
   .passos{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:56px}
   .passo{padding:26px;border-radius:var(--raio);background:var(--sup);border:1px solid var(--linha)}
@@ -229,10 +256,10 @@
         <div>
           <p class="tipo">Social media</p>
           <h2>Quero um perfil que vende</h2>
-          <p class="prova">Carrossel e stories com a cara da sua marca, postados nos melhores horários.</p>
-          <p class="ir">Ver os posts <span aria-hidden="true">→</span></p>
+          <p class="prova">Já atendemos perfis que somam mais de 970 mil seguidores.</p>
+          <p class="ir">Ver os perfis <span aria-hidden="true">→</span></p>
         </div>
-        <div class="midia"><img src="social/case-loja-virtual/01.jpg" alt="Carrossel feito pela JG" style="object-position:left center"></div>
+        <div class="midia mosaico" aria-hidden="true"><img src="perfis/andrelrcavalcante.jpg" alt=""><img src="perfis/icrazybr.jpg" alt=""><img src="perfis/domingoscoelho_md.jpg" alt=""><img src="perfis/geracaotechs.jpg" alt=""><img src="perfis/capilife_.jpg" alt=""><img src="perfis/samuell.music.jpg" alt=""></div>
       </a>
       <a class="porta" href="#video">
         <div>
@@ -260,19 +287,11 @@
     <section class="secao" id="social" aria-labelledby="tit-social">
       <p class="olho">Social media</p>
       <h2 class="tit" id="tit-social">Perfil bonito, postando <em>toda semana</em></h2>
-      <p class="intro">A gente monta o visual da sua marca uma vez e produz carrossel e stories no mesmo padrão, toda semana, nos melhores horários. Você só aprova. Clique num post para ver todas as páginas.</p>
+      <p class="intro">A gente monta o visual da sua marca uma vez e produz carrossel e stories no mesmo padrão, toda semana, nos melhores horários. Você só aprova.</p>
 
-      <div class="subtit">
-        <div><h3>Carrosséis</h3><p>Posts da própria JG, feitos no nosso modelo.</p></div>
-        <div class="setas"><button type="button" data-trilho="posts" data-dir="-1" aria-label="Voltar">←</button><button type="button" data-trilho="posts" data-dir="1" aria-label="Avançar">→</button></div>
-      </div>
-      <div class="trilho" id="posts"></div>
-
-      <div class="subtit">
-        <div><h3>Stories</h3><p>Prontos para agendar, sem precisar de figurinha.</p></div>
-        <div class="setas"><button type="button" data-trilho="stories" data-dir="-1" aria-label="Voltar">←</button><button type="button" data-trilho="stories" data-dir="1" aria-label="Avançar">→</button></div>
-      </div>
-      <div class="trilho" id="stories"></div>
+      <div class="soma"><strong>+970 mil</strong><span>seguidores somados nos perfis que já atendemos, de médicos a youtubers.</span></div>
+      <div id="perfis"></div>
+      <p class="fonte-perfis">Números públicos de cada perfil no Instagram, em outubro de 2026. Clique para abrir o perfil.</p>
 
       <div class="passos">
         <div class="passo"><p class="n">1</p><h3>A gente conhece a marca</h3><p>Cores, fontes, logo, jeito de falar e o que o seu cliente precisa ouvir.</p></div>
@@ -445,34 +464,43 @@
   VERTICAIS.forEach(function(c){ document.getElementById("verticais").appendChild(cartaoVideo(c, "v")); });
   HORIZONTAIS.forEach(function(c){ document.getElementById("horizontais").appendChild(cartaoVideo(c, "h")); });
 
-  // ---------- carrosséis de social media ----------
-  var POSTS = [
-    ["case-loja-virtual",5,"Case de tráfego: loja virtual"],
-    ["dica-curtida-nao-vende",3,"Dica: curtida não vende"],
-    ["case-psicanalise",5,"Case de tráfego: psicanálise"],
-    ["dica-video-ate-o-fim",3,"Dica: vídeo até o fim"],
-    ["case-servicos-locais",5,"Case: serviços locais"],
-    ["dica-gravar-melhor",3,"Dica: gravar melhor"]
+  // ---------- perfis atendidos (números públicos, out/2026) ----------
+  var SELO = '<svg viewBox="0 0 24 24" aria-label="Verificado"><path fill="#3897F0" d="M12 1.5l2.6 1.9 3.2-.1 1 3 2.6 1.9-1 3 1 3-2.6 1.9-1 3-3.2-.1L12 22.5l-2.6-1.9-3.2.1-1-3L2.6 15.8l1-3-1-3 2.6-1.9 1-3 3.2.1z"/><path d="M8 12.3l2.6 2.6L16.2 9" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  var NICHOS = [
+    ["Saúde e estética", [
+      ["domingoscoelho_md","Domingos Sávio Coelho · Dermatologista","63 mil","1.040",false],
+      ["capilife_","Capilife · Clínica de transplante capilar","45,2 mil","1.895",false],
+      ["dr.jeffersonsilvafreitas","Dr. Jefferson · Tricologia e restauração capilar","6.348","279",false],
+      ["draluizabernardespediatra","Dra. Luiza Bernardes · Pediatra","5.082","645",false]]],
+    ["Empresas", [
+      ["icrazybr","iCrazy · Loja Apple Premium","106 mil","2.920",false],
+      ["highlinegoiania","Escola High Line · Escola bilíngue em Goiânia","12 mil","205",false],
+      ["transportegeneroso","Transporte Generoso · Transportadora","10,8 mil","1.047",true]]],
+    ["Criadores e música", [
+      ["andrelrcavalcante","André Cavalcante · Músico e produtor","420 mil","1.049",true],
+      ["geracaotechs","Glauton Filho · Tecnologia e IA","218 mil","989",false],
+      ["samuell.music","Samuell Gonçalves · Violonista","85,5 mil","209",true]]]
   ];
-  POSTS.forEach(function(p){
-    var b = document.createElement("button");
-    b.type = "button"; b.className = "cartao p";
-    b.innerHTML = '<img loading="lazy" alt=""><span class="qtd"></span>';
-    b.querySelector("img").src = "social/" + p[0] + "/01.jpg"; b.querySelector("img").alt = p[2];
-    b.querySelector(".qtd").textContent = p[1] + " páginas";
-    b.addEventListener("click", function(){
-      paginas = []; for(var i = 1; i <= p[1]; i++) paginas.push("social/" + p[0] + "/0" + i + ".jpg");
-      pag = 0; titulo = p[2]; mostrarPagina();
+  var caixa = document.getElementById("perfis");
+  NICHOS.forEach(function(n){
+    var bloco = document.createElement("div"); bloco.className = "nicho";
+    var h = document.createElement("h3"); h.textContent = n[0];
+    var q = document.createElement("small"); q.textContent = n[1].length + " perfis"; h.appendChild(q);
+    var grade = document.createElement("div"); grade.className = "perfis";
+    n[1].forEach(function(p){
+      var a = document.createElement("a");
+      a.className = "perfil"; a.href = "https://www.instagram.com/" + p[0] + "/"; a.target = "_blank"; a.rel = "noopener";
+      a.innerHTML = '<span class="foto"><span><img loading="lazy" alt=""></span></span>' +
+        '<span class="arroba"><b></b>' + (p[4] ? SELO : "") + '</span><span class="nome"></span>' +
+        '<span class="nums"><span class="seg"><strong></strong><small>seguidores</small></span><span><strong></strong><small>posts</small></span></span>';
+      a.querySelector("img").src = "perfis/" + p[0] + ".jpg";
+      a.querySelector(".arroba b").textContent = "@" + p[0];
+      a.querySelector(".nome").textContent = p[1];
+      a.querySelector(".seg strong").textContent = p[2];
+      a.querySelectorAll(".nums strong")[1].textContent = p[3];
+      grade.appendChild(a);
     });
-    document.getElementById("posts").appendChild(b);
-  });
-  [["post-novo","Story de post novo"],["case","Story com o print do case"],["dica","Story de dica rápida"],["chamada","Story de chamada para o WhatsApp"]].forEach(function(s){
-    var b = document.createElement("button");
-    b.type = "button"; b.className = "cartao s";
-    b.innerHTML = '<img loading="lazy" alt="">';
-    b.querySelector("img").src = "social/stories/" + s[0] + ".jpg"; b.querySelector("img").alt = s[1];
-    b.addEventListener("click", function(){ paginas = ["social/stories/" + s[0] + ".jpg"]; pag = 0; titulo = s[1]; mostrarPagina(); });
-    document.getElementById("stories").appendChild(b);
+    bloco.appendChild(h); bloco.appendChild(grade); caixa.appendChild(bloco);
   });
 
   // setas dos carrosséis
