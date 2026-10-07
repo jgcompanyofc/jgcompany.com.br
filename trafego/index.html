@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>JG Company · Tráfego pago para o seu negócio</title>
 <meta name="description" content="Anúncio que vira cliente, não só curtida. Resultados reais: R$ 158 mil em vendas com R$ 7 mil em anúncio, 1.399 contatos a R$ 3,52 e mais.">
-<meta name="theme-color" content="#FF872F">
+<meta name="theme-color" content="#0F0C0A">
 <link rel="icon" type="image/png" href="/assets/icone.png">
 <meta property="og:type" content="website">
 <meta property="og:title" content="JG Company · Tráfego pago para o seu negócio">
@@ -19,261 +19,271 @@
 <body>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&display=swap">
-
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&family=Instrument+Serif:ital@1&display=swap">
 <style>
+  /* Mesmo visual do site principal da JG (escuro, laranja, Figtree + Instrument Serif), pedido do Gabriel. */
   :root{
-    --fundo:#EDEDED;
-    --card:#FFFFFF;
-    --suave:#F5F5F5;
-    --txt:#333333;
-    --txt2:#737373;
-    --linha:#E6E6E6;
-    --azul:#3483FA;
-    --azul-esc:#2968C8;
-    --azul-cl:#E3EDFB;
-    --verde:#00A650;
-    --laranja:#FF872F;
-    --sombra:0 1px 2px 0 rgba(0,0,0,.12);
-    color-scheme: light;
+    --bg:#0F0C0A; --bg2:#141009; --sup:#17120F; --sup2:#1E1814; --linha:#2E251E;
+    --txt:#F5EFE9; --sub:#B3A69B; --fraco:#7D7166;
+    --laranja:#FF872F; --laranja-txt:#FF9D52; --verde:#2FD07A;
+    --raio:14px;
+    color-scheme:dark;
   }
   *{box-sizing:border-box}
-  body{
-    background:var(--fundo);color:var(--txt);
-    font-family:"Figtree","Proxima Nova",-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
-    font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased;
-  }
+  body{margin:0;background:var(--bg);color:var(--txt);font-family:"Figtree","Segoe UI",Arial,sans-serif;
+    font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:clip}
   h1,h2,h3,h4,p{margin:0}
-  h1,h2,h3{text-wrap:balance}
+  h1,h2,h3{text-wrap:balance;letter-spacing:-.025em}
+  em{font-family:"Instrument Serif",Georgia,serif;font-style:italic;font-weight:400;color:var(--laranja-txt);letter-spacing:0}
+  a{color:inherit}
   .num{font-variant-numeric:tabular-nums}
-  a{color:var(--azul);text-decoration:none}
-  a:hover{color:var(--azul-esc)}
+  .env{width:min(1200px,100%);margin-inline:auto;padding-inline:20px}
+  .olho{display:flex;align-items:center;gap:12px;font-size:.78rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--laranja-txt)}
+  .olho::before{content:"";width:28px;height:2px;background:var(--laranja);flex:none}
+  :focus-visible{outline:2px solid var(--laranja);outline-offset:3px}
 
-  .env{width:min(1200px,100%);margin-inline:auto;padding-inline:16px}
-  .card{background:var(--card);border-radius:6px;box-shadow:var(--sombra)}
-
-  /* ---------- barra do topo ---------- */
-  .barra{background:var(--laranja);box-shadow:0 1px 0 rgba(0,0,0,.1)}
-  .barra .env{display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:60px}
-  .logo{display:flex;align-items:center;gap:10px;color:#1A1A1A;font-weight:700;font-size:1.08rem;letter-spacing:-.01em}
-  .logo:hover{color:#1A1A1A}
-  .logo img{height:30px;width:auto;display:block}
-  .barra nav{display:flex;gap:22px;font-size:.9rem}
-  .barra nav a{color:rgba(0,0,0,.78)}
-  .barra nav a:hover{color:#000}
-  @media (max-width:720px){.barra nav a:not(.sempre){display:none}}
-  .barra nav a.volta{background:rgba(255,255,255,.35);color:#1A1A1A;padding:6px 12px;border-radius:999px;font-weight:600}
-
-  /* ---------- botões ---------- */
-  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;
-    height:48px;padding-inline:24px;border-radius:6px;border:0;
-    font:600 1rem/1 inherit;font-family:inherit;cursor:pointer;transition:background .15s}
-  .btn-azul{background:var(--azul);color:#fff}
-  .btn-azul:hover{background:var(--azul-esc);color:#fff}
-  .btn-claro{background:var(--azul-cl);color:var(--azul)}
-  .btn-claro:hover{background:#D0E1FA;color:var(--azul-esc)}
-  .btn:focus-visible,.aba:focus-visible,.prova:focus-visible{outline:2px solid var(--azul);outline-offset:2px}
+  /* ---------- topo (igual ao site principal) ---------- */
+  .topo{position:fixed;inset:0 0 auto;z-index:20;padding-top:env(safe-area-inset-top,0px);transition:background .25s,border-color .25s;border-bottom:1px solid transparent}
+  .topo.solido,.topo.aberto{background:rgba(15,12,10,.94);backdrop-filter:blur(10px);border-color:var(--linha)}
+  .topo .env{display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:72px}
+  .topo .marca{display:flex;align-items:center;gap:12px;text-decoration:none;font-weight:700;font-size:.95rem;color:var(--sub)}
+  .topo .marca img{height:30px;display:block}
+  .topo .marca span{padding-left:12px;border-left:1px solid var(--linha)}
+  .topo .lado{display:flex;align-items:center;gap:10px}
+  .topo nav{display:flex;align-items:center;gap:26px;font-size:.92rem;font-weight:600;margin-right:12px}
+  .topo nav a{text-decoration:none;color:var(--sub)}
+  .topo nav a:hover{color:var(--txt)}
+  .topo nav a.fora{color:var(--txt);border:1px solid var(--linha);padding:8px 14px;border-radius:999px}
+  .topo nav a.fora:hover{border-color:var(--laranja)}
+  .topo .zap{background:var(--laranja);color:#1A0F06;padding:10px 18px;border-radius:999px;font-size:.92rem;font-weight:700;text-decoration:none}
+  .topo .zap:hover{background:#FF9A4D}
+  .menu-bt{display:none;width:42px;height:42px;border:1px solid var(--linha);border-radius:50%;background:rgba(15,12,10,.5);
+    color:var(--txt);cursor:pointer;place-items:center;flex:none}
+  .menu-bt svg{width:18px;height:18px}
+  @media (max-width:860px){
+    .menu-bt{display:grid}
+    .topo nav{display:none;position:absolute;left:0;right:0;top:100%;flex-direction:column;align-items:stretch;gap:0;margin:0;
+      background:rgba(15,12,10,.97);border-bottom:1px solid var(--linha);padding:6px 20px 18px}
+    .topo.aberto nav{display:flex}
+    .topo nav a{padding:14px 2px;border-bottom:1px solid var(--linha);font-size:1rem;color:var(--txt)}
+    .topo nav a.fora{border:0;border-bottom:1px solid var(--linha);border-radius:0;padding:14px 2px}
+  }
+  @media (max-width:420px){.topo .marca span{display:none}}
 
   /* ---------- abertura ---------- */
-  .abertura{margin-top:24px;padding:40px;display:grid;grid-template-columns:1.25fr 1fr;gap:40px;align-items:center}
-  .abertura h1{font-size:clamp(1.9rem,4.2vw,2.7rem);font-weight:700;line-height:1.12;letter-spacing:-.02em;max-width:17ch}
-  .abertura .sub{margin-top:16px;color:var(--txt2);font-size:1.06rem;max-width:52ch}
-  .acoes{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+  .abertura{position:relative;overflow:hidden;
+    background:radial-gradient(55% 70% at 8% 100%,rgba(255,135,47,.2),transparent 70%),
+               radial-gradient(40% 50% at 100% 0%,rgba(255,135,47,.08),transparent 70%),var(--bg2)}
+  .abertura::before{content:"";position:absolute;inset:0;opacity:.5;
+    background-image:linear-gradient(var(--linha) 1px,transparent 1px),linear-gradient(90deg,var(--linha) 1px,transparent 1px);
+    background-size:64px 64px;-webkit-mask-image:radial-gradient(70% 80% at 70% 40%,#000,transparent 75%);mask-image:radial-gradient(70% 80% at 70% 40%,#000,transparent 75%)}
+  .abertura .env{position:relative;display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center;padding-block:150px 80px}
+  .abertura h1{font-size:clamp(2.5rem,6vw,4.9rem);line-height:.98;font-weight:800;margin-top:18px;max-width:13ch}
+  .abertura h1 em{font-size:1.06em}
+  .abertura .sub{margin-top:22px;font-size:clamp(1.02rem,1.5vw,1.15rem);color:#D4C9BF;max-width:48ch}
+  .acoes{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-top:32px}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:var(--laranja);color:#1A0F06;font-weight:800;
+    text-decoration:none;padding:16px 26px;border-radius:999px;font-size:1.02rem;border:0;cursor:pointer}
+  .btn:hover{background:#FF9A4D}
+  .btn-linha{display:inline-flex;align-items:center;justify-content:center;gap:10px;border:1px solid var(--linha);border-radius:999px;padding:15px 24px;
+    background:transparent;color:var(--txt);font:700 1rem/1 inherit;font-family:inherit;text-decoration:none;cursor:pointer}
+  .btn-linha:hover{border-color:var(--fraco)}
 
-  .metricas{border:1px solid var(--linha);border-radius:6px}
-  .metricas .mcab{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:16px 20px;border-bottom:1px solid var(--linha)}
-  .metricas .mcab h2{font-size:1rem;font-weight:600}
-  .metricas .mcab span{font-size:.8rem;color:var(--txt2)}
-  .met{padding:14px 20px;border-bottom:1px solid var(--linha)}
-  .met .k{font-size:.86rem;color:var(--txt2)}
-  .met .v{display:flex;align-items:baseline;flex-wrap:wrap;gap:4px 10px;margin-top:2px}
-  .met .v strong{font-size:1.65rem;font-weight:600;letter-spacing:-.01em}
-  .delta{color:var(--verde);font-size:.84rem;font-weight:600}
-  .cinza{color:var(--txt2);font-size:.84rem}
-  .metricas .mpe{display:flex;justify-content:space-between;align-items:center;padding:14px 20px;font-size:.9rem}
+  .placar{border-radius:20px;border:1px solid var(--linha);background:rgba(23,18,15,.85);backdrop-filter:blur(6px);padding:8px 26px}
+  .placar .cab{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:18px 0 14px;border-bottom:1px solid var(--linha)}
+  .placar .cab b{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--sub)}
+  .placar .cab span{font-size:.78rem;color:var(--fraco)}
+  .pl{padding:18px 0;border-bottom:1px solid var(--linha)}
+  .pl:last-child{border-bottom:0}
+  .pl .k{font-size:.88rem;color:var(--sub)}
+  .pl strong{display:block;font-size:clamp(1.9rem,3.4vw,2.6rem);font-weight:800;line-height:1.05;letter-spacing:-.03em;margin-top:4px}
+  .pl .d{display:inline-block;margin-top:6px;font-size:.86rem;font-weight:700;color:var(--verde)}
+  .pl .d.cinza{color:var(--fraco);font-weight:600}
+  @media (max-width:900px){.abertura .env{grid-template-columns:1fr;gap:40px;padding-block:120px 56px}}
+  @media (max-width:480px){.acoes .btn,.acoes .btn-linha{flex:1 1 100%}.placar{padding:4px 18px}.placar .cab{flex-direction:column;gap:2px}}
 
-  @media (max-width:860px){.abertura{grid-template-columns:1fr;padding:28px 20px;gap:28px}}
+  /* ---------- para quem ---------- */
+  .quem{margin-top:8px;display:flex;flex-wrap:wrap;align-items:center;gap:10px 26px;padding-block:22px;border-block:1px solid var(--linha);
+    color:var(--sub);font-weight:600}
+  .quem small{font-size:.74rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--fraco)}
+  .quem span{display:inline-flex;align-items:center;gap:26px}
+  .quem span+span::before{content:"";width:4px;height:4px;border-radius:50%;background:var(--laranja)}
+  @media (max-width:560px){.quem{gap:8px 16px}.quem span{gap:16px}}
 
   /* ---------- seções ---------- */
-  .secao{margin-top:48px}
-  .secao > h2{font-size:1.5rem;font-weight:600;margin-bottom:6px}
-  .secao > .leg{color:var(--txt2);max-width:70ch;margin-bottom:18px}
+  .secao{padding-block:100px 10px;scroll-margin-top:72px}
+  .secao h2.tit{font-size:clamp(2rem,4.4vw,3.4rem);line-height:1.02;font-weight:800;margin-top:16px;max-width:18ch}
+  .secao .intro{margin-top:18px;color:var(--sub);max-width:60ch;font-size:1.05rem}
+  @media (max-width:560px){.secao{padding-block:72px 0}}
 
-  /* ---------- como funciona ---------- */
-  .etapas{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
-  .etapa{padding:24px 22px;display:flex;flex-direction:column;gap:10px}
-  .circulo{width:52px;height:52px;border-radius:50%;background:var(--suave);display:grid;place-items:center;
-    font-weight:700;font-size:1.15rem;color:var(--txt);margin-bottom:6px}
-  .etapa:last-child .circulo{background:#FFF1E6;color:#C4560B}
-  .etapa h3{font-size:1.05rem;font-weight:600}
-  .etapa p{font-size:.92rem;color:var(--txt2)}
-  .etapa .onde{margin-top:auto;padding-top:8px;font-size:.84rem;color:var(--txt2)}
-  .etapa .onde.ok{color:var(--verde);font-weight:600}
-  @media (max-width:980px){.etapas{grid-template-columns:repeat(2,1fr)}}
-  @media (max-width:560px){.etapas{grid-template-columns:1fr}}
+  .passos{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:44px}
+  .passo{padding:26px;border-radius:var(--raio);background:var(--sup);border:1px solid var(--linha);display:flex;flex-direction:column}
+  .passo .n{font-family:"Instrument Serif",Georgia,serif;font-style:italic;font-size:2.4rem;line-height:1;color:var(--laranja-txt)}
+  .passo h3{font-size:1.2rem;margin-top:14px}
+  .passo p{margin-top:8px;color:var(--sub);font-size:.96rem}
+  .passo .onde{margin-top:auto;padding-top:16px;font-size:.84rem;font-weight:600;color:var(--fraco)}
+  .passo .onde.ok{color:var(--verde)}
+  @media (max-width:1000px){.passos{grid-template-columns:1fr 1fr}}
+  @media (max-width:600px){.passos{grid-template-columns:1fr}}
 
-  /* ---------- abas e painéis ---------- */
-  .abas{display:flex;border-bottom:1px solid var(--linha);overflow-x:auto}
-  .aba{background:none;border:0;border-bottom:2px solid transparent;margin-bottom:-1px;
-    padding:16px 22px;font:500 .98rem/1.2 inherit;font-family:inherit;color:var(--txt2);cursor:pointer;white-space:nowrap}
-  .aba:hover{color:var(--txt)}
-  .aba[aria-selected="true"]{color:var(--azul);border-bottom-color:var(--azul);font-weight:600}
+  /* ---------- resultados por nicho ---------- */
+  .abas{display:flex;flex-wrap:wrap;gap:8px;margin-top:34px}
+  .aba{border:1px solid var(--linha);background:var(--sup);color:var(--sub);border-radius:999px;padding:11px 18px;
+    font:600 .95rem/1 inherit;font-family:inherit;cursor:pointer;transition:background .15s,color .15s,border-color .15s}
+  .aba:hover{color:var(--txt);border-color:var(--fraco)}
+  .aba[aria-selected="true"]{background:var(--laranja);border-color:var(--laranja);color:#1A0F06}
+  @media (max-width:640px){.aba{padding:10px 14px;font-size:.9rem}}
 
-  .painel{padding:32px 32px 36px}
-  @media (max-width:640px){.painel{padding:24px 16px 28px}}
-  .painel .nome{font-size:1.6rem;font-weight:600;letter-spacing:-.01em}
-  .painel .meta{margin-top:4px;color:var(--txt2);font-size:.92rem}
-  .painel .desc{margin-top:16px;max-width:72ch;color:#4D4D4D}
+  .painel{margin-top:20px;padding:clamp(22px,4vw,40px);border-radius:20px;border:1px solid var(--linha);background:var(--sup)}
+  .painel .nome{font-size:clamp(1.6rem,3vw,2.1rem);font-weight:800}
+  .painel .meta{margin-top:6px;color:var(--laranja-txt);font-size:.9rem;font-weight:600}
+  .painel .desc{margin-top:16px;max-width:68ch;color:var(--sub)}
 
   .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:28px}
-  .stat{border:1px solid var(--linha);border-radius:6px;padding:18px 20px}
-  .stat .k{font-size:.86rem;color:var(--txt2)}
-  .stat strong{display:block;margin-top:4px;font-size:1.7rem;font-weight:600;letter-spacing:-.01em;line-height:1.15}
-  .stat .s{margin-top:4px;font-size:.88rem;color:var(--txt2)}
-  .stat .s.ok{color:var(--verde);font-weight:600}
+  .stat{border-radius:var(--raio);background:var(--sup2);border:1px solid var(--linha);padding:20px 22px}
+  .stat .k{font-size:.86rem;color:var(--sub)}
+  .stat strong{display:block;margin-top:6px;font-size:clamp(1.8rem,3vw,2.3rem);font-weight:800;letter-spacing:-.03em;line-height:1.05}
+  .stat .s{margin-top:6px;font-size:.88rem;color:var(--fraco)}
+  .stat .s.ok{color:var(--verde);font-weight:700}
 
-  /* ---------- tabela de campanhas ---------- */
-  .tabela{margin-top:28px;border:1px solid var(--linha);border-radius:6px;overflow:hidden}
-  .tabela .tcab{padding:18px 20px 14px}
-  .tabela .tcab h4{font-size:1rem;font-weight:600}
-  .tabela .tcab p{font-size:.86rem;color:var(--txt2);margin-top:2px}
-  .rolar{overflow-x:auto}
-  table{width:100%;border-collapse:collapse;min-width:560px;font-size:.93rem;font-variant-numeric:tabular-nums}
-  th,td{padding:12px 20px;text-align:right;border-top:1px solid var(--linha);white-space:nowrap}
+  .tabela{margin-top:24px;border-radius:var(--raio);border:1px solid var(--linha);overflow:hidden}
+  .tabela .tcab{padding:18px 22px 14px;background:var(--sup2)}
+  .tabela .tcab h4{font-size:1.02rem;font-weight:700}
+  .tabela .tcab p{font-size:.86rem;color:var(--fraco);margin-top:2px}
+  table{width:100%;border-collapse:collapse;font-size:.95rem;font-variant-numeric:tabular-nums}
+  th,td{padding:13px 22px;text-align:right;border-top:1px solid var(--linha);white-space:nowrap}
   th:first-child,td:first-child{text-align:left}
-  thead th{background:var(--suave);font-size:.8rem;font-weight:600;color:var(--txt2);border-top:0}
-  td.roas{color:var(--verde);font-weight:600}
-  tfoot td{font-weight:700;background:#FAFAFA}
+  thead th{font-size:.76rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--fraco)}
+  td{color:var(--sub)}
+  td:first-child{color:var(--txt);font-weight:600}
+  td.roas{color:var(--verde);font-weight:800}
+  tfoot td{font-weight:800;color:var(--txt);background:rgba(255,135,47,.08)}
+  /* no celular a tabela vira uma lista: nada para arrastar de lado */
+  @media (max-width:640px){
+    thead{display:none}
+    table,tbody,tfoot,tr,td{display:block}
+    tr{padding:12px 18px;border-top:1px solid var(--linha)}
+    td{display:flex;justify-content:space-between;gap:12px;padding:4px 0;border:0;text-align:right}
+    td::before{content:attr(data-r);color:var(--fraco);font-weight:500;text-align:left}
+    td:first-child{font-size:1.02rem;padding-bottom:6px}
+    td:first-child::before{content:none}
+    tfoot tr{background:rgba(255,135,47,.08)}
+    tfoot td{background:none}
+  }
 
-  /* ---------- opiniões ---------- */
-  .opinioes-tit{margin-top:32px;font-size:1.1rem;font-weight:600}
+  .sub-tit{margin-top:34px;font-size:1.15rem;font-weight:800}
+  .sub-leg{font-size:.92rem;color:var(--fraco);margin-top:2px}
   .opinioes{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px;margin-top:14px}
-  .opiniao{border:1px solid var(--linha);border-radius:6px;padding:20px 22px;display:flex;flex-direction:column;gap:14px}
-  .opiniao blockquote{margin:0;font-size:1rem;line-height:1.55;color:var(--txt)}
-  .opiniao .quem{margin-top:auto;font-size:.86rem;color:var(--txt2)}
-  .opiniao .quem b{color:var(--txt);font-weight:600}
+  .opiniao{border-radius:var(--raio);background:var(--sup2);border:1px solid var(--linha);padding:22px 24px;display:flex;flex-direction:column;gap:16px}
+  .opiniao blockquote{margin:0;font-size:1.04rem;line-height:1.55;color:var(--txt)}
+  .opiniao blockquote::before{content:"“";display:block;font-family:"Instrument Serif",Georgia,serif;font-size:2.6rem;line-height:.6;color:var(--laranja-txt);margin-bottom:8px}
+  .opiniao .quem-diz{margin-top:auto;font-size:.88rem;color:var(--fraco)}
+  .opiniao .quem-diz b{color:var(--txt);font-weight:700}
 
-  /* ---------- provas ---------- */
-  .provas-tit{margin-top:32px;font-size:1.1rem;font-weight:600}
-  .provas-leg{font-size:.9rem;color:var(--txt2);margin-top:2px}
-  .provas{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px;margin-top:14px}
-  .prova{background:var(--card);border:1px solid var(--linha);border-radius:6px;overflow:hidden;padding:0;
-    text-align:left;cursor:zoom-in;font:inherit;color:inherit;display:flex;flex-direction:column;transition:box-shadow .15s}
-  .prova:hover{box-shadow:0 7px 16px 0 rgba(0,0,0,.1),0 1px 3px rgba(0,0,0,.1)}
-  .prova .img{aspect-ratio:4/3;background:var(--suave);overflow:hidden;border-bottom:1px solid var(--linha)}
+  .provas{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px;margin-top:14px}
+  .prova{border-radius:12px;overflow:hidden;padding:0;text-align:left;cursor:zoom-in;font:inherit;color:inherit;background:var(--sup2);
+    border:1px solid var(--linha);display:flex;flex-direction:column;transition:border-color .2s,transform .2s}
+  .prova:hover{border-color:var(--laranja);transform:translateY(-2px)}
+  .prova .img{aspect-ratio:4/3;background:#fff;overflow:hidden}
   .prova img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block}
   .prova .txt{padding:12px 14px 14px}
-  .prova .cat{display:block;font-size:.78rem;font-weight:600;color:var(--verde)}
-  .prova .tit{display:block;margin-top:3px;font-size:.9rem;line-height:1.35;color:#4D4D4D}
-  @media (max-width:520px){.provas{grid-template-columns:1fr 1fr;gap:10px}.prova .tit{font-size:.82rem}}
+  .prova .cat{display:block;font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--laranja-txt)}
+  .prova .tit{display:block;margin-top:4px;font-size:.92rem;line-height:1.35;color:var(--txt)}
+  @media (max-width:520px){.provas{grid-template-columns:1fr 1fr;gap:10px}.prova .tit{font-size:.84rem}}
 
   /* ---------- contato ---------- */
-  .contato{margin-top:48px;padding:36px 40px;display:flex;flex-wrap:wrap;gap:20px 40px;align-items:center;justify-content:space-between}
-  .contato h2{font-size:1.5rem;font-weight:600}
-  .contato p{margin-top:6px;color:var(--txt2);max-width:56ch}
-  @media (max-width:640px){.contato{padding:28px 20px}}
+  .contato{margin-top:100px;position:relative;overflow:hidden;border-radius:22px;border:1px solid var(--linha);
+    background:radial-gradient(80% 120% at 100% 0%,rgba(255,135,47,.22),transparent 60%),var(--sup);padding:clamp(32px,6vw,72px)}
+  .contato h2{font-size:clamp(2.2rem,5vw,3.8rem);line-height:1;font-weight:800;max-width:15ch;margin-top:16px}
+  .contato p{margin-top:18px;color:var(--sub);max-width:48ch;font-size:1.05rem}
+  .contato .acoes{margin-top:32px}
+  .copiar{display:inline-flex;align-items:center;gap:10px;border:1px solid var(--linha);border-radius:999px;padding:14px 20px;
+    background:transparent;color:var(--txt);font:600 1rem/1 inherit;font-family:inherit;cursor:pointer}
+  .copiar:hover{border-color:var(--fraco)}
 
-  footer{margin-top:48px;background:var(--card);border-top:1px solid var(--linha)}
-  footer .env{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px;padding-block:22px;font-size:.84rem;color:var(--txt2)}
-  footer img{height:34px;width:auto;display:block}
+  footer{margin-top:90px;border-top:1px solid var(--linha)}
+  footer .env{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:14px;padding-block:28px 22px;color:var(--fraco);font-size:.9rem}
+  footer img{height:26px;display:block}
+  footer a{color:var(--sub)}
+  footer .base{position:relative;padding-block:20px 32px;font-size:.84rem}
+  footer .base::before{content:"";position:absolute;top:0;left:20px;right:20px;border-top:1px solid var(--linha)}
 
-  /* ---------- ampliar ---------- */
-  dialog.lupa{border:0;padding:0;width:100%;height:100%;max-width:100%;max-height:100%;background:rgba(0,0,0,.88)}
-  dialog.lupa::backdrop{background:rgba(0,0,0,.6)}
-  .lupa-in{height:100%;display:flex;flex-direction:column;gap:12px;padding:16px}
-  .lupa-bar{display:flex;justify-content:space-between;align-items:center;gap:16px}
-  .lupa-bar p{color:#fff;font-size:.95rem}
-  .lupa-bar .btn{height:40px;padding-inline:18px;font-size:.9rem}
-  .lupa-in img{flex:1;min-height:0;width:100%;object-fit:contain}
+  /* ---------- lupa ---------- */
+  dialog.lupa{border:0;padding:0;background:transparent;max-width:min(96vw,1200px);max-height:94vh;color:var(--txt)}
+  dialog.lupa::backdrop{background:rgba(8,6,5,.9);backdrop-filter:blur(4px)}
+  .lupa-in{display:flex;flex-direction:column;gap:12px;align-items:center}
+  .lupa img{max-width:min(96vw,1200px);max-height:80vh;border-radius:12px;display:block;background:#fff}
+  .lupa .barra{display:flex;justify-content:space-between;align-items:center;gap:16px;width:100%}
+  .lupa .barra p{font-weight:600}
+  .lupa button{border:1px solid var(--linha);background:var(--sup);color:var(--txt);border-radius:999px;padding:10px 16px;font:600 .9rem/1 inherit;font-family:inherit;cursor:pointer;flex:none}
 
   @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
 
-<header class="barra">
+<header class="topo" id="topo">
   <div class="env">
-    <a class="logo" href="../" title="Voltar para a JG Company"><img src="assets/jg-mark-preta.png" alt="">JG Company</a>
-    <nav aria-label="Seções">
-      <a href="#como-funciona">Como funciona</a>
-      <a href="#resultados">Resultados</a>
-      <a class="sempre" href="#contato">Contato</a>
-      <a class="volta" href="../">← Social media e vídeo</a>
-    </nav>
+    <a class="marca" href="../" aria-label="JG Company, voltar para o site principal"><img src="assets/jg-mark-branca.png" alt=""><span>Tráfego pago</span></a>
+    <div class="lado">
+      <nav id="menu" aria-label="Seções">
+        <a href="#como-funciona">Como funciona</a>
+        <a href="#resultados">Resultados</a>
+        <a class="fora" href="../">Social media e vídeo ↗</a>
+      </nav>
+      <a class="zap" href="https://wa.me/5531972100137?text=Oi%2C%20vim%20pelo%20site%20de%20tr%C3%A1fego%20pago">WhatsApp</a>
+      <button type="button" class="menu-bt" id="menu-bt" aria-expanded="false" aria-controls="menu" aria-label="Abrir menu">
+        <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 5.5h14M3 10h14M3 14.5h14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      </button>
+    </div>
   </div>
 </header>
 
-<main class="env" id="topo">
+<main id="inicio">
+  <section class="abertura" aria-label="Apresentação">
+    <div class="env">
+      <div>
+        <p class="olho">JG Company · Tráfego pago</p>
+        <h1>Anúncio que vira <em>cliente</em>, não só curtida.</h1>
+        <p class="sub">Gestão de tráfego pago no Instagram e no Facebook: público, criativos, verba e acompanhamento. Cada real é medido no que importa para o seu negócio: compra no site, contato no WhatsApp ou contrato fechado.</p>
+        <div class="acoes">
+          <a class="btn" href="#contato">Quero mais clientes <span aria-hidden="true">→</span></a>
+          <a class="btn-linha" href="#resultados">Ver resultados</a>
+        </div>
+      </div>
 
-  <section class="card abertura">
-    <div>
-      <h1>Anúncio que vira cliente, não só curtida.</h1>
-      <p class="sub">
-        Gestão de tráfego pago no Instagram e no Facebook: público, criativos, verba e
-        acompanhamento. Cada real investido é medido no que importa para o seu negócio,
-        seja compra no site, contato no WhatsApp ou contrato fechado.
-      </p>
-      <div class="acoes">
-        <a class="btn btn-azul" href="#contato">Quero mais clientes</a>
-        <a class="btn btn-claro" href="#resultados">Ver resultados</a>
+      <div class="placar" aria-label="Resultados de clientes">
+        <div class="cab"><b>Resultados de clientes</b><span>Gerenciador de Anúncios</span></div>
+        <div class="pl"><p class="k">Vendas geradas por anúncio</p><strong class="num">R$ 158.474</strong><span class="d">▲ 22x o valor investido</span></div>
+        <div class="pl"><p class="k">Contatos gerados em uma campanha</p><strong class="num">1.399</strong><span class="d cinza">R$ 3,52 por contato</span></div>
+        <div class="pl"><p class="k">Pessoas alcançadas em 30 dias</p><strong class="num">54 mil</strong><span class="d cinza">126 mil visualizações</span></div>
       </div>
-    </div>
-
-    <div class="metricas" aria-label="Resultados de clientes">
-      <div class="mcab"><h2>Resultados de clientes</h2><span>Dados do Gerenciador de Anúncios</span></div>
-      <div class="met">
-        <p class="k">Vendas geradas por anúncio</p>
-        <p class="v"><strong class="num">R$ 158.474</strong><span class="delta">▲ 22x o investido</span></p>
-      </div>
-      <div class="met">
-        <p class="k">Contatos gerados em uma campanha</p>
-        <p class="v"><strong class="num">1.399</strong><span class="cinza">R$ 3,52 por contato</span></p>
-      </div>
-      <div class="met">
-        <p class="k">Pessoas alcançadas em 30 dias</p>
-        <p class="v"><strong class="num">54 mil</strong><span class="cinza">126 mil visualizações</span></p>
-      </div>
-      <div class="mpe"><a href="#resultados">Ver resultados por nicho</a><span aria-hidden="true" style="color:var(--azul)">›</span></div>
     </div>
   </section>
 
-  <section class="secao" id="como-funciona">
-    <h2>Como funciona</h2>
-    <p class="leg">
-      Anúncio bom não é o mais bonito, é o que traz cliente pelo menor custo. Por isso
-      testamos, medimos e só depois aumentamos a verba.
-    </p>
-    <div class="etapas">
-      <article class="card etapa">
-        <div class="circulo">1</div>
-        <h3>Público certo</h3>
-        <p>Definimos quem precisa ver o anúncio: região, faixa etária e interesse de quem tem potencial de compra.</p>
-        <p class="onde">Segmentação por cidade e perfil</p>
-      </article>
-      <article class="card etapa">
-        <div class="circulo">2</div>
-        <h3>Criativos em teste</h3>
-        <p>Vários anúncios rodam lado a lado, com imagem, vídeo e texto diferentes. Os números mostram qual traz resultado.</p>
-        <p class="onde">Imagem, vídeo e carrossel</p>
-      </article>
-      <article class="card etapa">
-        <div class="circulo">3</div>
-        <h3>Verba no que funciona</h3>
-        <p>O anúncio campeão recebe mais investimento. O que não performa sai. Nenhum real fica parado em campanha fraca.</p>
-        <p class="onde ok">Mais resultado pelo mesmo valor</p>
-      </article>
-      <article class="card etapa">
-        <div class="circulo">4</div>
-        <h3>Acompanhamento</h3>
-        <p>Falamos com você toda semana para saber o que virou venda de verdade. É isso que orienta o próximo ajuste.</p>
-        <p class="onde">Contato direto pelo WhatsApp</p>
-      </article>
+  <div class="env">
+    <div class="quem" aria-label="Nichos com resultado">
+      <small>Resultados em</small>
+      <span>Lojas virtuais</span><span>Serviços locais</span><span>Saúde</span><span>Artistas</span>
     </div>
-  </section>
 
-  <section class="secao" id="resultados">
-    <h2>Resultados por nicho</h2>
-    <p class="leg">Clientes reais, em segmentos diferentes. As imagens são prints do Gerenciador de Anúncios e das conversas com os clientes. Clique para ampliar.</p>
+    <!-- ===================== COMO FUNCIONA ===================== -->
+    <section class="secao" id="como-funciona" aria-labelledby="tit-como">
+      <p class="olho">Como funciona</p>
+      <h2 class="tit" id="tit-como">Verba no anúncio que <em>traz cliente</em></h2>
+      <p class="intro">Anúncio bom não é o mais bonito, é o que traz cliente pelo menor custo. Por isso a gente testa, mede e só depois aumenta a verba.</p>
+      <div class="passos">
+        <div class="passo"><p class="n">1</p><h3>Público certo</h3><p>Quem precisa ver o anúncio: região, faixa etária e interesse de quem tem potencial de compra.</p><p class="onde">Segmentação por cidade e perfil</p></div>
+        <div class="passo"><p class="n">2</p><h3>Criativos em teste</h3><p>Vários anúncios rodam lado a lado, com imagem, vídeo e texto diferentes. Os números mostram qual traz resultado.</p><p class="onde">Imagem, vídeo e carrossel</p></div>
+        <div class="passo"><p class="n">3</p><h3>Verba no que funciona</h3><p>O anúncio campeão recebe mais investimento. O que não performa sai. Nenhum real fica parado em campanha fraca.</p><p class="onde ok">Mais resultado pelo mesmo valor</p></div>
+        <div class="passo"><p class="n">4</p><h3>Acompanhamento</h3><p>A gente fala com você toda semana para saber o que virou venda de verdade. É isso que orienta o próximo ajuste.</p><p class="onde">Contato direto pelo WhatsApp</p></div>
+      </div>
+    </section>
 
-    <div class="card">
+    <!-- ===================== RESULTADOS ===================== -->
+    <section class="secao" id="resultados" aria-labelledby="tit-res">
+      <p class="olho">Resultados por nicho</p>
+      <h2 class="tit" id="tit-res">Clientes reais, <em>números reais</em></h2>
+      <p class="intro">Segmentos diferentes, cada um medido do seu jeito. As imagens são prints do Gerenciador de Anúncios e das conversas com os clientes. Clique para ampliar.</p>
+
       <div class="abas" role="tablist" aria-label="Nichos">
         <button class="aba" role="tab" id="aba-lojas" aria-controls="p-lojas" aria-selected="true">Lojas virtuais</button>
         <button class="aba" role="tab" id="aba-servicos" aria-controls="p-servicos" aria-selected="false">Serviços locais</button>
@@ -285,10 +295,7 @@
       <div class="painel" id="p-lojas" role="tabpanel" aria-labelledby="aba-lojas">
         <h3 class="nome">Lojas virtuais</h3>
         <p class="meta">Compras no site · Instagram e Facebook</p>
-        <p class="desc">
-          Campanhas de venda direta, medidas pela compra concluída no site. O resultado aqui é
-          simples de conferir: quanto entrou em venda para cada real colocado em anúncio.
-        </p>
+        <p class="desc">Campanhas de venda direta, medidas pela compra concluída no site. O resultado aqui é simples de conferir: quanto entrou em venda para cada real colocado em anúncio.</p>
 
         <div class="stats">
           <div class="stat"><p class="k">Vendas pelos anúncios</p><strong class="num">R$ 158.474</strong><p class="s">com R$ 7.122 investidos</p></div>
@@ -301,35 +308,33 @@
             <h4>Campanhas de uma loja virtual</h4>
             <p>Transcrito do Gerenciador de Anúncios. O print original está nas provas abaixo.</p>
           </div>
-          <div class="rolar">
-            <table>
-              <thead><tr><th scope="col">Campanha</th><th scope="col">Investido</th><th scope="col">Compras</th><th scope="col">Vendas</th><th scope="col">Retorno</th></tr></thead>
-              <tbody>
-                <tr><td>Campanha 1</td><td>R$ 2.749,87</td><td>193</td><td>R$ 67.083,24</td><td class="roas">24,4x</td></tr>
-                <tr><td>Campanha 2</td><td>R$ 1.836,49</td><td>130</td><td>R$ 41.814,01</td><td class="roas">22,8x</td></tr>
-                <tr><td>Campanha 3</td><td>R$ 908,85</td><td>58</td><td>R$ 16.241,94</td><td class="roas">17,9x</td></tr>
-                <tr><td>Campanha 4</td><td>R$ 708,01</td><td>52</td><td>R$ 19.160,15</td><td class="roas">27,1x</td></tr>
-                <tr><td>Campanha 5</td><td>R$ 919,59</td><td>43</td><td>R$ 14.174,68</td><td class="roas">15,4x</td></tr>
-              </tbody>
-              <tfoot><tr><td>Total</td><td>R$ 7.122,81</td><td>476</td><td>R$ 158.474,02</td><td class="roas">22,2x</td></tr></tfoot>
-            </table>
-          </div>
+          <table>
+            <thead><tr><th scope="col">Campanha</th><th scope="col">Investido</th><th scope="col">Compras</th><th scope="col">Vendas</th><th scope="col">Retorno</th></tr></thead>
+            <tbody>
+              <tr><td>Campanha 1</td><td data-r="Investido">R$ 2.749,87</td><td data-r="Compras">193</td><td data-r="Vendas">R$ 67.083,24</td><td class="roas" data-r="Retorno">24,4x</td></tr>
+              <tr><td>Campanha 2</td><td data-r="Investido">R$ 1.836,49</td><td data-r="Compras">130</td><td data-r="Vendas">R$ 41.814,01</td><td class="roas" data-r="Retorno">22,8x</td></tr>
+              <tr><td>Campanha 3</td><td data-r="Investido">R$ 908,85</td><td data-r="Compras">58</td><td data-r="Vendas">R$ 16.241,94</td><td class="roas" data-r="Retorno">17,9x</td></tr>
+              <tr><td>Campanha 4</td><td data-r="Investido">R$ 708,01</td><td data-r="Compras">52</td><td data-r="Vendas">R$ 19.160,15</td><td class="roas" data-r="Retorno">27,1x</td></tr>
+              <tr><td>Campanha 5</td><td data-r="Investido">R$ 919,59</td><td data-r="Compras">43</td><td data-r="Vendas">R$ 14.174,68</td><td class="roas" data-r="Retorno">15,4x</td></tr>
+            </tbody>
+            <tfoot><tr><td>Total</td><td data-r="Investido">R$ 7.122,81</td><td data-r="Compras">476</td><td data-r="Vendas">R$ 158.474,02</td><td class="roas" data-r="Retorno">22,2x</td></tr></tfoot>
+          </table>
         </div>
 
-        <h4 class="opinioes-tit">O que os clientes dizem</h4>
+        <h4 class="sub-tit">O que os clientes dizem</h4>
         <div class="opinioes">
           <div class="opiniao">
-            <blockquote>“Tivemos um total de R$ 5.396,40 de vendas computadas, fora as que não sabemos. Tivemos muito cliente de primeira compra esse mês.”</blockquote>
-            <p class="quem"><b>Weverton</b> · Varejo</p>
+            <blockquote>Tivemos um total de R$ 5.396,40 de vendas computadas, fora as que não sabemos. Tivemos muito cliente de primeira compra esse mês.</blockquote>
+            <p class="quem-diz"><b>Weverton</b> · Varejo</p>
           </div>
           <div class="opiniao">
-            <blockquote>“Ontem foi o recorde de vendas na história. Data comemorativa, então o pessoal comprou bastante.”</blockquote>
-            <p class="quem"><b>Everson</b> · Varejo</p>
+            <blockquote>Ontem foi o recorde de vendas na história. Data comemorativa, então o pessoal comprou bastante.</blockquote>
+            <p class="quem-diz"><b>Everson</b> · Varejo</p>
           </div>
         </div>
 
-        <h4 class="provas-tit">Provas</h4>
-        <p class="provas-leg">Gerenciador de Anúncios e conversas com os clientes.</p>
+        <h4 class="sub-tit">Provas</h4>
+        <p class="sub-leg">Gerenciador de Anúncios e conversas com os clientes.</p>
         <div class="provas" data-galeria="lojas"></div>
       </div>
 
@@ -337,11 +342,7 @@
       <div class="painel" id="p-servicos" role="tabpanel" aria-labelledby="aba-servicos" hidden>
         <h3 class="nome">Serviços locais</h3>
         <p class="meta">Lavanderia · Eventos · Imóveis · Contatos no WhatsApp</p>
-        <p class="desc">
-          Para quem vende serviço, a venda acontece na conversa. As campanhas levam a pessoa
-          direto para o WhatsApp do cliente, e o acompanhamento semanal mede o que virou
-          contrato fechado.
-        </p>
+        <p class="desc">Para quem vende serviço, a venda acontece na conversa. As campanhas levam a pessoa direto para o WhatsApp do cliente, e o acompanhamento semanal mede o que virou contrato fechado.</p>
 
         <div class="stats">
           <div class="stat"><p class="k">Lavanderia</p><strong class="num">10 por dia</strong><p class="s">novos contatos, em média</p></div>
@@ -349,24 +350,24 @@
           <div class="stat"><p class="k">Imóveis</p><strong>1ª captação</strong><p class="s">vinda direto do anúncio</p></div>
         </div>
 
-        <h4 class="opinioes-tit">O que os clientes dizem</h4>
+        <h4 class="sub-tit">O que os clientes dizem</h4>
         <div class="opinioes">
           <div class="opiniao">
-            <blockquote>“Os números seguem bem elevados, em média 10 novos leads por dia! A partir do 2º aporte que fizemos, o número de leads qualificados subiu consideravelmente.”</blockquote>
-            <p class="quem"><b>Rhamon</b> · Lavanderia</p>
+            <blockquote>Os números seguem bem elevados, em média 10 novos leads por dia! A partir do 2º aporte que fizemos, o número de leads qualificados subiu consideravelmente.</blockquote>
+            <p class="quem-diz"><b>Rhamon</b> · Lavanderia</p>
           </div>
           <div class="opiniao">
-            <blockquote>“Fechamos dois contratos essa semana. Viram pela primeira vez no anúncio, acompanharam na rede social, depois entraram em contato.”</blockquote>
-            <p class="quem"><b>Gustavo</b> · Eventos</p>
+            <blockquote>Fechamos dois contratos essa semana. Viram pela primeira vez no anúncio, acompanharam na rede social, depois entraram em contato.</blockquote>
+            <p class="quem-diz"><b>Gustavo</b> · Eventos</p>
           </div>
           <div class="opiniao">
-            <blockquote>“Primeira captação 🚀”</blockquote>
-            <p class="quem"><b>Luiz</b> · Corretor de imóveis</p>
+            <blockquote>Primeira captação 🚀</blockquote>
+            <p class="quem-diz"><b>Luiz</b> · Corretor de imóveis</p>
           </div>
         </div>
 
-        <h4 class="provas-tit">Provas</h4>
-        <p class="provas-leg">Conversas originais com os clientes.</p>
+        <h4 class="sub-tit">Provas</h4>
+        <p class="sub-leg">Conversas originais com os clientes.</p>
         <div class="provas" data-galeria="servicos"></div>
       </div>
 
@@ -374,11 +375,7 @@
       <div class="painel" id="p-saude" role="tabpanel" aria-labelledby="aba-saude" hidden>
         <h3 class="nome">Saúde</h3>
         <p class="meta">Psicanálise online · Contatos pelo site</p>
-        <p class="desc">
-          Atendimento de psicanálise online. Cinco criativos rodaram lado a lado, entre imagem
-          e vídeo. Um deles se destacou com folga e passou a receber a verba. É o método da
-          etapa 3 funcionando na prática.
-        </p>
+        <p class="desc">Atendimento de psicanálise online. Cinco criativos rodaram lado a lado, entre imagem e vídeo. Um deles se destacou com folga e passou a receber a verba. É o passo 3 funcionando na prática.</p>
 
         <div class="stats">
           <div class="stat"><p class="k">Contatos pelo site</p><strong class="num">1.399</strong><p class="s">com o criativo campeão</p></div>
@@ -386,8 +383,8 @@
           <div class="stat"><p class="k">Pessoas alcançadas</p><strong class="num">96.630</strong><p class="s">197.954 impressões</p></div>
         </div>
 
-        <h4 class="provas-tit">Provas</h4>
-        <p class="provas-leg">Comparativo dos criativos no Gerenciador de Anúncios.</p>
+        <h4 class="sub-tit">Provas</h4>
+        <p class="sub-leg">Comparativo dos criativos no Gerenciador de Anúncios.</p>
         <div class="provas" data-galeria="saude"></div>
       </div>
 
@@ -395,54 +392,57 @@
       <div class="painel" id="p-artistas" role="tabpanel" aria-labelledby="aba-artistas" hidden>
         <h3 class="nome">Artistas</h3>
         <p class="meta">Construção de marca · Rio de Janeiro e São Paulo</p>
-        <p class="desc">
-          Aqui o objetivo não é a venda imediata, é tornar o artista conhecido pelo público
-          certo. A verba foi concentrada no Rio e em São Paulo, os mercados prioritários do
-          projeto, e na faixa etária com potencial de compra.
-        </p>
+        <p class="desc">Aqui o objetivo não é a venda imediata, é tornar o artista conhecido pelo público certo. A verba foi concentrada no Rio e em São Paulo, os mercados prioritários do projeto, e na faixa etária com potencial de compra.</p>
 
         <div class="stats">
           <div class="stat"><p class="k">Contas alcançadas</p><strong class="num">54 mil</strong><p class="s">em 30 dias</p></div>
           <div class="stat"><p class="k">Visualizações</p><strong class="num">126 mil</strong><p class="s">em 30 dias</p></div>
         </div>
 
-        <h4 class="opinioes-tit">O que o cliente diz</h4>
+        <h4 class="sub-tit">O que o cliente diz</h4>
         <div class="opinioes">
           <div class="opiniao">
-            <blockquote>“O alcance e a visibilidade da marca cresceram de forma consistente. Os criativos estão conseguindo despertar interesse e levar novas pessoas a conhecerem o trabalho do artista.”</blockquote>
-            <p class="quem"><b>Eugênia</b> · Equipe do artista</p>
+            <blockquote>O alcance e a visibilidade da marca cresceram de forma consistente. Os criativos estão conseguindo despertar interesse e levar novas pessoas a conhecerem o trabalho do artista.</blockquote>
+            <p class="quem-diz"><b>Eugênia</b> · Equipe do artista</p>
           </div>
         </div>
 
-        <h4 class="provas-tit">Provas</h4>
-        <p class="provas-leg">Relatório enviado pela equipe do artista.</p>
+        <h4 class="sub-tit">Provas</h4>
+        <p class="sub-leg">Relatório enviado pela equipe do artista.</p>
         <div class="provas" data-galeria="artistas"></div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="card contato" id="contato">
-    <div>
-      <h2>Quanto um cliente novo vale para você?</h2>
-      <p>Conte o que você vende e para quem. Respondemos com a estratégia de anúncio e o investimento sugerido.</p>
-    </div>
-    <a class="btn btn-azul" href="https://wa.me/5531972100137?text=Oi%2C%20vim%20pelo%20site%20de%20tr%C3%A1fego%20pago">Falar no WhatsApp</a>
-  </section>
-
+    <!-- ===================== CONTATO ===================== -->
+    <section class="contato" id="contato" aria-labelledby="tit-contato">
+      <p class="olho">Contato</p>
+      <h2 id="tit-contato">Quanto um cliente novo <em>vale</em> para você?</h2>
+      <p>Conta o que você vende e para quem. A gente responde com a estratégia de anúncio e o investimento sugerido.</p>
+      <div class="acoes">
+        <a class="btn" href="https://wa.me/5531972100137?text=Oi%2C%20vim%20pelo%20site%20de%20tr%C3%A1fego%20pago">Chamar no WhatsApp <span aria-hidden="true">→</span></a>
+        <button class="copiar" type="button" id="copiar" data-num="+55 31 97210-0137"><span id="copiar-txt">+55 31 97210-0137</span></button>
+      </div>
+    </section>
+  </div>
 </main>
 
 <footer>
   <div class="env">
-    <img src="assets/jg-logo-laranja.png" alt="JG Company Marketing Digital">
-    <p>JG Company · Tráfego Pago</p>
+    <img src="assets/jg-mark-branca.png" alt="JG Company">
+    <p>JG Company · Tráfego pago, <a href="../">social media e edição de vídeo</a></p>
+    <a href="https://www.instagram.com/jgcompanyofc/">@jgcompanyofc</a>
+  </div>
+  <div class="env base">
+    <p>© 2026 JG Company. Todos os direitos reservados.</p>
+    <a href="#inicio">Voltar ao topo ↑</a>
   </div>
 </footer>
 
-<dialog class="lupa" id="lupa">
+<dialog class="lupa" id="lupa" aria-label="Print ampliado">
   <div class="lupa-in">
-    <div class="lupa-bar">
+    <div class="barra">
       <p id="lupa-txt"></p>
-      <button type="button" class="btn btn-claro" id="lupa-fechar">Fechar</button>
+      <button type="button" id="lupa-fechar">Fechar</button>
     </div>
     <img id="lupa-img" src="" alt="">
   </div>
@@ -452,6 +452,44 @@
 (function(){
   "use strict";
 
+  // ---------- topo: fundo ao rolar e menu no celular ----------
+  var topo = document.getElementById("topo"), menuBt = document.getElementById("menu-bt");
+  function rolou(){ topo.classList.toggle("solido", window.scrollY > 40); }
+  addEventListener("scroll", rolou, {passive:true}); rolou();
+  function menu(abrir){
+    topo.classList.toggle("aberto", abrir);
+    menuBt.setAttribute("aria-expanded", abrir ? "true" : "false");
+    menuBt.setAttribute("aria-label", abrir ? "Fechar menu" : "Abrir menu");
+  }
+  menuBt.addEventListener("click", function(){ menu(!topo.classList.contains("aberto")); });
+  document.addEventListener("keydown", function(e){ if(e.key === "Escape") menu(false); });
+  document.addEventListener("click", function(e){ if(!topo.contains(e.target)) menu(false); });
+
+  // ---------- rolagem suave até a seção ----------
+  var vez = 0;
+  function rolarAte(y){
+    var ini = window.scrollY, d = y - ini, t0 = null, minha = ++vez, dur = Math.min(1100, 420 + Math.abs(d) * .22);
+    if(Math.abs(d) < 2) return;
+    function f(t){
+      if(minha !== vez) return;
+      if(t0 === null) t0 = t;
+      var k = Math.min(1, (t - t0) / dur), e = k < .5 ? 4 * k * k * k : 1 - Math.pow(-2 * k + 2, 3) / 2;
+      window.scrollTo(0, ini + d * e);
+      if(k < 1) requestAnimationFrame(f);
+    }
+    requestAnimationFrame(f);
+  }
+  ["wheel", "touchstart", "keydown"].forEach(function(ev){ addEventListener(ev, function(){ vez++; }, {passive:true}); });
+  document.addEventListener("click", function(e){
+    var a = e.target.closest('a[href^="#"]'); if(!a) return;
+    var id = a.getAttribute("href").slice(1), alvo = id && document.getElementById(id);
+    if(!alvo) return;
+    e.preventDefault(); menu(false);
+    var y = id === "inicio" ? 0 : alvo.getBoundingClientRect().top + window.scrollY - 84;
+    rolarAte(Math.max(0, y));
+  });
+
+  // ---------- provas ----------
   var GALERIAS = {
     lojas: [
       ["tf-ads-67083-conversao-193compras","Gerenciador","R$ 158 mil em vendas com R$ 7,1 mil investidos"],
@@ -472,7 +510,6 @@
       ["tf-depo-artista-54mil-alcance","Relatório","54 mil contas alcançadas e 126 mil visualizações"]
     ]
   };
-
   document.querySelectorAll("[data-galeria]").forEach(function(caixa){
     var frag = document.createDocumentFragment();
     (GALERIAS[caixa.getAttribute("data-galeria")] || []).forEach(function(it){
@@ -501,13 +538,15 @@
     if(lupa.showModal) lupa.showModal();
   });
   document.getElementById("lupa-fechar").addEventListener("click", function(){ lupa.close(); });
-  lupa.addEventListener("click", function(e){ if(e.target === lupa || e.target.classList.contains("lupa-in")) lupa.close(); });
+  lupa.addEventListener("click", function(e){ if(e.target === lupa) lupa.close(); });
 
+  // ---------- abas dos nichos ----------
   var abas = Array.prototype.slice.call(document.querySelectorAll(".aba"));
   function abrir(aba){
     abas.forEach(function(a){
       var on = a === aba;
       a.setAttribute("aria-selected", on ? "true" : "false");
+      a.tabIndex = on ? 0 : -1;
       document.getElementById(a.getAttribute("aria-controls")).hidden = !on;
     });
   }
@@ -518,6 +557,16 @@
       if(!d) return; e.preventDefault();
       var p = abas[(i + d + abas.length) % abas.length]; p.focus(); abrir(p);
     });
+  });
+  abrir(abas[0]);
+
+  // ---------- copiar número ----------
+  var cp = document.getElementById("copiar"), cpt = document.getElementById("copiar-txt");
+  cp.addEventListener("click", function(){
+    var n = cp.dataset.num;
+    function ok(){ cpt.textContent = "Número copiado"; setTimeout(function(){ cpt.textContent = n; }, 2000); }
+    function selecionar(){ var r = document.createRange(); r.selectNodeContents(cpt); var s = getSelection(); s.removeAllRanges(); s.addRange(r); }
+    if(navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(n).then(ok, selecionar); else selecionar();
   });
 })();
 </script>
