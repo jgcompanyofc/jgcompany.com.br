@@ -1,0 +1,771 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Dan E-commerces · Mercado Livre e Shopee</title>
+<meta name="description" content="Implantação de lojas no Mercado Livre e na Shopee: perfil de vendedor, anúncios, Bling e mentoria. Veja os casos reais.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#1F5FD8">
+<link rel="icon" type="image/png" href="/danecommerces/assets/icone.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Dan E-commerces · Mercado Livre e Shopee">
+<meta property="og:description" content="Implantação de lojas no Mercado Livre e na Shopee: perfil de vendedor, anúncios, Bling e mentoria. Veja os casos reais.">
+<meta property="og:url" content="https://jgcompany.com.br/danecommerces/">
+<meta property="og:image" content="https://jgcompany.com.br/danecommerces/assets/previa.png">
+<meta property="og:locale" content="pt_BR">
+<meta name="twitter:card" content="summary_large_image">
+<style>:root{box-sizing:border-box}body{margin:0}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style>
+</head>
+<body>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&display=swap">
+
+<style>
+  :root{
+    --fundo:#EDEDED;
+    --card:#FFFFFF;
+    --suave:#F5F5F5;
+    --txt:#333333;
+    --txt2:#737373;
+    --linha:#E6E6E6;
+    --azul:#3483FA;
+    --azul-esc:#2968C8;
+    --azul-cl:#E3EDFB;
+    --verde:#00A650;
+    --marca:#1F5FD8;
+    --marca-cl:#E8F0FE;
+    --sombra:0 1px 2px 0 rgba(0,0,0,.12);
+    color-scheme: light;
+  }
+  *{box-sizing:border-box}
+  body{
+    background:var(--fundo);color:var(--txt);
+    font-family:"Figtree","Proxima Nova",-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+    font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,h4,p{margin:0}
+  h1,h2,h3{text-wrap:balance}
+  .num{font-variant-numeric:tabular-nums}
+  a{color:var(--azul);text-decoration:none}
+  a:hover{color:var(--azul-esc)}
+
+  .env{width:min(1200px,100%);margin-inline:auto;padding-inline:16px}
+  .card{background:var(--card);border-radius:6px;box-shadow:var(--sombra)}
+
+  /* ---------- barra do topo ---------- */
+  .barra{background:var(--marca);box-shadow:0 1px 0 rgba(0,0,0,.1)}
+  .barra .env{display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:60px}
+  .logo{display:flex;align-items:center;gap:10px;color:#fff;font-weight:700;font-size:1.08rem;letter-spacing:-.01em}
+  .logo:hover{color:#fff}
+  .selo{width:30px;height:30px;border-radius:8px;background:#fff;color:var(--marca);display:grid;place-items:center;font-weight:800;font-size:1rem}
+  .logo-pe{display:flex;align-items:center;gap:10px;color:var(--txt);font-weight:700;font-size:1rem}
+  .logo-pe .selo{background:var(--marca);color:#fff}
+  .logo img{height:30px;width:auto;display:block}
+  .barra nav{display:flex;gap:22px;font-size:.9rem}
+  .barra nav a{color:rgba(255,255,255,.86)}
+  .barra nav a:hover{color:#fff}
+  @media (max-width:720px){.barra nav a:not(.sempre){display:none}}
+
+  /* ---------- botões ---------- */
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;
+    height:48px;padding-inline:24px;border-radius:6px;border:0;
+    font:600 1rem/1 inherit;font-family:inherit;cursor:pointer;transition:background .15s}
+  .btn-azul{background:var(--azul);color:#fff}
+  .btn-azul:hover{background:var(--azul-esc);color:#fff}
+  .btn-claro{background:var(--azul-cl);color:var(--azul)}
+  .btn-claro:hover{background:#D0E1FA;color:var(--azul-esc)}
+  .btn:focus-visible,.aba:focus-visible,.prova:focus-visible{outline:2px solid var(--azul);outline-offset:2px}
+
+  /* ---------- abertura ---------- */
+  .abertura{margin-top:24px;padding:40px;display:grid;grid-template-columns:1.25fr 1fr;gap:40px;align-items:center}
+  .abertura h1{font-size:clamp(1.9rem,4.2vw,2.7rem);font-weight:700;line-height:1.12;letter-spacing:-.02em;max-width:17ch}
+  .abertura .sub{margin-top:16px;color:var(--txt2);font-size:1.06rem;max-width:52ch}
+  .acoes{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+
+  .metricas{border:1px solid var(--linha);border-radius:6px}
+  .metricas .mcab{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:16px 20px;border-bottom:1px solid var(--linha)}
+  .metricas .mcab h2{font-size:1rem;font-weight:600}
+  .metricas .mcab span{font-size:.8rem;color:var(--txt2)}
+  .met{padding:14px 20px;border-bottom:1px solid var(--linha)}
+  .met .k{font-size:.86rem;color:var(--txt2)}
+  .met .v{display:flex;align-items:baseline;flex-wrap:wrap;gap:4px 10px;margin-top:2px}
+  .met .v strong{font-size:1.65rem;font-weight:600;letter-spacing:-.01em}
+  .delta{color:var(--verde);font-size:.84rem;font-weight:600}
+  .medalha{display:inline-flex;align-items:center;gap:5px;color:var(--verde);font-size:.84rem;font-weight:600}
+  .medalha svg{width:14px;height:16px}
+  .estrelas{color:var(--azul);letter-spacing:1px;font-size:.95rem}
+  .metricas .mpe{display:flex;justify-content:space-between;align-items:center;padding:14px 20px;font-size:.9rem}
+
+  @media (max-width:860px){.abertura{grid-template-columns:1fr;padding:28px 20px;gap:28px}}
+
+  /* ---------- seções ---------- */
+  .secao{margin-top:48px}
+  .secao > h2{font-size:1.5rem;font-weight:600;margin-bottom:6px}
+  .secao > .leg{color:var(--txt2);max-width:70ch;margin-bottom:18px}
+
+  /* ---------- como funciona ---------- */
+  .etapas{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+  .etapa{padding:24px 22px;display:flex;flex-direction:column;gap:10px}
+  .circulo{width:52px;height:52px;border-radius:50%;background:var(--suave);display:grid;place-items:center;
+    font-weight:700;font-size:1.15rem;color:var(--txt);position:relative;margin-bottom:6px}
+  .etapa:last-child .circulo{background:var(--marca-cl);color:var(--marca)}
+  .etapa h3{font-size:1.05rem;font-weight:600}
+  .etapa p{font-size:.92rem;color:var(--txt2)}
+  .etapa .onde{margin-top:auto;padding-top:8px;font-size:.84rem;color:var(--txt2)}
+  .etapa .onde.ok{color:var(--verde);font-weight:600}
+  @media (max-width:980px){.etapas{grid-template-columns:repeat(2,1fr)}}
+  @media (max-width:560px){.etapas{grid-template-columns:1fr}}
+
+  /* ---------- casos ---------- */
+  .abas{display:flex;border-bottom:1px solid var(--linha);overflow-x:auto}
+  .aba{background:none;border:0;border-bottom:2px solid transparent;margin-bottom:-1px;
+    padding:16px 22px;font:500 .98rem/1.2 inherit;font-family:inherit;color:var(--txt2);cursor:pointer;white-space:nowrap}
+  .aba:hover{color:var(--txt)}
+  .aba[aria-selected="true"]{color:var(--azul);border-bottom-color:var(--azul);font-weight:600}
+
+  .painel{padding:32px 32px 36px}
+  @media (max-width:640px){.painel{padding:24px 16px 28px}}
+  .painel .nome{font-size:1.6rem;font-weight:600;letter-spacing:-.01em}
+  .painel .meta{margin-top:4px;color:var(--txt2);font-size:.92rem}
+  .painel .desc{margin-top:16px;max-width:72ch;color:#4D4D4D}
+
+  .blocos{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;margin-top:28px}
+  .bloco{border:1px solid var(--linha);border-radius:6px;padding:16px 18px;display:grid;grid-template-columns:auto 1fr;gap:4px 12px;align-items:start}
+  .bloco .ck{grid-row:span 2;width:22px;height:22px;border-radius:50%;background:var(--verde);display:grid;place-items:center;margin-top:1px}
+  .bloco .ck svg{width:12px;height:12px}
+  .bloco h4{font-size:.95rem;font-weight:600}
+  .bloco p{font-size:.88rem;color:var(--txt2)}
+
+  .reput{margin-top:28px;display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .rep{border:1px solid var(--linha);border-radius:6px;padding:18px 20px}
+  .rep .quando{font-size:.82rem;color:var(--txt2)}
+  .rep .medalha{margin-top:6px;font-size:.98rem}
+  .rep .medalha.cinza{color:var(--txt2)}
+  .termo{display:flex;gap:3px;margin-top:10px}
+  .termo i{flex:1;max-width:52px;height:8px;border-radius:1px}
+  .termo i:nth-child(1){background:#FFF0F0}
+  .termo i:nth-child(2){background:#FFF5E8}
+  .termo i:nth-child(3){background:#FFFCDA}
+  .termo i:nth-child(4){background:#F1FDD7}
+  .termo i:nth-child(5){background:var(--verde)}
+  .rep .vol{margin-top:12px;font-size:.92rem;color:var(--txt2)}
+  .rep .vol strong{color:var(--txt);font-weight:600}
+  @media (max-width:640px){.reput{grid-template-columns:1fr}}
+  .janela{margin-top:10px;font-size:.86rem;color:var(--txt2);max-width:72ch}
+
+  .grafico{margin-top:28px;border:1px solid var(--linha);border-radius:6px;padding:22px 22px 16px}
+  .gcab{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px 24px;align-items:baseline;margin-bottom:14px}
+  .gcab h4{font-size:1rem;font-weight:600}
+  .legenda{display:flex;gap:16px;font-size:.84rem;color:var(--txt2)}
+  .legenda span{display:flex;align-items:center;gap:6px}
+  .legenda i{width:10px;height:10px;border-radius:2px;display:block}
+  .env-svg{overflow-x:auto}
+  .env-svg svg{display:block;min-width:620px;width:100%;height:auto}
+  .fonte{margin-top:8px;font-size:.8rem;color:var(--txt2)}
+
+  .provas-tit{margin-top:32px;font-size:1.1rem;font-weight:600}
+  .provas-leg{font-size:.9rem;color:var(--txt2);margin-top:2px}
+  .provas{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px;margin-top:14px}
+  .prova{background:var(--card);border:1px solid var(--linha);border-radius:6px;overflow:hidden;padding:0;
+    text-align:left;cursor:zoom-in;font:inherit;color:inherit;display:flex;flex-direction:column;transition:box-shadow .15s}
+  .prova:hover{box-shadow:0 7px 16px 0 rgba(0,0,0,.1),0 1px 3px rgba(0,0,0,.1)}
+  .prova .img{aspect-ratio:4/3;background:var(--suave);overflow:hidden;border-bottom:1px solid var(--linha)}
+  .prova img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block}
+  .prova .txt{padding:12px 14px 14px}
+  .prova .cat{display:block;font-size:.78rem;font-weight:600;color:var(--verde)}
+  .prova .tit{display:block;margin-top:3px;font-size:.9rem;line-height:1.35;color:#4D4D4D}
+  @media (max-width:520px){.provas{grid-template-columns:1fr 1fr;gap:10px}.prova .tit{font-size:.82rem}}
+
+  /* ---------- termômetro de reputação ---------- */
+  .subtit{margin-top:32px;font-size:1.1rem;font-weight:600}
+  .subleg{font-size:.9rem;color:var(--txt2);margin-top:2px}
+  .indicadores{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:14px}
+  .ind{border:1px solid var(--linha);border-radius:6px;padding:16px 18px;display:flex;flex-direction:column;gap:6px}
+  .ind .k{font-size:.86rem;color:var(--txt2)}
+  .ind strong{font-size:1.6rem;font-weight:600;letter-spacing:-.01em;line-height:1.1}
+  .regua{position:relative;height:6px;border-radius:3px;background:var(--suave);margin-top:4px}
+  .regua i{position:absolute;inset:0 auto 0 0;border-radius:3px;background:var(--verde)}
+  .ind .lim{font-size:.8rem;color:var(--verde);font-weight:600}
+  .ind .base{font-size:.8rem;color:var(--txt2)}
+  @media (max-width:900px){.indicadores{grid-template-columns:1fr 1fr}}
+
+  .shopee{margin-top:14px;border:1px solid var(--linha);border-radius:6px;padding:18px 20px;
+    display:grid;grid-template-columns:auto auto 1fr;gap:12px 28px;align-items:center}
+  .shopee .ponto .quando{font-size:.8rem;color:var(--txt2)}
+  .shopee .ponto strong{display:block;font-size:1.6rem;font-weight:600;line-height:1.15}
+  .shopee .ponto span{font-size:.86rem;color:var(--txt2)}
+  .shopee .seta{color:var(--verde);font-size:1.4rem;font-weight:700}
+  .shopee .ponto.agora strong{color:var(--txt)}
+  .shopee p.obs2{grid-column:1/-1;font-size:.86rem;color:var(--txt2)}
+  .shopee .nota{color:#EE4D2D;font-weight:600}
+  @media (max-width:520px){.shopee{grid-template-columns:1fr}.shopee .seta{transform:rotate(90deg);justify-self:start}}
+
+  .sigilo{margin-top:10px;display:inline-flex;align-items:center;gap:8px;font-size:.84rem;color:var(--txt2);
+    background:var(--suave);border-radius:999px;padding:5px 12px}
+  .sigilo svg{width:13px;height:13px;flex:none}
+
+  /* ---------- o que os compradores escrevem ---------- */
+  .destaque{display:grid;grid-template-columns:1.6fr 1fr;gap:16px}
+  .oficial{padding:26px 28px;display:flex;flex-direction:column;gap:14px;border-top:3px solid var(--marca)}
+  .oficial .rot{font-size:.8rem;font-weight:600;color:var(--marca);text-transform:uppercase;letter-spacing:.05em}
+  .oficial blockquote{margin:0;font-size:1.22rem;line-height:1.45;font-weight:500;color:var(--txt);text-wrap:pretty}
+  .oficial .ctx{font-size:.9rem;color:var(--txt2);max-width:62ch}
+  .oficial .ver{align-self:flex-start;background:none;border:0;padding:0;font:600 .9rem/1.2 inherit;font-family:inherit;color:var(--azul);cursor:pointer}
+  .oficial .ver:hover{color:var(--azul-esc)}
+  .placar{padding:26px 28px;display:flex;flex-direction:column;gap:10px;justify-content:center}
+  .placar .k{font-size:.86rem;color:var(--txt2)}
+  .placar strong{font-size:3rem;font-weight:600;line-height:1;letter-spacing:-.02em}
+  .placar .barras{display:grid;gap:6px;margin-top:6px}
+  .placar .opi{display:grid;grid-template-columns:62px 1fr 34px;gap:8px;align-items:center;font-size:.84rem;color:var(--txt2)}
+  .placar .opi i{height:6px;border-radius:3px;background:var(--suave);position:relative;overflow:hidden}
+  .placar .opi i b{position:absolute;inset:0 auto 0 0;background:var(--azul)}
+  .placar .fonte2{font-size:.8rem;color:var(--txt2);margin-top:4px}
+  @media (max-width:760px){.destaque{grid-template-columns:1fr}}
+
+  .faixas{margin-top:16px;display:grid;gap:12px}
+  .faixa-av{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent);
+    mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent)}
+  .trilho{display:flex;gap:12px;width:max-content;animation:rolar 90s linear infinite;padding-block:2px}
+  .faixa-av.volta .trilho{animation-direction:reverse;animation-duration:110s}
+  .faixa-av:hover .trilho,.faixa-av:focus-within .trilho{animation-play-state:paused}
+  @keyframes rolar{to{transform:translateX(-50%)}}
+  .av{width:300px;flex:none;background:var(--card);border-radius:6px;box-shadow:var(--sombra);padding:16px 18px;
+    display:flex;flex-direction:column;gap:10px}
+  .av .tipo{display:inline-flex;align-items:center;gap:6px;font-size:.78rem;font-weight:600;color:var(--verde)}
+  .av .tipo.msg{color:var(--azul)}
+  .av .tipo svg{width:14px;height:14px}
+  .av p{margin:0;font-size:.95rem;line-height:1.45;color:var(--txt)}
+  .av .quem{margin-top:auto;font-size:.8rem;color:var(--txt2)}
+  .transcrito{margin-top:12px;font-size:.84rem;color:var(--txt2)}
+  @media (prefers-reduced-motion:reduce){
+    .trilho{animation:none}
+    .faixa-av{overflow-x:auto;-webkit-mask-image:none;mask-image:none}
+    .trilho [aria-hidden="true"]{display:none}
+  }
+
+  /* ---------- canais ---------- */
+  .canais{padding:28px 32px;display:grid;grid-template-columns:repeat(4,1fr);gap:28px}
+  .canais h3{font-size:.98rem;font-weight:600;margin-bottom:10px}
+  .canais ul{list-style:none;margin:0;padding:0;display:grid;gap:6px;font-size:.93rem;color:#4D4D4D}
+  .canais li.op{color:#A6A6A6}
+  .obs{padding:0 32px 26px;font-size:.86rem;color:var(--txt2)}
+  @media (max-width:900px){.canais{grid-template-columns:repeat(2,1fr);padding:24px 20px}.obs{padding:0 20px 22px}}
+
+  /* ---------- formatos ---------- */
+  .formatos{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .formato{padding:26px 28px}
+  .formato h3{font-size:1.15rem;font-weight:600;margin-bottom:8px}
+  .formato p{color:var(--txt2);font-size:.95rem}
+  @media (max-width:720px){.formatos{grid-template-columns:1fr}}
+
+  /* ---------- contato ---------- */
+  .contato{margin-top:48px;padding:36px 40px;display:flex;flex-wrap:wrap;gap:20px 40px;align-items:center;justify-content:space-between}
+  .contato h2{font-size:1.5rem;font-weight:600}
+  .contato p{margin-top:6px;color:var(--txt2);max-width:56ch}
+  @media (max-width:640px){.contato{padding:28px 20px}}
+
+  footer{margin-top:48px;background:var(--card);border-top:1px solid var(--linha)}
+  footer .env{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px;padding-block:22px;font-size:.84rem;color:var(--txt2)}
+  footer img{height:34px;width:auto;display:block}
+
+  /* ---------- ampliar ---------- */
+  dialog.lupa{border:0;padding:0;width:100%;height:100%;max-width:100%;max-height:100%;background:rgba(0,0,0,.88)}
+  dialog.lupa::backdrop{background:rgba(0,0,0,.6)}
+  .lupa-in{height:100%;display:flex;flex-direction:column;gap:12px;padding:16px}
+  .lupa-bar{display:flex;justify-content:space-between;align-items:center;gap:16px}
+  .lupa-bar p{color:#fff;font-size:.95rem}
+  .lupa-bar .btn{height:40px;padding-inline:18px;font-size:.9rem}
+  .lupa-in img{flex:1;min-height:0;width:100%;object-fit:contain}
+
+  @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<header class="barra">
+  <div class="env">
+    <a class="logo" href="#topo"><span class="selo" aria-hidden="true">D</span>Dan E-commerces</a>
+    <nav aria-label="Seções">
+      <a href="#como-funciona">Como funciona</a>
+      <a href="#casos">Casos</a>
+      <a href="#canais">Canais</a>
+      <a class="sempre" href="#contato">Contato</a>
+    </nav>
+  </div>
+</header>
+
+<main class="env" id="topo">
+
+  <section class="card abertura">
+    <div>
+      <h1>Do primeiro anúncio ao e-commerce próprio.</h1>
+      <p class="sub">
+        Estruturamos e operamos lojas em marketplaces: perfil de vendedor, catálogo, anúncios
+        e integração com ERP. Quando a loja ganha volume e reputação, levamos a operação para
+        um site próprio, onde a comissão do marketplace deixa de existir.
+      </p>
+      <div class="acoes">
+        <a class="btn btn-azul" href="#contato">Quero vender mais</a>
+        <a class="btn btn-claro" href="#casos">Ver os casos</a>
+      </div>
+    </div>
+
+    <div class="metricas" aria-label="Resultados de clientes">
+      <div class="mcab"><h2>Resultados de clientes</h2><span>Dados dos painéis</span></div>
+      <div class="met">
+        <p class="k">Faturamento no melhor mês</p>
+        <p class="v"><strong class="num">R$ 109.517</strong><span class="delta">▲ 18 meses de trabalho</span></p>
+      </div>
+      <div class="met">
+        <p class="k">Vendas nos últimos 4 meses do perfil</p>
+        <p class="v"><strong class="num">1.200</strong>
+          <span class="medalha"><svg viewBox="0 0 14 16" aria-hidden="true"><path d="M3 1l2.5 5M11 1L8.5 6" stroke="currentColor" stroke-width="1.6" fill="none"/><circle cx="7" cy="10.5" r="4.2" stroke="currentColor" stroke-width="1.6" fill="none"/></svg>MercadoLíder Platinum</span>
+        </p>
+      </div>
+      <div class="met">
+        <p class="k">Avaliação da loja na Shopee</p>
+        <p class="v"><strong class="num">4,9</strong><span class="estrelas" aria-label="5 estrelas">★★★★★</span><span class="delta" style="color:var(--txt2);font-weight:400">515 avaliações</span></p>
+      </div>
+      <div class="mpe"><a href="#casos">Ver todos os casos</a><span aria-hidden="true" style="color:var(--azul)">›</span></div>
+    </div>
+  </section>
+
+  <section class="secao" id="como-funciona">
+    <h2>Como funciona</h2>
+    <p class="leg">
+      Vender online tem uma ordem. Quem abre site próprio antes de ter marca e reputação paga
+      para divulgar uma vitrine que ninguém conhece. Cada etapa só começa quando a anterior sustenta.
+    </p>
+    <div class="etapas">
+      <article class="card etapa">
+        <div class="circulo">1</div>
+        <h3>Entrar no marketplace</h3>
+        <p>Perfil de vendedor, catálogo com ficha técnica e descrição, anúncios publicados e Bling integrado para estoque, pedidos e nota fiscal.</p>
+        <p class="onde">Mercado Livre, Shopee e outros marketplaces</p>
+      </article>
+      <article class="card etapa">
+        <div class="circulo">2</div>
+        <h3>Construir reputação e volume</h3>
+        <p>Ajuste de anúncios, posição na busca, prazo de envio, reclamações e devoluções. A reputação decide se o produto aparece.</p>
+        <p class="onde ok">Resultado: MercadoLíder Platinum</p>
+      </article>
+      <article class="card etapa">
+        <div class="circulo">3</div>
+        <h3>Construir marca</h3>
+        <p>Foto e tratamento de produto, mídia para anúncio e redes sociais, identidade consistente em todos os canais.</p>
+        <p class="onde">Instagram e conteúdo</p>
+      </article>
+      <article class="card etapa">
+        <div class="circulo">4</div>
+        <h3>E-commerce próprio</h3>
+        <p>Loja com domínio, catálogo migrado, pagamento e rastreio. O cliente já conhece a marca e compra direto, sem comissão.</p>
+        <p class="onde">Shopify, Tray e Nuvemshop</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="secao" id="casos">
+    <h2>Casos</h2>
+    <p class="leg">Três operações reais, em etapas diferentes. As imagens são prints dos painéis originais. Clique para ampliar.</p>
+
+    <div class="card">
+      <div class="abas" role="tablist" aria-label="Casos">
+        <button class="aba" role="tab" id="aba-motopecas" aria-controls="caso-motopecas" aria-selected="true">Moto peças</button>
+        <button class="aba" role="tab" id="aba-caponii" aria-controls="caso-caponii" aria-selected="false">Caponii</button>
+        <button class="aba" role="tab" id="aba-petbox" aria-controls="caso-petbox" aria-selected="false">The Pet Box Store</button>
+      </div>
+
+      <!-- LOJA DE MOTO PEÇAS (o nome não aparece no site) -->
+      <div class="painel" id="caso-motopecas" role="tabpanel" aria-labelledby="aba-motopecas">
+        <h3 class="nome">Loja de moto peças</h3>
+        <p class="meta">Minas Gerais · Mercado Livre e Shopee</p>
+        <p class="sigilo"><svg viewBox="0 0 14 14" aria-hidden="true"><rect x="2.5" y="6" width="9" height="6.5" rx="1.2" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M4.5 6V4.3a2.5 2.5 0 015 0V6" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>O nome da loja fica preservado para proteger o cliente.</p>
+        <p class="desc">
+          Loja de capacetes e peças com ponto físico. Já vendia no Mercado Livre havia três anos
+          e tinha estacionado, com faturamento na casa dos R$ 6 mil por mês. O trabalho foi
+          reestruturar catálogo e anúncios, integrar o Bling e cuidar da reputação mês a mês.
+          Dezoito meses depois, o faturamento saiu de uma média de R$ 6 mil por mês para R$ 109.517 no melhor mês.
+        </p>
+
+        <div class="reput">
+          <div class="rep">
+            <p class="quando">Antes do trabalho · 3 anos de loja</p>
+            <p class="medalha cinza"><svg viewBox="0 0 14 16" aria-hidden="true"><path d="M3 1l2.5 5M11 1L8.5 6" stroke="currentColor" stroke-width="1.6" fill="none"/><circle cx="7" cy="10.5" r="4.2" stroke="currentColor" stroke-width="1.6" fill="none"/></svg>MercadoLíder Gold</p>
+            <div class="termo" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+            <p class="vol"><strong class="num">753 vendas</strong> nos últimos 4 meses</p>
+          </div>
+          <div class="rep">
+            <p class="quando">Um ano depois · 4 anos de loja</p>
+            <p class="medalha"><svg viewBox="0 0 14 16" aria-hidden="true"><path d="M3 1l2.5 5M11 1L8.5 6" stroke="currentColor" stroke-width="1.6" fill="none"/><circle cx="7" cy="10.5" r="4.2" stroke="currentColor" stroke-width="1.6" fill="none"/></svg>MercadoLíder Platinum</p>
+            <div class="termo" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+            <p class="vol"><strong class="num">1.200 vendas</strong> nos últimos 4 meses</p>
+          </div>
+        </div>
+
+        <p class="janela">“Últimos 4 meses” é a janela que o Mercado Livre mostra no perfil de todo vendedor. Não é o tempo do trabalho: entre um print e outro passou um ano. Obs.: naquela época a janela era de 4 meses; hoje o Mercado Livre mostra os últimos 60 dias.</p>
+
+        <div class="blocos">
+          <div class="bloco"><span class="ck"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.2l2.3 2.3 4.7-5" stroke="#fff" stroke-width="1.8" fill="none"/></svg></span><h4>Catálogo</h4><p>Produtos com ficha técnica, descrição, variações e imagens tratadas.</p></div>
+          <div class="bloco"><span class="ck"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.2l2.3 2.3 4.7-5" stroke="#fff" stroke-width="1.8" fill="none"/></svg></span><h4>Integração</h4><p>Bling ligado aos canais: estoque, pedidos e nota fiscal num lugar só.</p></div>
+          <div class="bloco"><span class="ck"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.2l2.3 2.3 4.7-5" stroke="#fff" stroke-width="1.8" fill="none"/></svg></span><h4>Reputação</h4><p>Prazo de envio, atendimento e reclamações acompanhados todo mês.</p></div>
+          <div class="bloco"><span class="ck"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.2l2.3 2.3 4.7-5" stroke="#fff" stroke-width="1.8" fill="none"/></svg></span><h4>Expansão</h4><p>Mesmo catálogo replicado na Shopee, adaptado ao canal.</p></div>
+        </div>
+
+        <div class="grafico">
+          <div class="gcab">
+            <h4>Faturamento mensal, 18 meses</h4>
+            <div class="legenda"><span><i style="background:#D0D0D0"></i>Ano 1</span><span><i style="background:#1F5FD8"></i>Ano 2</span></div>
+          </div>
+          <div class="env-svg"><svg id="svg-grafico" viewBox="0 0 900 320" role="img" aria-label="Faturamento mensal subindo de R$ 2.377 no primeiro mês para R$ 109.517 no décimo oitavo"></svg></div>
+          <p class="fonte">Fonte: controle de vendas da loja. Faturamento bruto, antes das taxas do canal.</p>
+        </div>
+
+        <h4 class="subtit">Termômetro da reputação</h4>
+        <p class="subleg">Os quatro indicadores que o Mercado Livre usava para manter o selo MercadoLíder, no painel da loja entre maio e julho do segundo ano, período de 1.111 vendas. As porcentagens e os limites são os daquela época: o Mercado Livre revisa essas regras de tempos em tempos.</p>
+        <div class="indicadores">
+          <div class="ind"><p class="k">Vendas com reclamação</p><strong class="num">0,54%</strong>
+            <div class="regua" aria-hidden="true"><i style="width:18%"></i></div>
+            <p class="lim">Limite na época: 3%</p><p class="base">6 vendas com reclamação</p></div>
+          <div class="ind"><p class="k">Entregas com atraso</p><strong class="num">0,59%</strong>
+            <div class="regua" aria-hidden="true"><i style="width:4%"></i></div>
+            <p class="lim">Limite na época: 15%</p><p class="base">6 de 1.015 envios pelo Mercado Envios</p></div>
+          <div class="ind"><p class="k">Reclamações em mediação</p><strong class="num">0,09%</strong>
+            <div class="regua" aria-hidden="true"><i style="width:9%"></i></div>
+            <p class="lim">Limite na época: 1%</p><p class="base">1 em 1.111 vendas</p></div>
+          <div class="ind"><p class="k">Vendas canceladas</p><strong class="num">0,27%</strong>
+            <div class="regua" aria-hidden="true"><i style="width:13.5%"></i></div>
+            <p class="lim">Limite na época: 2% para MercadoLíder</p><p class="base">3 em 1.111 vendas</p></div>
+        </div>
+
+        <h4 class="subtit">Shopee em dois anos</h4>
+        <p class="subleg">O mesmo catálogo levado para um segundo canal, com a mesma atenção à reputação.</p>
+        <div class="shopee">
+          <div class="ponto"><p class="quando">Outubro de 2024</p><strong class="num">22</strong><span>avaliações da loja</span></div>
+          <span class="seta" aria-hidden="true">→</span>
+          <div class="ponto agora"><p class="quando">Setembro de 2026</p><strong class="num">865</strong><span>avaliações · nota <b class="nota">4,9 de 5</b></span></div>
+          <p class="obs2">Prints da página pública da loja na Shopee, nas duas datas. Estão nas provas abaixo.</p>
+        </div>
+
+        <h4 class="provas-tit">Provas</h4>
+        <p class="provas-leg">Prints do Mercado Livre, da Shopee e da operação da loja. Nome da loja, cidade e nomes de compradores borrados.</p>
+        <div class="provas" data-galeria="motopecas"></div>
+      </div>
+
+      <!-- CAPONII -->
+      <div class="painel" id="caso-caponii" role="tabpanel" aria-labelledby="aba-caponii" hidden>
+        <h3 class="nome">Caponii</h3>
+        <p class="meta">Acessórios masculinos · E-commerce próprio · Shopify</p>
+        <p class="desc">
+          Marca de relógios, pulseiras, óculos e cintos. Aqui o trabalho foi direto na loja própria:
+          montamos o site em domínio próprio, com catálogo completo, página de produto trabalhada,
+          pagamento, rastreio e atendimento por WhatsApp, e levamos visitas com tráfego pago.
+          Cada venda que entra por ali não divide comissão com marketplace nenhum. Para marcas que
+          preferem começar pela loja própria, o tráfego pago faz o papel que a reputação faria no
+          marketplace: leva até a loja quem ainda não conhece a marca.
+        </p>
+        <div class="blocos">
+          <div class="bloco"><span class="ck"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.2l2.3 2.3 4.7-5" stroke="#fff" stroke-width="1.8" fill="none"/></svg></span><h4>Loja no ar</h4><p>Plataforma configurada, tema ajustado e domínio próprio publicado.</p></div>
+          <div class="bloco"><span class="ck"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.2l2.3 2.3 4.7-5" stroke="#fff" stroke-width="1.8" fill="none"/></svg></span><h4>Catálogo</h4><p>Produtos por categoria, com descrição, variação de cor e parcelamento.</p></div>
+          <div class="bloco"><span class="ck"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.2l2.3 2.3 4.7-5" stroke="#fff" stroke-width="1.8" fill="none"/></svg></span><h4>Conversão</h4><p>Frete grátis, compra direta, oferta de item extra e WhatsApp na página.</p></div>
+          <div class="bloco"><span class="ck"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.2l2.3 2.3 4.7-5" stroke="#fff" stroke-width="1.8" fill="none"/></svg></span><h4>Operação</h4><p>Pedidos, pagamento e envio no painel, com rastreio para o comprador.</p></div>
+        </div>
+        <h4 class="provas-tit">Provas</h4>
+        <p class="provas-leg">Loja publicada, painel da Shopify e retorno de compradores.</p>
+        <div class="provas" data-galeria="caponii"></div>
+      </div>
+
+      <!-- PET BOX -->
+      <div class="painel" id="caso-petbox" role="tabpanel" aria-labelledby="aba-petbox" hidden>
+        <h3 class="nome">The Pet Box Store</h3>
+        <p class="meta">Pet · Mercado Livre, Shopee e TikTok Shop</p>
+        <p class="desc">
+          A cliente já tinha site próprio e queria vender também nos marketplaces. Além de estruturar
+          as lojas no Mercado Livre, na Shopee e no TikTok Shop, ensinamos a operação do dia a dia:
+          Bling do zero, nota fiscal, cadastro de produto e administração de cada plataforma.
+          Depoimento publicado com autorização por escrito da cliente.
+        </p>
+        <div class="blocos">
+          <div class="bloco"><span class="ck"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.2l2.3 2.3 4.7-5" stroke="#fff" stroke-width="1.8" fill="none"/></svg></span><h4>Três canais</h4><p>Perfil de vendedor estruturado no Mercado Livre, na Shopee e no TikTok Shop.</p></div>
+          <div class="bloco"><span class="ck"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.2l2.3 2.3 4.7-5" stroke="#fff" stroke-width="1.8" fill="none"/></svg></span><h4>ERP do zero</h4><p>Bling implantado e ensinado: produto, pedido, estoque e nota fiscal.</p></div>
+          <div class="bloco"><span class="ck"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.2l2.3 2.3 4.7-5" stroke="#fff" stroke-width="1.8" fill="none"/></svg></span><h4>Mentoria</h4><p>Acompanhamento de cada plataforma, inclusive depois da entrega.</p></div>
+          <div class="bloco"><span class="ck"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.2l2.3 2.3 4.7-5" stroke="#fff" stroke-width="1.8" fill="none"/></svg></span><h4>Autonomia</h4><p>A cliente passou a operar sozinha, com suporte para dúvidas.</p></div>
+        </div>
+        <h4 class="provas-tit">Depoimento</h4>
+        <p class="provas-leg">Conversa original com a cliente.</p>
+        <div class="provas" data-galeria="petbox"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="secao" id="compradores">
+    <h2>O que os compradores escrevem</h2>
+    <p class="leg">Avaliações e mensagens de compradores da loja de moto peças no Mercado Livre. Reputação é o que decide se o anúncio aparece na busca, e ela se constrói no atendimento.</p>
+
+    <div class="destaque">
+      <div class="card oficial">
+        <p class="rot">Mensagem do Mercado Livre para a loja</p>
+        <blockquote>“Confiamos plenamente em um vendedor como você que mantém um excelente relacionamento com o Meli.”</blockquote>
+        <p class="ctx">Uma representante do Mercado Livre analisou uma reclamação, viu que não havia diferença entre o que a loja ofereceu e o que o comprador recebeu, e retirou o impacto da reclamação na reputação. Na mesma mensagem: “é um vendedor top”.</p>
+        <button type="button" class="ver" data-src="assets/mkt/ml-msg-representante-ml-elogio.jpg" data-txt="Mensagem da representante do Mercado Livre">Ver a mensagem original ›</button>
+      </div>
+      <div class="card placar">
+        <p class="k">Opiniões dos compradores no painel</p>
+        <strong class="num">120</strong>
+        <div class="barras">
+          <div class="opi"><span>Bom</span><i><b style="width:100%"></b></i><span class="num">120</span></div>
+          <div class="opi"><span>Regular</span><i><b style="width:0"></b></i><span class="num">0</span></div>
+          <div class="opi"><span>Ruim</span><i><b style="width:0"></b></i><span class="num">0</span></div>
+        </div>
+        <p class="fonte2">Painel de reputação da loja, período do selo Gold.</p>
+      </div>
+    </div>
+
+    <div class="faixas">
+      <div class="faixa-av" data-faixa="avaliacoes" tabindex="0" aria-label="Avaliações de compradores, passando devagar"><div class="trilho"></div></div>
+      <div class="faixa-av volta" data-faixa="mensagens" tabindex="0" aria-label="Mensagens de compradores, passando devagar"><div class="trilho"></div></div>
+    </div>
+    <p class="transcrito">Textos transcritos dos prints, com a escrita original. Só o primeiro nome do comprador aparece. Passe o mouse para pausar.</p>
+  </section>
+
+  <section class="secao" id="canais">
+    <h2>Canais e ferramentas</h2>
+    <div class="card">
+      <div class="canais">
+        <div><h3>Marketplaces</h3><ul><li>Mercado Livre</li><li>Shopee</li><li>TikTok Shop</li><li class="op">Magazine Luiza</li><li class="op">Americanas</li></ul></div>
+        <div><h3>E-commerce próprio</h3><ul><li>Shopify</li><li class="op">Tray</li><li class="op">Nuvemshop</li></ul></div>
+        <div><h3>Gestão</h3><ul><li>Bling ERP</li><li>Nota fiscal</li><li>Estoque sincronizado</li><li>Pedidos integrados</li></ul></div>
+        <div><h3>Conteúdo</h3><ul><li>Foto de produto</li><li>Tratamento de imagem</li><li>Imagens com IA</li><li>Vídeos curtos</li></ul></div>
+      </div>
+      <p class="obs">Em cinza: plataformas que estruturamos, ainda sem caso publicado aqui.</p>
+    </div>
+  </section>
+
+  <section class="secao">
+    <h2>Formas de trabalhar</h2>
+    <p class="leg">A parte contábil fica com o contador da sua empresa. A nossa é a operação comercial: o que vende, como aparece e como chega ao comprador.</p>
+    <div class="formatos">
+      <div class="card formato">
+        <h3>Implantação</h3>
+        <p>Da abertura da conta até a loja funcionando: perfil de vendedor, catálogo, anúncios, integração com o ERP e mentoria sobre a plataforma, com as dúvidas seguintes incluídas.</p>
+      </div>
+      <div class="card formato">
+        <h3>Acompanhamento</h3>
+        <p>Gestão contínua com a loja no ar: performance, ajuste de anúncios, posição na busca, catálogo e reputação. Foi essa etapa que levou a loja de moto peças de R$ 6 mil para R$ 109 mil por mês.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="card contato" id="contato">
+    <div>
+      <h2>Em qual etapa a sua loja está?</h2>
+      <p>Mande o nome da loja e o canal onde já vende, ou onde quer começar. Respondemos com o caminho e o investimento.</p>
+    </div>
+    <a class="btn btn-azul" href="https://wa.me/5531987939311?text=Oi%2C%20vim%20pelo%20site%20da%20Dan%20E-commerces">Falar no WhatsApp</a>
+  </section>
+
+</main>
+
+<footer>
+  <div class="env">
+    <p class="logo-pe"><span class="selo" aria-hidden="true">D</span>Dan E-commerces</p>
+    <p>Marketplaces e e-commerce</p>
+  </div>
+</footer>
+
+<dialog class="lupa" id="lupa">
+  <div class="lupa-in">
+    <div class="lupa-bar">
+      <p id="lupa-txt"></p>
+      <button type="button" class="btn btn-claro" id="lupa-fechar">Fechar</button>
+    </div>
+    <img id="lupa-img" src="" alt="">
+  </div>
+</dialog>
+
+<script>
+(function(){
+  "use strict";
+
+  var GALERIAS = {
+    motopecas: [
+      ["ml-motopecas-reputacao-gold-753vendas","Reputação","Ponto de partida: 3 anos de loja, 753 vendas, MercadoLíder Gold"],
+      ["ml-perfil-4anos-1200vendas-platinum","Reputação","Um ano depois: 1.200 vendas em 4 meses e selo Platinum"],
+      ["ml-motopecas-1111vendas-3meses","Vendas","1.111 vendas em 3 meses: 254, 317 e 362 por mês"],
+      ["ml-metricas-7dias-69977-585pct","Faturamento","R$ 69.977 em 7 dias, alta de 585%"],
+      ["ml-metricas-30dias-146528-716vendas","Faturamento","R$ 146.528 em 30 dias e 716 vendas"],
+      ["ml-metricas-30dias-116230-full","Faturamento","R$ 116.230 em 30 dias com estoque no Full"],
+      ["ml-reputacao-reclamacoes-0.54pct","Reputação","Reclamações em 0,54% das vendas, limite de 3%"],
+      ["ml-reputacao-entrega-no-prazo-1015vendas","Reputação","Atraso em 6 de 1.015 envios, 0,59%"],
+      ["ml-reputacao-mediacao-0.09pct","Reputação","1 mediação em 1.111 vendas, 0,09%"],
+      ["ml-reputacao-canceladas-0.27pct","Reputação","3 cancelamentos em 1.111 vendas, 0,27%"],
+      ["ml-motopecas-reputacao-60dias-651vendas","Reputação","651 vendas em 60 dias, todos os indicadores no verde"],
+      ["ml-reputacao-gold-60dias-727vendas","Reputação","727 vendas em 60 dias com reclamação em 0,13%"],
+      ["shopee-loja-22avaliacoes-out2024","Shopee","Outubro de 2024: 22 avaliações na Shopee"],
+      ["shopee-loja-4anos-865avaliacoes-4.9","Shopee","Setembro de 2026: 865 avaliações e nota 4,9"],
+      ["shopee-avaliacao-loja-49","Avaliações","Nota 4,9 de 5 na Shopee, com 469 notas cinco estrelas"],
+      ["ml-msg-representante-ml-elogio","Mercado Livre","Representante do Mercado Livre: “é um vendedor top”"],
+      ["ml-msg-melhor-atendimento-do-ml","Comprador","“De longe o melhor atendimento que tive no ML”"],
+      ["ml-msg-se-metade-dos-vendedores","Comprador","“Se metade dos vendedores do Mercado Livre fossem como vc”"],
+      ["ml-msg-gustavo-cliente-fidelizado","Comprador","“Sou seu cliente fidelizado agora”"],
+      ["ml-motopecas-estoque-loja-caixas","Operação","Pedidos do dia embalados na loja física"],
+      ["ml-motopecas-expedicao-caminhonete","Operação","Expedição saindo para a transportadora"],
+      ["ml-motopecas-estoque-capacetes-agv-shark","Operação","Capacetes AGV, Shark e LS2 em estoque"],
+      ["planilha-ano1-vendas-mensais","Controle","Ano 1: de 8 a 25 vendas por mês"],
+      ["planilha-ano2-vendas-mensais","Controle","Ano 2: julho fecha com 362 vendas e R$ 109.517"],
+      ["planilha-total-marketplace-mensal","Controle","Todos os marketplaces: de R$ 3.690 em agosto para R$ 42.870 em novembro de 2024"]
+    ],
+    caponii: [
+      ["caponii-site-publicado-dominio","Loja","Loja publicada em domínio próprio"],
+      ["caponii-site-home-produtos","Loja","Vitrine de produtos em destaque"],
+      ["caponii-colecao-relogios","Catálogo","Coleção de relógios com filtro e ordenação"],
+      ["caponii-pagina-produto-relogio","Catálogo","Página de produto com cor, parcelamento e frete grátis"],
+      ["caponii-pagina-produto-descricao","Catálogo","Descrição com material visual de apoio"],
+      ["caponii-produtos-relacionados","Conversão","Produtos relacionados para aumentar o carrinho"],
+      ["caponii-shopify-analytics-30dias","Resultado","30 dias: 1.067 visitas, alta de 182%, e 12 pedidos"],
+      ["caponii-shopify-lista-pedidos","Resultado","Pedidos com pagamento, envio e rastreio"],
+      ["caponii-depo-josue-pulseira","Depoimento","Comprador mandando foto da pulseira"],
+      ["caponii-depo-adilson-pulseira","Depoimento","Retorno após a entrega, com o produto no pulso"],
+      ["caponii-depo-marcelo-pulseira","Depoimento","Pós-venda: a loja procura o cliente depois da entrega"],
+      ["caponii-depo-silvano-produto","Depoimento","Confirmação de retirada e satisfação"]
+    ],
+    petbox: [
+      ["ml-depo-julia-petbox-texto-completo","Depoimento","Júlia, The Pet Box Store, sobre o serviço completo"],
+    ]
+  };
+
+  document.querySelectorAll("[data-galeria]").forEach(function(caixa){
+    var frag = document.createDocumentFragment();
+    (GALERIAS[caixa.getAttribute("data-galeria")] || []).forEach(function(it){
+      var src = "assets/mkt/" + it[0] + ".jpg";
+      var b = document.createElement("button");
+      b.type = "button"; b.className = "prova";
+      b.setAttribute("data-src", src); b.setAttribute("data-txt", it[2]);
+      b.innerHTML = '<span class="img"><img loading="lazy" decoding="async" alt=""></span>' +
+                    '<span class="txt"><span class="cat"></span><span class="tit"></span></span>';
+      b.querySelector("img").src = src;
+      b.querySelector("img").alt = it[2];
+      b.querySelector(".cat").textContent = it[1];
+      b.querySelector(".tit").textContent = it[2];
+      frag.appendChild(b);
+    });
+    caixa.appendChild(frag);
+  });
+
+  var SORRISO = '<svg viewBox="0 0 14 14" aria-hidden="true"><circle cx="7" cy="7" r="6" fill="none" stroke="currentColor" stroke-width="1.3"/><circle cx="5" cy="5.6" r=".9" fill="currentColor"/><circle cx="9" cy="5.6" r=".9" fill="currentColor"/><path d="M4.3 8.3a3 3 0 005.4 0" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>';
+  var BALAO = '<svg viewBox="0 0 14 14" aria-hidden="true"><path d="M2 3.2A1.2 1.2 0 013.2 2h7.6A1.2 1.2 0 0112 3.2v5a1.2 1.2 0 01-1.2 1.2H6L3.4 12V9.4h-.2A1.2 1.2 0 012 8.2z" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg>';
+  // transcrito dos prints (Mercado Livre\Provas 2), com a escrita original; só o primeiro nome
+  var FALAS = {
+    avaliacoes: [
+      ["Melhor vendedor do ML. Atendimento excelente, atenção ao cliente e preços ótimos. Gostei tanto que comprei mais um capacete fechado. Produto 100% novo","Tito","08/07/20"],
+      ["Vendedor excelente. Enviou mensagem comunicando q já postaria a mercadoria no mesmo dia, chegando no dia seguinte. Parabéns pelo atendimento e agilidade.","Luiz","06/08/19"],
+      ["Atendimento excelente. Pessoal atencioso! Certamente recomendo. Produto chegou muito bem embalado, demonstrando zelo por parte do vendedor.","Daciell","15/07/20"],
+      ["Vendedor atencioso, empresa preza pelo cliente, pré e pós venda que funciona, produto de qualidade e chegou antes do esperado.","João Gabriel","01/07/19"],
+      ["vendedor muito atencioso, produto com acabamento nota 10! top","Eduardo","19/05/20"],
+      ["Ótimo vendedor, antencioso e sempre disposto a tirar dúvidas, produto chegou certinho, do jeito que eu esperava. Indico bastante !","Plinio","29/07/20"],
+      ["excelente atendimento por parte do vendedor, sempre atencioso e focado em buscar resoluções!","Jean","03/06/20"],
+      ["Ótima Venda, ótimo atendimento, produto de acordo com o pedido, recomendo a todos do ML!","Geovane","27/06/19"],
+      ["muito obrigado ótimo capacete entrega no prazo nota 10","Edvaldo","12/05/20"],
+      ["Vendedor muito bom, atencioso e me respondeu bem rápido. O pacote veio muito bem embalado até com um selo bem bonito mostrando os cuidados com o produ…","Philip","20/05/20"]
+    ],
+    mensagens: [
+      ["De longe o melhor atendimento que tive no ML!!!","Rodrigo"],
+      ["Vou avaliar vcs muito bem. Se metade dos vendedores do mercado livre fossem como vc… A fama do mercado livre estaria mt melhor","Leonardo"],
+      ["Meu nome é Gustavo e sou seu cliente fidelizado agora. Gostaria de agradecer a agilidade da entrega, qualidade e condições impecáveis do produto.","Gustavo"],
+      ["Obg.nunca eu fui tão bem atendido, não mexi em nada, tirei com cuidado da caixa e depois coloquei. Não vou me esquece de vocês","Argeo"],
+      ["Fiz a compra novamente! Gostei muito do suporte de vocês ontem, vou indicar para amigos que estão pensando em comprar pelo mercado livre.","Rodrigo"],
+      ["Fiquei com medo de ficar grande, pois li nos comentários para pegar um número maior, e fiz isso. Porém ficou perfeito. Embalagem com todo o cuidado.","Daiana"],
+      ["Chegou hoje! Parabéns pelo trabalho. Atendimento e envio incrível!!! Nota 100000...","Geferson"],
+      ["excelente! Primeira vez que o vendedor mim faz isso! Continue assim. Quando for comprar outras acessórios vô procurar em sua loja","Roseane"],
+      ["Produto de qualidade, da mesma forma que esta no anuncio. Parabéns. E entregou antes do prazo","Everton"],
+      ["Muito bom o capacete. Já enviei o link pra um amigo","Tito"]
+    ]
+  };
+  function cartao(it, tipo){
+    var c = document.createElement("article");
+    c.className = "av";
+    var rot = tipo === "avaliacoes"
+      ? '<span class="tipo">' + SORRISO + 'Avaliação: Bom</span>'
+      : '<span class="tipo msg">' + BALAO + 'Mensagem ao vendedor</span>';
+    c.innerHTML = rot + '<p></p><span class="quem"></span>';
+    c.querySelector("p").textContent = "“" + it[0] + "”";
+    c.querySelector(".quem").textContent = it[1] + (it[2] ? " · " + it[2] : "") + " · comprador no Mercado Livre";
+    return c;
+  }
+  document.querySelectorAll("[data-faixa]").forEach(function(faixa){
+    var tipo = faixa.getAttribute("data-faixa"), trilho = faixa.querySelector(".trilho");
+    [false, true].forEach(function(copia){  // a cópia fecha o laço da animação; leitor de tela lê uma vez só
+      FALAS[tipo].forEach(function(it){
+        var c = cartao(it, tipo);
+        if(copia) c.setAttribute("aria-hidden", "true");
+        trilho.appendChild(c);
+      });
+    });
+  });
+
+  var lupa = document.getElementById("lupa"),
+      lupaImg = document.getElementById("lupa-img"),
+      lupaTxt = document.getElementById("lupa-txt");
+  document.addEventListener("click", function(e){
+    var p = e.target.closest(".prova, .ver"); if(!p) return;
+    lupaImg.src = p.getAttribute("data-src");
+    lupaImg.alt = lupaTxt.textContent = p.getAttribute("data-txt");
+    if(lupa.showModal) lupa.showModal();
+  });
+  document.getElementById("lupa-fechar").addEventListener("click", function(){ lupa.close(); });
+  lupa.addEventListener("click", function(e){ if(e.target === lupa || e.target.classList.contains("lupa-in")) lupa.close(); });
+
+  var abas = Array.prototype.slice.call(document.querySelectorAll(".aba"));
+  function abrir(aba){
+    abas.forEach(function(a){
+      var on = a === aba;
+      a.setAttribute("aria-selected", on ? "true" : "false");
+      document.getElementById(a.getAttribute("aria-controls")).hidden = !on;
+    });
+  }
+  abas.forEach(function(aba, i){
+    aba.addEventListener("click", function(){ abrir(aba); });
+    aba.addEventListener("keydown", function(e){
+      var d = e.key === "ArrowRight" ? 1 : e.key === "ArrowLeft" ? -1 : 0;
+      if(!d) return; e.preventDefault();
+      var p = abas[(i + d + abas.length) % abas.length]; p.focus(); abrir(p);
+    });
+  });
+
+  var MESES = [
+    ["fev",2377.40,1],["mar",2190.69,1],["abr",4437.40,1],["mai",7209.99,1],["jun",7373.08,1],["jul",7813.50,1],
+    ["ago",3143.77,1],["set",4859.94,1],["out",8944.86,1],["nov",3282.58,1],["dez",6650.40,1],
+    ["jan",10384.46,2],["fev",10738.34,2],["mar",19171.38,2],["abr",27933.18,2],["mai",70657.96,2],["jun",83715.00,2],["jul",109517.88,2]
+  ];
+  function reais(v){ return "R$ " + Math.floor(v).toLocaleString("pt-BR"); }
+
+  (function(){
+    var svg = document.getElementById("svg-grafico"); if(!svg) return;
+    var L=70, R=14, T=30, B=46, W=900, H=320, pw=W-L-R, ph=H-T-B, topo=120000,
+        passo=pw/MESES.length, larg=passo*.62, NS="http://www.w3.org/2000/svg",
+        fonte="Figtree, Arial, sans-serif";
+    function el(tag, a, t){ var n=document.createElementNS(NS,tag); for(var k in a) n.setAttribute(k,a[k]); if(t!=null) n.textContent=t; svg.appendChild(n); return n; }
+
+    [0,30000,60000,90000,120000].forEach(function(v){
+      var y=T+ph-(v/topo)*ph;
+      el("line",{x1:L,y1:y,x2:L+pw,y2:y,stroke:"#000","stroke-opacity":v?.07:.25,"stroke-width":1});
+      el("text",{x:L-10,y:y+4,"text-anchor":"end",fill:"#999","font-family":fonte,"font-size":11}, v? "R$ "+v/1000+" mil" : "0");
+    });
+    MESES.forEach(function(m,i){
+      var a=Math.max(2,(m[1]/topo)*ph), x=L+i*passo+(passo-larg)/2;
+      el("rect",{x:x,y:T+ph-a,width:larg,height:a,rx:2,fill:m[2]===2?"#1F5FD8":"#D0D0D0"});
+      el("text",{x:x+larg/2,y:H-B+17,"text-anchor":"middle",fill:"#737373","font-family":fonte,"font-size":10.5},m[0]);
+    });
+    [[0,11,"Ano 1"],[11,18,"Ano 2"]].forEach(function(f){
+      var x1=L+f[0]*passo+3, x2=L+f[1]*passo-3, y=H-B+36;
+      el("line",{x1:x1,y1:y-11,x2:x2,y2:y-11,stroke:"#000","stroke-opacity":.15});
+      el("text",{x:(x1+x2)/2,y:y,"text-anchor":"middle",fill:"#737373","font-family":fonte,"font-size":11,"font-weight":600},f[2]);
+    });
+    var u=MESES.length-1;
+    el("text",{x:L+u*passo+passo/2+larg/2,y:T+ph-(MESES[u][1]/topo)*ph-9,"text-anchor":"end",fill:"#333","font-family":fonte,"font-size":14,"font-weight":700},reais(MESES[u][1]));
+    el("text",{x:L+passo/2-larg/2,y:T+ph-(MESES[0][1]/topo)*ph-9,"text-anchor":"start",fill:"#737373","font-family":fonte,"font-size":11.5,"font-weight":600},reais(MESES[0][1]));
+  })();
+})();
+</script>
+
+</body>
+</html>

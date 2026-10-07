@@ -1,0 +1,472 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>JG Company · Tráfego pago e edição de vídeo</title>
+<meta name="description" content="Anúncio que vira cliente. Vídeo que prende. Tráfego pago no Instagram e no Facebook e edição de vídeo para negócios e criadores.">
+<meta name="theme-color" content="#0F0C0A">
+<link rel="icon" type="image/png" href="/assets/icone.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="JG Company · Tráfego pago e edição de vídeo">
+<meta property="og:description" content="Anúncio que vira cliente. Vídeo que prende. Tráfego pago no Instagram e no Facebook e edição de vídeo para negócios e criadores.">
+<meta property="og:url" content="https://jgcompany.com.br/">
+<meta property="og:image" content="https://jgcompany.com.br/assets/previa.png">
+<meta property="og:locale" content="pt_BR">
+<meta name="twitter:card" content="summary_large_image">
+<style>:root{box-sizing:border-box}body{margin:0}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style>
+</head>
+<body>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&family=Instrument+Serif:ital@1&display=swap">
+<style>
+  /* Tema único e escuro, de propósito (decisão do Gabriel, no estilo do site do Samuel). */
+  :root{
+    --bg:#0F0C0A; --bg2:#141009; --sup:#17120F; --sup2:#1E1814; --linha:#2E251E;
+    --txt:#F5EFE9; --sub:#B3A69B; --fraco:#7D7166;
+    --laranja:#FF872F; --laranja-txt:#FF9D52; --verde:#2FD07A;
+    --raio:14px;
+    color-scheme:dark;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--txt);font-family:"Figtree","Segoe UI",Arial,sans-serif;
+    font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased}
+  h1,h2,h3,p{margin:0}
+  h1,h2,h3{text-wrap:balance;letter-spacing:-.025em}
+  em{font-family:"Instrument Serif",Georgia,serif;font-style:italic;font-weight:400;color:var(--laranja-txt);letter-spacing:0}
+  a{color:inherit}
+  .num{font-variant-numeric:tabular-nums}
+  .env{width:min(1200px,100%);margin-inline:auto;padding-inline:20px}
+  .olho{display:flex;align-items:center;gap:12px;font-size:.78rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--laranja-txt)}
+  .olho::before{content:"";width:28px;height:2px;background:var(--laranja)}
+  :focus-visible{outline:2px solid var(--laranja);outline-offset:3px}
+
+  /* ---------- topo ---------- */
+  .topo{position:fixed;inset:0 0 auto;z-index:20;padding-top:env(safe-area-inset-top,0px);transition:background .25s,border-color .25s;border-bottom:1px solid transparent}
+  .topo.solido{background:rgba(15,12,10,.9);backdrop-filter:blur(10px);border-color:var(--linha)}
+  .topo .env{display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:72px}
+  .topo img{height:30px;display:block}
+  .topo nav{display:flex;align-items:center;gap:28px;font-size:.92rem;font-weight:600}
+  .topo nav a{text-decoration:none;color:var(--sub)}
+  .topo nav a:hover{color:var(--txt)}
+  .topo .zap{background:var(--laranja);color:#1A0F06;padding:10px 18px;border-radius:999px}
+  .topo .zap:hover{color:#1A0F06;background:#FF9A4D}
+  @media (max-width:760px){.topo nav a:not(.zap){display:none}}
+
+  /* ---------- abertura ---------- */
+  .abertura{position:relative;min-height:min(92vh,860px);display:flex;align-items:flex-end;overflow:hidden;background:var(--bg2)}
+  .abertura video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.2s}
+  .abertura video.on{opacity:1}
+  .abertura::after{content:"";position:absolute;inset:0;
+    background:linear-gradient(180deg,rgba(15,12,10,.55) 0%,rgba(15,12,10,.25) 35%,rgba(15,12,10,.85) 78%,var(--bg) 100%),
+               radial-gradient(70% 60% at 15% 85%,rgba(255,135,47,.18),transparent 70%)}
+  .abertura .env{position:relative;z-index:1;padding-block:140px 56px}
+  .abertura h1{font-size:clamp(2.6rem,7vw,5.6rem);line-height:.98;font-weight:800;margin-top:18px;max-width:14ch}
+  .abertura h1 em{font-size:1.08em}
+  .abertura .sub{margin-top:22px;font-size:clamp(1.02rem,1.6vw,1.2rem);color:var(--sub);max-width:46ch}
+  .contador{display:flex;align-items:center;gap:16px;margin-top:38px;font-size:.8rem;font-weight:700;letter-spacing:.14em;color:var(--sub)}
+  .barrinhas{display:flex;gap:6px}
+  .barrinhas button{width:34px;height:3px;border:0;border-radius:2px;background:rgba(245,239,233,.25);padding:0;cursor:pointer}
+  .barrinhas button.on{background:var(--laranja)}
+  .contador .rot{text-transform:uppercase}
+
+  /* ---------- duas portas ---------- */
+  .portas{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:-6px}
+  .porta{position:relative;display:grid;grid-template-columns:1fr auto;gap:20px;align-items:end;min-height:240px;
+    padding:28px;border-radius:var(--raio);background:var(--sup);border:1px solid var(--linha);text-decoration:none;
+    overflow:hidden;transition:border-color .2s,transform .2s}
+  .porta:hover{border-color:var(--laranja);transform:translateY(-3px)}
+  .porta .tipo{font-size:.8rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--laranja-txt)}
+  .porta h2{font-size:clamp(1.6rem,2.6vw,2.1rem);line-height:1.08;font-weight:800;margin-top:10px}
+  .porta .prova{margin-top:14px;font-size:.95rem;color:var(--sub);max-width:30ch}
+  .porta .prova b{color:var(--verde)}
+  .porta .ir{display:inline-flex;align-items:center;gap:8px;margin-top:20px;font-weight:700;font-size:.95rem}
+  .porta .ir span{transition:transform .2s}
+  .porta:hover .ir span{transform:translateX(4px)}
+  .porta .midia{width:150px;align-self:stretch;border-radius:10px;overflow:hidden;background:var(--sup2)}
+  .porta .midia img,.porta .midia video{width:100%;height:100%;object-fit:cover;display:block}
+  .porta .midia.print img{object-position:left top}
+  @media (max-width:860px){.portas{grid-template-columns:1fr}}
+  @media (max-width:440px){.porta{grid-template-columns:1fr}.porta .midia{width:100%;height:160px}}
+
+  /* ---------- números ---------- */
+  .numeros{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:72px;border-block:1px solid var(--linha)}
+  .numeros div{padding:30px 24px;border-left:1px solid var(--linha)}
+  .numeros div:first-child{border-left:0;padding-left:0}
+  .numeros strong{display:block;font-size:clamp(2rem,3.6vw,2.8rem);font-weight:800;line-height:1;color:var(--laranja-txt)}
+  .numeros span{display:block;margin-top:10px;color:var(--sub);font-size:.95rem;max-width:26ch}
+  @media (max-width:760px){.numeros{grid-template-columns:1fr}.numeros div{border-left:0;border-top:1px solid var(--linha);padding-left:0}.numeros div:first-child{border-top:0}}
+
+  /* ---------- seções ---------- */
+  .secao{padding-block:110px 20px;scroll-margin-top:72px}
+  .secao h2.tit{font-size:clamp(2rem,4.4vw,3.4rem);line-height:1.02;font-weight:800;margin-top:16px;max-width:18ch}
+  .secao .intro{margin-top:18px;color:var(--sub);max-width:60ch;font-size:1.05rem}
+
+  /* ---------- vídeos ---------- */
+  .filtros{display:flex;flex-wrap:wrap;gap:8px;margin-top:34px}
+  .filtros button{font:600 .9rem/1 inherit;font-family:inherit;color:var(--sub);background:transparent;border:1px solid var(--linha);
+    border-radius:999px;padding:10px 16px;cursor:pointer}
+  .filtros button:hover{color:var(--txt);border-color:var(--fraco)}
+  .filtros button[aria-pressed="true"]{background:var(--laranja);border-color:var(--laranja);color:#1A0F06}
+  .grade{--lin:120px;display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:var(--lin);grid-auto-flow:dense;gap:14px;margin-top:22px}
+  .clip{position:relative;border:0;padding:0;border-radius:12px;overflow:hidden;background:var(--sup2);cursor:pointer;
+    grid-row:span 3;color:var(--txt);text-align:left;font:inherit}
+  .clip.h{grid-column:span 2;grid-row:span 2}
+  .clip img,.clip video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+  .clip video{opacity:0;transition:opacity .3s}
+  .clip.tocando video{opacity:1}
+  .clip::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(10,8,6,.85))}
+  .clip .leg{position:absolute;left:14px;right:14px;bottom:12px;z-index:1}
+  .clip .leg small{display:block;font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--laranja-txt)}
+  .clip .leg b{display:block;font-size:.98rem;line-height:1.25;margin-top:4px}
+  .clip .play{position:absolute;top:12px;right:12px;z-index:1;width:38px;height:38px;border-radius:50%;
+    background:rgba(15,12,10,.6);border:1px solid rgba(255,255,255,.25);display:grid;place-items:center;transition:background .2s}
+  .clip:hover .play{background:var(--laranja)}
+  .clip .play svg{width:14px;height:14px;fill:#fff;margin-left:2px}
+  .clip[hidden]{display:none}
+  @media (max-width:900px){.grade{grid-template-columns:repeat(2,1fr)}}
+
+  .passos{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:56px}
+  .passo{padding:26px;border-radius:var(--raio);background:var(--sup);border:1px solid var(--linha)}
+  .passo .n{font-family:"Instrument Serif",Georgia,serif;font-style:italic;font-size:2.4rem;line-height:1;color:var(--laranja-txt)}
+  .passo h3{font-size:1.2rem;margin-top:14px}
+  .passo p{margin-top:8px;color:var(--sub);font-size:.96rem}
+  @media (max-width:760px){.passos{grid-template-columns:1fr}}
+
+  /* ---------- tráfego ---------- */
+  .metodo{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:44px;border-top:1px solid var(--linha)}
+  .metodo div{padding:26px 22px 0 0}
+  .metodo .n{font-size:.8rem;font-weight:700;letter-spacing:.14em;color:var(--laranja-txt)}
+  .metodo h3{font-size:1.15rem;margin-top:10px}
+  .metodo p{margin-top:8px;color:var(--sub);font-size:.95rem}
+  @media (max-width:900px){.metodo{grid-template-columns:1fr 1fr;gap:0 20px}}
+  @media (max-width:520px){.metodo{grid-template-columns:1fr}}
+
+  .casos{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:56px}
+  .caso{display:flex;flex-direction:column;border-radius:var(--raio);background:var(--sup);border:1px solid var(--linha);overflow:hidden}
+  .caso .foto{border:0;padding:0;cursor:zoom-in;background:#EDEDED;aspect-ratio:4/3;overflow:hidden;display:block;width:100%}
+  .caso .foto img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block}
+  .caso .corpo{padding:20px 22px 24px;display:flex;flex-direction:column;gap:8px}
+  .caso .nicho{font-size:.76rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--laranja-txt)}
+  .caso strong{font-size:1.7rem;line-height:1.1;font-weight:800}
+  .caso strong b{color:var(--verde);font-weight:800}
+  .caso p{color:var(--sub);font-size:.95rem}
+  .caso.texto .corpo{flex:1;justify-content:center}
+  .caso blockquote{margin:0;font-size:1.08rem;line-height:1.5}
+  .caso .quem{color:var(--fraco);font-size:.86rem}
+  @media (max-width:900px){.casos{grid-template-columns:1fr 1fr}}
+  @media (max-width:600px){.casos{grid-template-columns:1fr}}
+
+  /* ---------- contato ---------- */
+  .contato{margin-top:110px;position:relative;overflow:hidden;border-radius:22px;border:1px solid var(--linha);
+    background:radial-gradient(80% 120% at 100% 0%,rgba(255,135,47,.22),transparent 60%),var(--sup);padding:clamp(32px,6vw,72px)}
+  .contato h2{font-size:clamp(2.2rem,5vw,3.8rem);line-height:1;font-weight:800;max-width:14ch}
+  .contato p{margin-top:18px;color:var(--sub);max-width:48ch;font-size:1.05rem}
+  .acoes{display:flex;flex-wrap:wrap;align-items:center;gap:14px;margin-top:32px}
+  .btn{display:inline-flex;align-items:center;gap:10px;background:var(--laranja);color:#1A0F06;font-weight:800;
+    text-decoration:none;padding:16px 26px;border-radius:999px;font-size:1.02rem}
+  .btn:hover{background:#FF9A4D}
+  .copiar{display:inline-flex;align-items:center;gap:10px;border:1px solid var(--linha);border-radius:999px;padding:14px 20px;
+    background:transparent;color:var(--txt);font:600 1rem/1 inherit;font-family:inherit;cursor:pointer}
+  .copiar:hover{border-color:var(--fraco)}
+
+  footer{margin-top:90px;border-top:1px solid var(--linha)}
+  footer .env{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:14px;padding-block:28px 40px;color:var(--fraco);font-size:.9rem}
+  footer img{height:26px;display:block}
+  footer a{color:var(--sub)}
+
+  /* ---------- lupa (vídeo e print em tela cheia) ---------- */
+  dialog.lupa{border:0;padding:0;background:transparent;max-width:min(96vw,1200px);max-height:92vh;color:var(--txt)}
+  dialog.lupa::backdrop{background:rgba(8,6,5,.88);backdrop-filter:blur(4px)}
+  .lupa-in{display:flex;flex-direction:column;gap:12px;align-items:center}
+  .lupa video,.lupa img{max-width:min(96vw,1200px);max-height:80vh;border-radius:12px;display:block;background:#000}
+  .lupa .barra{display:flex;justify-content:space-between;align-items:center;gap:16px;width:100%}
+  .lupa .barra p{font-weight:600}
+  .lupa .fechar{border:1px solid var(--linha);background:var(--sup);color:var(--txt);border-radius:999px;padding:10px 18px;font:600 .9rem/1 inherit;font-family:inherit;cursor:pointer}
+
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    .abertura video,.porta,.porta .ir span{transition:none}
+  }
+</style>
+
+<header class="topo" id="topo">
+  <div class="env">
+    <a href="#inicio" aria-label="JG Company, início"><img src="assets/jg-mark-branca.png" alt="JG Company"></a>
+    <nav aria-label="Seções">
+      <a href="#video">Edição de vídeo</a>
+      <a href="#trafego">Tráfego pago</a>
+      <a href="#contato">Contato</a>
+      <a class="zap" href="https://wa.me/5531972100137?text=Oi%2C%20vim%20pelo%20site%20da%20JG">WhatsApp</a>
+    </nav>
+  </div>
+</header>
+
+<main id="inicio">
+  <section class="abertura" aria-label="Apresentação">
+    <video muted playsinline preload="metadata" poster="media/games-3.jpg" data-rot="Games · Estados Unidos" src="media/games-3.mp4"></video>
+    <video muted playsinline preload="none" poster="media/motions-br-3.jpg" data-rot="Motion design" src="media/motions-br-3.mp4"></video>
+    <video muted playsinline preload="none" poster="media/corporativos-2.jpg" data-rot="Vídeo institucional" src="media/corporativos-2.mp4"></video>
+    <video muted playsinline preload="none" poster="media/motions-en-3.jpg" data-rot="Criador de conteúdo · EUA" src="media/motions-en-3.mp4"></video>
+    <div class="env">
+      <p class="olho">JG Company · Marketing digital</p>
+      <h1>Anúncio que vira <em>cliente</em>. Vídeo que <em>prende</em>.</h1>
+      <p class="sub">Tráfego pago e edição de vídeo para quem quer ser visto, lembrado e escolhido no digital.</p>
+      <div class="contador" aria-label="Vídeos da abertura">
+        <span class="num" id="cont">01 / 04</span>
+        <div class="barrinhas" id="barrinhas"></div>
+        <span class="rot" id="rotulo">Games · Estados Unidos</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="env">
+    <div class="portas">
+      <a class="porta" href="#trafego">
+        <div>
+          <p class="tipo">Tráfego pago</p>
+          <h2>Quero mais clientes</h2>
+          <p class="prova">Uma loja virtual fez <b>R$ 158 mil em vendas</b> com R$ 7 mil em anúncio.</p>
+          <p class="ir">Ver como funciona <span aria-hidden="true">→</span></p>
+        </div>
+        <div class="midia print"><img src="assets/trf/tf-ads-67083-conversao-193compras.jpg" alt="Print do Gerenciador de Anúncios"></div>
+      </a>
+      <a class="porta" href="#video">
+        <div>
+          <p class="tipo">Edição de vídeo</p>
+          <h2>Quero vídeos que prendem</h2>
+          <p class="prova">Editamos para youtubers dos EUA, médicos, criadores e empresas.</p>
+          <p class="ir">Ver os vídeos <span aria-hidden="true">→</span></p>
+        </div>
+        <div class="midia"><video muted loop playsinline autoplay preload="metadata" poster="media/games-7.jpg" src="media/games-7.mp4"></video></div>
+      </a>
+    </div>
+
+    <div class="numeros">
+      <div><strong class="num">R$ 158.474</strong><span>em vendas para uma loja virtual, com R$ 7.122 em anúncio</span></div>
+      <div><strong class="num">1.399</strong><span>contatos a R$ 3,52 cada, para um atendimento de psicanálise</span></div>
+      <div><strong class="num">54 mil</strong><span>pessoas alcançadas em 30 dias para um artista</span></div>
+    </div>
+
+    <!-- ===================== EDIÇÃO DE VÍDEO ===================== -->
+    <section class="secao" id="video" aria-labelledby="tit-video">
+      <p class="olho">Edição de vídeo</p>
+      <h2 class="tit" id="tit-video">Vídeo que a pessoa assiste <em>até o fim</em></h2>
+      <p class="intro">Corte no ritmo, legenda na tela, motion quando a ideia precisa aparecer. Passe o mouse para ver, clique para assistir com som.</p>
+
+      <div class="filtros" role="group" aria-label="Filtrar por tipo de vídeo">
+        <button type="button" aria-pressed="true" data-f="todos">Todos</button>
+        <button type="button" aria-pressed="false" data-f="games">Games · EUA</button>
+        <button type="button" aria-pressed="false" data-f="saude">Saúde</button>
+        <button type="button" aria-pressed="false" data-f="motion">Motion design</button>
+        <button type="button" aria-pressed="false" data-f="anuncio">Anúncios</button>
+        <button type="button" aria-pressed="false" data-f="empresas">Empresas</button>
+      </div>
+      <div class="grade" id="grade"></div>
+
+      <div class="passos">
+        <div class="passo"><p class="n">1</p><h3>Você grava</h3><p>Do jeito que dá, no celular. Manda o bruto pelo WhatsApp ou pelo Drive.</p></div>
+        <div class="passo"><p class="n">2</p><h3>A gente edita</h3><p>Corte, legenda, ritmo, música e imagem de apoio. Motion quando faz sentido.</p></div>
+        <div class="passo"><p class="n">3</p><h3>Você recebe pronto</h3><p>No formato certo para Reels, story, YouTube ou anúncio.</p></div>
+      </div>
+    </section>
+
+    <!-- ===================== TRÁFEGO PAGO ===================== -->
+    <section class="secao" id="trafego" aria-labelledby="tit-trafego">
+      <p class="olho">Tráfego pago</p>
+      <h2 class="tit" id="tit-trafego">Anúncio que vira <em>cliente</em>, não só curtida</h2>
+      <p class="intro">Instagram e Facebook. Cada real investido é medido no que importa para o seu negócio: compra no site, conversa no WhatsApp ou contrato fechado.</p>
+
+      <div class="metodo">
+        <div><p class="n">01</p><h3>Público certo</h3><p>Cidade, idade e interesse de quem tem potencial de compra.</p></div>
+        <div><p class="n">02</p><h3>Criativos em teste</h3><p>Vários anúncios rodam lado a lado. Os números mostram qual traz cliente.</p></div>
+        <div><p class="n">03</p><h3>Verba no que funciona</h3><p>O anúncio campeão recebe mais investimento. O que não performa sai.</p></div>
+        <div><p class="n">04</p><h3>Acompanhamento</h3><p>Toda semana a gente pergunta o que virou venda de verdade.</p></div>
+      </div>
+
+      <div class="casos">
+        <article class="caso">
+          <button class="foto" type="button" data-src="assets/trf/tf-ads-67083-conversao-193compras.jpg" data-txt="Loja virtual: campanhas no Gerenciador de Anúncios"><img loading="lazy" src="assets/trf/tf-ads-67083-conversao-193compras.jpg" alt="Print do Gerenciador de Anúncios da loja virtual"></button>
+          <div class="corpo"><p class="nicho">Loja virtual</p><strong><b>22x</b> o investido</strong><p>R$ 7.122 em anúncio viraram R$ 158.474 em vendas. 476 compras no site.</p></div>
+        </article>
+        <article class="caso">
+          <button class="foto" type="button" data-src="assets/trf/tf-ads-psicanalise-1399-contatos.jpg" data-txt="Psicanálise: comparativo dos criativos"><img loading="lazy" src="assets/trf/tf-ads-psicanalise-1399-contatos.jpg" alt="Comparativo de criativos no Gerenciador de Anúncios"></button>
+          <div class="corpo"><p class="nicho">Saúde · Psicanálise online</p><strong><b>R$ 3,52</b> por contato</strong><p>Cinco anúncios testados. O campeão trouxe 1.399 contatos.</p></div>
+        </article>
+        <article class="caso">
+          <button class="foto" type="button" data-src="assets/trf/tf-depo-lavanderia-10-leads-dia.jpg" data-txt="Lavanderia: conversa com o cliente"><img loading="lazy" src="assets/trf/tf-depo-lavanderia-10-leads-dia.jpg" alt="Conversa com o cliente da lavanderia"></button>
+          <div class="corpo"><p class="nicho">Serviço local · Lavanderia</p><strong><b>10</b> contatos por dia</strong><p>Anúncio levando direto para o WhatsApp do cliente.</p></div>
+        </article>
+        <article class="caso">
+          <button class="foto" type="button" data-src="assets/trf/tf-depo-eventos-dois-contratos.jpg" data-txt="Eventos: conversa com o cliente"><img loading="lazy" src="assets/trf/tf-depo-eventos-dois-contratos.jpg" alt="Conversa com o cliente de eventos"></button>
+          <div class="corpo"><p class="nicho">Serviço local · Eventos</p><strong><b>2</b> contratos na semana</strong><p>Viram o anúncio, acompanharam o perfil e chamaram.</p></div>
+        </article>
+        <article class="caso">
+          <button class="foto" type="button" data-src="assets/trf/tf-depo-imoveis-primeira-captacao.jpg" data-txt="Imóveis: conversa com o corretor"><img loading="lazy" src="assets/trf/tf-depo-imoveis-primeira-captacao.jpg" alt="Conversa com o corretor de imóveis"></button>
+          <div class="corpo"><p class="nicho">Serviço local · Imóveis</p><strong>A <b>primeira</b> captação</strong><p>Vinda direto do anúncio, como o corretor contou.</p></div>
+        </article>
+        <article class="caso texto">
+          <div class="corpo"><p class="nicho">Artista · RJ e SP</p><strong><b>126 mil</b> visualizações</strong>
+            <blockquote>“O alcance e a visibilidade da marca cresceram de forma consistente.”</blockquote>
+            <p class="quem">Equipe do artista · 54 mil contas alcançadas em 30 dias</p></div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===================== CONTATO ===================== -->
+    <section class="contato" id="contato" aria-labelledby="tit-contato">
+      <p class="olho">Contato</p>
+      <h2 id="tit-contato" style="margin-top:16px">Bora fazer seu negócio <em>aparecer</em>?</h2>
+      <p>Conta o que você vende e para quem. A gente responde com o caminho, seja anúncio, vídeo ou os dois.</p>
+      <div class="acoes">
+        <a class="btn" href="https://wa.me/5531972100137?text=Oi%2C%20vim%20pelo%20site%20da%20JG">Chamar no WhatsApp <span aria-hidden="true">→</span></a>
+        <button class="copiar" type="button" id="copiar" data-num="+55 31 97210-0137"><span id="copiar-txt">+55 31 97210-0137</span></button>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer>
+  <div class="env">
+    <img src="assets/jg-mark-branca.png" alt="JG Company">
+    <p>JG Company · Tráfego pago e edição de vídeo</p>
+    <a href="https://www.instagram.com/jgcompanyofc/">@jgcompanyofc</a>
+  </div>
+</footer>
+
+<dialog class="lupa" id="lupa" aria-label="Visualização">
+  <div class="lupa-in">
+    <div class="barra"><p id="lupa-txt"></p><button class="fechar" type="button" id="lupa-fechar">Fechar</button></div>
+    <div id="lupa-midia"></div>
+  </div>
+</dialog>
+
+<script>
+(function(){
+  "use strict";
+  var calmo = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  // topo fica sólido depois de rolar
+  var topo = document.getElementById("topo");
+  function rolou(){ topo.classList.toggle("solido", window.scrollY > 40); }
+  addEventListener("scroll", rolou, {passive:true}); rolou();
+
+  // ---------- abertura: 4 vídeos trocando, como o 01/04 do site do Samuel ----------
+  var vids = [].slice.call(document.querySelectorAll(".abertura video"));
+  var barras = document.getElementById("barrinhas"), cont = document.getElementById("cont"), rot = document.getElementById("rotulo");
+  var atual = 0, timer = null;
+  vids.forEach(function(v, i){
+    var b = document.createElement("button");
+    b.type = "button"; b.setAttribute("aria-label", "Vídeo " + (i + 1) + ": " + v.dataset.rot);
+    b.addEventListener("click", function(){ mostrar(i); });
+    barras.appendChild(b);
+    v.addEventListener("ended", function(){ if(i === atual) mostrar((atual + 1) % vids.length); });
+  });
+  function mostrar(i){
+    clearTimeout(timer);
+    vids.forEach(function(v, j){
+      var on = j === i;
+      v.classList.toggle("on", on);
+      if(on){ v.preload = "auto"; v.currentTime = 0; if(!calmo){ var p = v.play(); if(p && p.catch) p.catch(function(){}); } }
+      else { v.pause(); }
+      barras.children[j].classList.toggle("on", on);
+    });
+    atual = i;
+    cont.textContent = "0" + (i + 1) + " / 0" + vids.length;
+    rot.textContent = vids[i].dataset.rot;
+    if(calmo) return;
+    timer = setTimeout(function(){ mostrar((atual + 1) % vids.length); }, 13000); // garantia se o "ended" não vier
+  }
+  mostrar(0);
+
+  // ---------- grade de vídeos ----------
+  var CLIPES = [
+    ["games-3","games",true,"Games · EUA","Vídeo longo de Roblox para youtuber americano"],
+    ["pediatras-3","saude",false,"Saúde · Pediatria","Dica de pediatra com legenda e imagem de apoio"],
+    ["motions-br-2","motion",false,"Motion design","Motion que explica a ideia enquanto a pessoa fala"],
+    ["games-7","games",false,"Games · EUA","Short de Roblox com ritmo acelerado"],
+    ["motions-br-3","motion",true,"Motion design","Número que ganha vida na tela"],
+    ["motions-br-4","anuncio",false,"Anúncio","Criativo animado para loja de celulares"],
+    ["corporativos-2","empresas",true,"Empresas","Vídeo institucional sobre tabagismo"],
+    ["games-6","games",false,"Games · EUA","Short de Minecraft com legenda que vira piada"],
+    ["pediatras-2","saude",false,"Saúde · Pediatria","Texto que reforça a ideia na hora certa"],
+    ["motions-en-3","motion",true,"Motion · EUA","Motion para criador de conteúdo americano"],
+    ["motions-br-1","anuncio",false,"Anúncio","Criativo com motion para redes sociais"],
+    ["saas-2","motion",true,"Produto digital","Sistema explicado em animação"],
+    ["corporativos-1","empresas",true,"Empresas","Ponto principal em destaque na tela"]
+  ];
+  var PLAY = '<svg viewBox="0 0 14 14" aria-hidden="true"><path d="M3 1.5v11l9-5.5z"/></svg>';
+  var grade = document.getElementById("grade");
+  CLIPES.forEach(function(c){
+    var b = document.createElement("button");
+    b.type = "button"; b.className = "clip" + (c[2] ? " h" : ""); b.dataset.f = c[1];
+    b.dataset.src = "media/" + c[0] + ".mp4"; b.dataset.txt = c[3] + " · " + c[4];
+    b.innerHTML = '<img loading="lazy" alt=""><video muted loop playsinline preload="none"></video>' +
+                  '<span class="play">' + PLAY + '</span><span class="leg"><small></small><b></b></span>';
+    b.querySelector("img").src = "media/" + c[0] + ".jpg";
+    b.querySelector("img").alt = c[4];
+    b.querySelector("small").textContent = c[3];
+    b.querySelector("b").textContent = c[4];
+    var v = b.querySelector("video");
+    b.addEventListener("mouseenter", function(){
+      if(calmo) return;
+      if(!v.src) v.src = b.dataset.src;
+      var p = v.play(); if(p && p.catch) p.catch(function(){});
+      b.classList.add("tocando");
+    });
+    b.addEventListener("mouseleave", function(){ v.pause(); b.classList.remove("tocando"); });
+    b.addEventListener("click", function(){ abrirVideo(b.dataset.src, b.dataset.txt); });
+    grade.appendChild(b);
+  });
+  function medir(){
+    var cols = getComputedStyle(grade).gridTemplateColumns.split(" ").length, gap = 14;
+    var col = (grade.clientWidth - gap * (cols - 1)) / cols;
+    grade.style.setProperty("--lin", Math.round(((2 * col + gap) * 9 / 16 - gap) / 2) + "px");
+  }
+  addEventListener("resize", medir); medir();
+  document.querySelectorAll(".filtros button").forEach(function(btn){
+    btn.addEventListener("click", function(){
+      var f = btn.dataset.f;
+      document.querySelectorAll(".filtros button").forEach(function(o){ o.setAttribute("aria-pressed", o === btn ? "true" : "false"); });
+      [].forEach.call(grade.children, function(c){ c.hidden = !(f === "todos" || c.dataset.f === f); });
+    });
+  });
+
+  // ---------- lupa ----------
+  var lupa = document.getElementById("lupa"), area = document.getElementById("lupa-midia"), txt = document.getElementById("lupa-txt");
+  function abrir(el, legenda){
+    area.innerHTML = ""; area.appendChild(el); txt.textContent = legenda;
+    if(lupa.showModal) lupa.showModal();
+  }
+  function abrirVideo(src, legenda){
+    var v = document.createElement("video");
+    v.src = src; v.controls = true; v.autoplay = true; v.playsInline = true;
+    abrir(v, legenda);
+  }
+  document.querySelectorAll(".caso .foto").forEach(function(b){
+    b.addEventListener("click", function(){
+      var i = document.createElement("img"); i.src = b.dataset.src; i.alt = b.dataset.txt; abrir(i, b.dataset.txt);
+    });
+  });
+  function fechar(){ var v = area.querySelector("video"); if(v) v.pause(); lupa.close(); }
+  document.getElementById("lupa-fechar").addEventListener("click", fechar);
+  lupa.addEventListener("click", function(e){ if(e.target === lupa) fechar(); });
+  lupa.addEventListener("close", function(){ var v = area.querySelector("video"); if(v) v.pause(); });
+
+  // ---------- copiar número ----------
+  var cp = document.getElementById("copiar"), cpt = document.getElementById("copiar-txt");
+  cp.addEventListener("click", function(){
+    var n = cp.dataset.num;
+    function ok(){ cpt.textContent = "Número copiado"; setTimeout(function(){ cpt.textContent = n; }, 2000); }
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(n).then(ok, function(){ selecionar(); });
+    } else selecionar();
+    function selecionar(){ var r = document.createRange(); r.selectNodeContents(cpt); var s = getSelection(); s.removeAllRanges(); s.addRange(r); }
+  });
+})();
+</script>
+
+</body>
+</html>
