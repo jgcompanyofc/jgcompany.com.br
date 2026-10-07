@@ -181,6 +181,23 @@
   .opiniao .quem-diz b{color:var(--txt);font-weight:700}
 
   .provas{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px;margin-top:14px}
+  .provas-cab{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin-top:34px}
+  .provas-cab .sub-tit{margin-top:0}
+  .setas{display:flex;gap:8px;flex:none}
+  .setas[hidden]{display:none}
+  .setas button{width:44px;height:44px;border-radius:50%;border:1px solid var(--linha);background:var(--sup2);color:var(--txt);
+    font-size:1.1rem;cursor:pointer;display:grid;place-items:center}
+  .setas button:hover{border-color:var(--laranja);color:var(--laranja-txt)}
+  /* provas em carrossel infinito: anda devagar sozinho, para no mouse, setas e arrasto movem na mão */
+  .esteira{margin-top:14px;overflow:hidden;touch-action:pan-y;container-type:inline-size;cursor:grab}
+  .esteira.arrastando{cursor:grabbing}
+  .esteira.arrastando .prova{pointer-events:none}
+  .esteira .provas{display:flex;gap:14px;margin-top:0;width:max-content;will-change:transform;padding-block:2px 6px}
+  .esteira .prova{flex:none;width:calc((100cqw - 42px) / 4)}
+  .esteira .prova:hover{transform:none}
+  @container (max-width:820px){.esteira .prova{width:calc((100cqw - 28px) / 3)}}
+  @container (max-width:560px){.esteira .provas{gap:10px}.esteira .prova{width:calc((100cqw - 10px) / 2)}}
+  @media (max-width:520px){.setas button{width:40px;height:40px}}
   .prova{border-radius:12px;overflow:hidden;padding:0;text-align:left;cursor:zoom-in;font:inherit;color:inherit;background:var(--sup2);
     border:1px solid var(--linha);display:flex;flex-direction:column;transition:border-color .2s,transform .2s}
   .prova:hover{border-color:var(--laranja);transform:translateY(-2px)}
@@ -333,8 +350,10 @@
           </div>
         </div>
 
-        <h4 class="sub-tit">Provas</h4>
-        <p class="sub-leg">Gerenciador de Anúncios e conversas com os clientes.</p>
+        <div class="provas-cab">
+          <div><h4 class="sub-tit">Provas</h4><p class="sub-leg">Gerenciador de Anúncios e conversas com os clientes.</p></div>
+          <div class="setas" hidden><button type="button" data-dir="-1" aria-label="Provas anteriores">←</button><button type="button" data-dir="1" aria-label="Próximas provas">→</button></div>
+        </div>
         <div class="provas" data-galeria="lojas"></div>
       </div>
 
@@ -366,8 +385,10 @@
           </div>
         </div>
 
-        <h4 class="sub-tit">Provas</h4>
-        <p class="sub-leg">Conversas originais com os clientes.</p>
+        <div class="provas-cab">
+          <div><h4 class="sub-tit">Provas</h4><p class="sub-leg">Conversas originais com os clientes.</p></div>
+          <div class="setas" hidden><button type="button" data-dir="-1" aria-label="Provas anteriores">←</button><button type="button" data-dir="1" aria-label="Próximas provas">→</button></div>
+        </div>
         <div class="provas" data-galeria="servicos"></div>
       </div>
 
@@ -383,8 +404,10 @@
           <div class="stat"><p class="k">Pessoas alcançadas</p><strong class="num">96.630</strong><p class="s">197.954 impressões</p></div>
         </div>
 
-        <h4 class="sub-tit">Provas</h4>
-        <p class="sub-leg">Comparativo dos criativos no Gerenciador de Anúncios.</p>
+        <div class="provas-cab">
+          <div><h4 class="sub-tit">Provas</h4><p class="sub-leg">Comparativo dos criativos no Gerenciador de Anúncios.</p></div>
+          <div class="setas" hidden><button type="button" data-dir="-1" aria-label="Provas anteriores">←</button><button type="button" data-dir="1" aria-label="Próximas provas">→</button></div>
+        </div>
         <div class="provas" data-galeria="saude"></div>
       </div>
 
@@ -407,8 +430,10 @@
           </div>
         </div>
 
-        <h4 class="sub-tit">Provas</h4>
-        <p class="sub-leg">Relatório enviado pela equipe do artista.</p>
+        <div class="provas-cab">
+          <div><h4 class="sub-tit">Provas</h4><p class="sub-leg">Relatório enviado pela equipe do artista.</p></div>
+          <div class="setas" hidden><button type="button" data-dir="-1" aria-label="Provas anteriores">←</button><button type="button" data-dir="1" aria-label="Próximas provas">→</button></div>
+        </div>
         <div class="provas" data-galeria="artistas"></div>
       </div>
     </section>
@@ -451,6 +476,102 @@
 <script>
 (function(){
   "use strict";
+
+  // ---------- esteira: carrossel infinito que anda devagar sozinho ----------
+  // vp = janela (overflow escondido); trilho = fila de itens dentro dela.
+  // Para no mouse/foco, volta a andar ao sair. Setas e arrasto (dedo ou mouse) movem na mão.
+  function esteira(vp, trilho, setas, vel){
+    var calmo = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var orig = [], x = 0, larg = 0, passo = 0, ativo = false, parado = false, visivel = true,
+        anim = null, ult = 0, toque = 0, arr = null, arrastou = false;
+    function limpar(){
+      [].slice.call(trilho.querySelectorAll("[data-copia]")).forEach(function(c){ c.remove(); });
+    }
+    function copiar(){
+      orig.forEach(function(el){
+        var c = el.cloneNode(true);
+        c.setAttribute("data-copia", ""); c.setAttribute("aria-hidden", "true"); c.tabIndex = -1;
+        trilho.appendChild(c);
+      });
+    }
+    function medir(){
+      if(!orig.length || !vp.clientWidth) return;
+      limpar();
+      var gap = parseFloat(getComputedStyle(trilho).columnGap) || 0;
+      larg = 0; orig.forEach(function(el){ larg += el.offsetWidth + gap; });
+      passo = orig[0].offsetWidth + gap;
+      ativo = larg - gap > vp.clientWidth + 2;   // só vira esteira se não couber tudo na tela
+      vp.classList.toggle("esteira-on", ativo);
+      if(setas) setas.hidden = !ativo;
+      if(!ativo){ x = 0; trilho.style.transform = ""; return; }
+      for(var n = Math.ceil(vp.clientWidth / larg) + 1; n > 0; n--) copiar();
+    }
+    function quadro(t){
+      var dt = ult ? Math.min(t - ult, 64) / 1000 : 0; ult = t;
+      if(ativo){
+        if(anim){
+          var k = Math.min(1, (t - anim.t0) / anim.dur), e = 1 - Math.pow(1 - k, 3);
+          x = anim.de + (anim.para - anim.de) * e;
+          if(k >= 1) anim = null;
+        } else if(!calmo && !parado && !arr && visivel && t > toque) x += vel * dt;
+        x = ((x % larg) + larg) % larg;
+        trilho.style.transform = "translate3d(" + (-x).toFixed(2) + "px,0,0)";
+      }
+      requestAnimationFrame(quadro);
+    }
+    function mover(dir){
+      if(!ativo) return;
+      var de = anim ? anim.para : x, para = Math.round((de + dir * passo) / passo) * passo;
+      anim = {de: x, para: para, t0: performance.now(), dur: 520};
+      toque = performance.now() + 2500;
+    }
+    if(setas) [].slice.call(setas.querySelectorAll("[data-dir]")).forEach(function(b){
+      b.addEventListener("click", function(){ mover(Number(b.getAttribute("data-dir"))); });
+    });
+    vp.addEventListener("pointerenter", function(e){ if(e.pointerType === "mouse") parado = true; });
+    vp.addEventListener("pointerleave", function(e){ if(e.pointerType === "mouse") parado = false; });
+    vp.addEventListener("focusin", function(e){ if(e.target.matches && e.target.matches(":focus-visible")) parado = true; });
+    vp.addEventListener("focusout", function(){ parado = false; });
+    // arrasto: só "prende" o ponteiro depois que ele andou, para o clique normal continuar funcionando
+    vp.addEventListener("pointerdown", function(e){
+      if(!ativo || (e.pointerType === "mouse" && e.button !== 0)) return;
+      arr = {id: e.pointerId, x0: e.clientX, y0: e.clientY, base: x, preso: false}; arrastou = false; anim = null;
+    });
+    vp.addEventListener("pointermove", function(e){
+      if(!arr || e.pointerId !== arr.id) return;
+      var dx = e.clientX - arr.x0;
+      if(!arr.preso){
+        if(Math.abs(dx) < 6) return;
+        if(Math.abs(e.clientY - arr.y0) > Math.abs(dx)){ arr = null; return; }
+        arr.preso = true; arrastou = true; vp.classList.add("arrastando");
+        try{ vp.setPointerCapture(e.pointerId); }catch(_){}
+      }
+      x = arr.base - dx;
+    });
+    function soltar(){
+      if(!arr) return;
+      arr = null; vp.classList.remove("arrastando"); toque = performance.now() + 2500;
+    }
+    vp.addEventListener("pointerup", soltar);
+    vp.addEventListener("pointercancel", soltar);
+    vp.addEventListener("click", function(e){ if(arrastou){ e.preventDefault(); e.stopPropagation(); arrastou = false; } }, true);
+    if("IntersectionObserver" in window) new IntersectionObserver(function(es){ visivel = es[0].isIntersecting; }).observe(vp);
+    if("ResizeObserver" in window){
+      var w0 = -1;
+      new ResizeObserver(function(){ if(vp.clientWidth !== w0){ w0 = vp.clientWidth; medir(); } }).observe(vp);
+    } else addEventListener("resize", medir);
+    requestAnimationFrame(quadro);
+    return {
+      // troca os itens (filtro por nicho)
+      itens: function(lista){
+        trilho.innerHTML = ""; orig = lista.slice();
+        orig.forEach(function(el){ trilho.appendChild(el); });
+        x = 0; anim = null; medir();
+      },
+      medir: medir
+    };
+  }
+
 
   // ---------- topo: fundo ao rolar e menu no celular ----------
   var topo = document.getElementById("topo"), menuBt = document.getElementById("menu-bt");
@@ -526,6 +647,15 @@
       frag.appendChild(b);
     });
     caixa.appendChild(frag);
+  });
+
+  // todas as provas viram carrossel infinito; quando cabem inteiras na tela, ficam paradas
+  document.querySelectorAll("[data-galeria]").forEach(function(caixa){
+    var itens = [].slice.call(caixa.children);
+    var vp = document.createElement("div"); vp.className = "esteira";
+    caixa.parentNode.insertBefore(vp, caixa); vp.appendChild(caixa);
+    var cab = vp.previousElementSibling, setas = cab && cab.querySelector(".setas");
+    esteira(vp, caixa, setas, 14).itens(itens);
   });
 
   var lupa = document.getElementById("lupa"),

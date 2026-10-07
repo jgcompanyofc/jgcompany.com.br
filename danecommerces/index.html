@@ -254,10 +254,8 @@
   /* mensagem oficial do Mercado Livre, com a barra amarela do ML em cima */
   .ml{overflow:hidden}
   .ml-barra{display:flex;align-items:center;justify-content:space-between;gap:12px 20px;flex-wrap:wrap;
-    background:#FFE600;padding:12px 28px;border-bottom:1px solid rgba(0,0,0,.08)}
-  .ml-logo{display:flex;align-items:center;gap:10px;color:#2D3277}
-  .ml-logo svg{width:52px;height:36px;flex:none}
-  .ml-logo b{font-size:1.02rem;font-weight:800;line-height:.95;letter-spacing:-.02em}
+    background:#FFE700;padding:12px 28px;border-bottom:1px solid rgba(0,0,0,.08)}
+  .ml-logo{display:block;height:40px;width:auto}
   .ml-ok{display:inline-flex;align-items:center;gap:7px;font-size:.88rem;font-weight:700;color:#2D3277}
   .ml-ok svg{width:20px;height:20px;flex:none}
   .ml-corpo{padding:24px 28px 26px}
@@ -584,10 +582,7 @@
 
     <article class="card ml" aria-labelledby="ml-tit">
       <div class="ml-barra">
-        <span class="ml-logo" id="ml-tit">
-          <svg viewBox="0 0 52 36" aria-hidden="true"><ellipse cx="26" cy="18" rx="24" ry="16" fill="#fff" stroke="#2D3277" stroke-width="2.4"/><g fill="none" stroke="#2D3277" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 17.5l7.5-5.2c2.6-1.6 5-1.4 7.6.2l5.4 3.4"/><path d="M46.5 17.5l-7.5-5.2c-2.4-1.5-4.8-1.5-7 0l-7.6 4.6c-1.4 1-1 2.8.8 2.6l5.4-2.6"/><path d="M16.5 20.5l3 3M20 18.6l3.8 3.8M23.6 18l3.4 3.4M27.6 18.6l2.6 2.6"/></g></svg>
-          <b>mercado<br>livre</b>
-        </span>
+        <img class="ml-logo" id="ml-tit" src="assets/mercadolivre.png" alt="Mercado Livre" width="480" height="128">
         <span class="ml-ok"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#00A650" d="M12 1.5l2.6 1.9 3.2-.1 1 3 2.6 1.9-1 3 1 3-2.6 1.9-1 3-3.2-.1L12 22.5l-2.6-1.9-3.2.1-1-3L2.6 15.8l1-3-1-3 2.6-1.9 1-3 3.2.1z"/><path d="M8 12.3l2.6 2.6L16.2 9" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg> Mensagem oficial do Mercado Livre</span>
       </div>
       <div class="ml-corpo">
