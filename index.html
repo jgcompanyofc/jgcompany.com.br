@@ -189,6 +189,7 @@
   .cartao .qtd{position:absolute;top:10px;right:10px;z-index:1;background:rgba(15,12,10,.75);color:#fff;font-size:.75rem;font-weight:700;
     padding:4px 9px;border-radius:999px}
   .cartao.p:hover,.cartao.s:hover{outline:2px solid var(--laranja);outline-offset:2px}
+  .cartao.foto::after{background:linear-gradient(180deg,transparent 60%,rgba(10,8,6,.85))}
 
   /* ---------- perfis atendidos ---------- */
   .soma{margin-top:40px;display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 18px}
@@ -363,7 +364,7 @@
 
       <div id="bloco-horizontais">
         <div class="subtit">
-          <div><h3>Horizontais</h3><p>YouTube, institucional e produto.</p></div>
+          <div><h3>Horizontais</h3><p>YouTube, thumbnails, institucional e produto.</p></div>
           <div class="setas"><button type="button" data-dir="-1" aria-label="Voltar">←</button><button type="button" data-dir="1" aria-label="Avançar">→</button></div>
         </div>
         <div class="esteira-vp"><div class="trilho" id="horizontais"></div></div>
@@ -586,51 +587,85 @@
 
   // ---------- carrosséis de vídeo (infinitos, filtrados por nicho) ----------
   var PLAY = '<svg viewBox="0 0 14 14" aria-hidden="true"><path d="M3 1.5v11l9-5.5z"/></svg>';
-  var NICHOS_VIDEO = [["todos","Todos"],["saude","Saúde"],["games","Games"],["motion","Motion design"],["empresas","Empresas e anúncios"]];
-  // id do vídeo (site-jg/media), nicho do filtro, rótulo no cartão, título
+  var NICHOS_VIDEO = [["todos","Todos"],["saude","Saúde"],["games","Games"],["motion","Motion design"],["empresas","Empresas e anúncios"],["ia","Vídeos com IA"]];
+  // id (site-jg/media), nicho do filtro, rótulo no cartão, título; "img" no fim = imagem (thumb), não vídeo
   var VIDEOS = {
     verticais: [
       ["pediatras-3","saude","Saúde · Pediatria","Dica de pediatra com legenda e imagem de apoio"],
       ["games-7","games","Games · EUA","Short de Roblox com ritmo acelerado"],
+      ["ia-animacao-3","ia","Vídeo com IA","Animação estilo cinema para seguro escolar"],
       ["motions-br-2","motion","Motion design","Motion que explica a ideia enquanto a pessoa fala"],
-      ["games-6","games","Games · EUA","Short de Minecraft com legenda que vira piada"],
-      ["pediatras-2","saude","Saúde · Pediatria","Texto que reforça a ideia na hora certa"],
+      ["pediatras-6","saude","Saúde · Pediatria","Três dicas numeradas sobre o quarto do bebê"],
+      ["games-8","games","Games · EUA","Short de Roblox com história e zoom na hora certa"],
+      ["ia-realista-1","ia","Vídeo com IA","Atores realistas criados com IA para anúncio nos EUA"],
       ["motions-br-4","empresas","Anúncio","Criativo animado para loja de celulares"],
-      ["motions-br-1","empresas","Anúncio","Criativo com motion para redes sociais"]
+      ["pediatras-5","saude","Saúde · Pediatria","Título animado: leite fraco ou insuficiente?"],
+      ["games-6","games","Games · EUA","Short de Minecraft com legenda que vira piada"],
+      ["saas-1","motion","Produto digital","App de empréstimos apresentado em motion"],
+      ["ia-animacao-1","ia","Vídeo com IA","Animação com história para anúncio em espanhol"],
+      ["motions-en-2","motion","Motion · EUA","Legenda animada para criador americano"],
+      ["pediatras-2","saude","Saúde · Pediatria","Texto que reforça a ideia na hora certa"],
+      ["games-5","games","Games · EUA","Short de Minecraft com legenda colorida"],
+      ["motions-br-5","empresas","Anúncio","Motion para empresa de comunicação visual"],
+      ["ia-animacao-2","ia","Vídeo com IA","Animação com personagens para app americano"],
+      ["pediatras-1","saude","Saúde · Pediatria","Pediatra com palavra-chave em destaque na tela"],
+      ["motions-br-1","empresas","Anúncio","Criativo com motion para redes sociais"],
+      ["pediatras-4","saude","Saúde · Pediatria","Desmame explicado com legenda e imagem de apoio"],
+      ["ia-realista-2","ia","Vídeo com IA","História realista feita com IA para anúncio em inglês"]
     ],
     horizontais: [
       ["games-3","games","Games · EUA","Vídeo longo de Roblox para youtuber americano"],
       ["motions-br-3","motion","Motion design","Número que ganha vida na tela"],
+      ["ia-3d","ia","Vídeo com IA","Luta 3D estilo videogame criada com IA"],
+      ["thumb-roblox-1","games","Thumbnail · YouTube EUA","Thumbnail de Roblox para youtuber americano","img"],
       ["corporativos-2","empresas","Empresas","Vídeo institucional sobre tabagismo"],
+      ["games-1","games","Games · EUA","Vídeo longo de Minecraft com construção e efeitos"],
+      ["motions-en-1","motion","Motion · EUA","Gráficos e números na tela para youtuber americano"],
+      ["thumb-mine-1","games","Thumbnail · YouTube EUA","Thumbnail de Minecraft para youtuber americano","img"],
       ["motions-en-3","motion","Motion · EUA","Motion para criador de conteúdo americano"],
+      ["games-4","games","Games · EUA","Roblox longo com desafio e placar na tela"],
+      ["thumb-roblox-2","games","Thumbnail · YouTube EUA","Thumbnail de Roblox com seta e destaque","img"],
       ["saas-2","motion","Produto digital","Sistema explicado em animação"],
+      ["games-2","games","Games · EUA","Minecraft com facecam e legenda para youtuber"],
+      ["thumb-mine-2","games","Thumbnail · YouTube EUA","Thumbnail de Minecraft com monstro e reação","img"],
       ["corporativos-1","empresas","Empresas","Ponto principal em destaque na tela"]
     ]
   };
+  var FOTO = '<svg viewBox="0 0 14 14" aria-hidden="true"><path d="M1.5 3.5h11v7h-11z" fill="none" stroke="#fff" stroke-width="1.4"/><path d="M2.5 10l3-3.2 2.2 2.2 1.6-1.4 2.2 2.4" fill="none" stroke="#fff" stroke-width="1.3"/><circle cx="9.6" cy="5.6" r="1" fill="#fff"/></svg>';
   function cartaoVideo(c, classe){
-    var b = document.createElement("button");
-    b.type = "button"; b.className = "cartao " + classe;
-    b.setAttribute("data-src", "media/" + c[0] + ".mp4"); b.setAttribute("data-leg", c[2] + " · " + c[3]);
-    b.innerHTML = '<img loading="lazy" alt=""><video muted loop playsinline preload="none"></video>' +
-                  '<span class="play">' + PLAY + '</span><span class="leg"><small></small><b></b></span>';
+    var img = c[4] === "img", b = document.createElement("button");
+    b.type = "button"; b.className = "cartao " + classe + (img ? " foto" : "");
+    b.setAttribute("data-src", "media/" + c[0] + (img ? ".jpg" : ".mp4")); b.setAttribute("data-leg", c[2] + " · " + c[3]);
+    if(img) b.setAttribute("data-img", "");
+    b.innerHTML = '<img loading="lazy" alt="">' + (img ? '' : '<video muted loop playsinline preload="none"></video>') +
+                  '<span class="play">' + (img ? FOTO : PLAY) + '</span><span class="leg"><small></small><b></b></span>';
     b.querySelector("img").src = "media/" + c[0] + ".jpg"; b.querySelector("img").alt = c[3];
     b.querySelector("small").textContent = c[2]; b.querySelector("b").textContent = c[3];
     return b;
   }
+  function abrirFoto(src, legenda){
+    paginas = []; ant.hidden = prox.hidden = true;
+    var i = document.createElement("img"); i.src = src; i.alt = legenda;
+    abrir(i, legenda);
+  }
   // eventos pelo trilho: valem também para as cópias que a esteira cria
   function ligar(trilho){
     trilho.addEventListener("click", function(e){
-      var b = e.target.closest(".cartao"); if(b) abrirVideo(b.getAttribute("data-src"), b.getAttribute("data-leg"));
+      var b = e.target.closest(".cartao"); if(!b) return;
+      if(b.hasAttribute("data-img")) abrirFoto(b.getAttribute("data-src"), b.getAttribute("data-leg"));
+      else abrirVideo(b.getAttribute("data-src"), b.getAttribute("data-leg"));
     });
     trilho.addEventListener("mouseover", function(e){
       var b = e.target.closest(".cartao"); if(!b || b.contains(e.relatedTarget) || calmo) return;
-      var v = b.querySelector("video"); if(!v.getAttribute("src")) v.src = b.getAttribute("data-src");
+      var v = b.querySelector("video"); if(!v) return;
+      if(!v.getAttribute("src")) v.src = b.getAttribute("data-src");
       var p = v.play(); if(p && p.catch) p.catch(function(){});
       b.classList.add("tocando");
     });
     trilho.addEventListener("mouseout", function(e){
       var b = e.target.closest(".cartao"); if(!b || b.contains(e.relatedTarget)) return;
-      b.querySelector("video").pause(); b.classList.remove("tocando");
+      var v = b.querySelector("video"); if(v) v.pause();
+      b.classList.remove("tocando");
     });
   }
   if(window.matchMedia && matchMedia("(hover: none)").matches)
