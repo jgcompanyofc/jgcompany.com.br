@@ -4,13 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Portfólio Bruno · Edição de vídeo</title>
-<meta name="description" content="Edição de vídeo, motion, social media e tráfego pago. Trabalhos separados por nicho: games, cassino, saúde, empresas e vídeos com IA.">
+<meta name="description" content="Edição de vídeo e motion design. Trabalhos separados por nicho: games, cassino, saúde, motion, empresas e vídeos com IA.">
 <meta name="robots" content="noindex, nofollow">
 <meta name="theme-color" content="#0F0C0A">
 <link rel="icon" type="image/png" href="/portfolio-bruno/icone.png">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Portfólio Bruno · Edição de vídeo">
-<meta property="og:description" content="Edição de vídeo, motion, social media e tráfego pago. Trabalhos separados por nicho: games, cassino, saúde, empresas e vídeos com IA.">
+<meta property="og:description" content="Edição de vídeo e motion design. Trabalhos separados por nicho: games, cassino, saúde, motion, empresas e vídeos com IA.">
 <meta property="og:url" content="https://jgcompany.com.br/portfolio-bruno/">
 <meta property="og:image" content="https://jgcompany.com.br/portfolio-bruno/previa.png">
 <meta property="og:locale" content="pt_BR">
@@ -98,20 +98,7 @@
     .barrinhas button{width:22px}
   }
 
-  /* ---------- atalhos ---------- */
-  .portas{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-  .porta{display:flex;flex-direction:column;min-height:200px;padding:26px;border-radius:var(--raio);background:var(--sup);
-    border:1px solid var(--linha);text-decoration:none;transition:border-color .2s,transform .2s}
-  .porta:hover{border-color:var(--laranja);transform:translateY(-3px)}
-  .porta .tipo{font-size:.8rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--laranja-txt)}
-  .porta strong{display:block;margin-top:12px;font-size:clamp(1.9rem,3vw,2.4rem);font-weight:800;line-height:1;letter-spacing:-.03em}
-  .porta .prova{margin-top:10px;font-size:.95rem;color:var(--sub)}
-  .porta .ir{margin-top:auto;padding-top:18px;font-weight:700;font-size:.95rem}
-  .porta .ir span{display:inline-block;transition:transform .2s}
-  .porta:hover .ir span{transform:translateX(4px)}
-  @media (max-width:860px){.portas{grid-template-columns:1fr}.porta{min-height:0}}
-
-  .quem{margin-top:56px;display:flex;flex-wrap:wrap;align-items:center;gap:10px 26px;padding-block:22px;border-block:1px solid var(--linha);
+  .quem{margin-top:8px;display:flex;flex-wrap:wrap;align-items:center;gap:10px 26px;padding-block:22px;border-block:1px solid var(--linha);
     color:var(--sub);font-weight:600}
   .quem small{font-size:.74rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--fraco)}
   .quem span{display:inline-flex;align-items:center;gap:26px}
@@ -120,6 +107,7 @@
 
   /* ---------- seções ---------- */
   .secao{padding-block:110px 20px;scroll-margin-top:72px}
+  #bloco-verticais,#bloco-horizontais,#como{scroll-margin-top:90px}
   .secao h2.tit{font-size:clamp(2rem,4.4vw,3.4rem);line-height:1.02;font-weight:800;margin-top:16px;max-width:18ch}
   .secao .intro{margin-top:18px;color:var(--sub);max-width:60ch;font-size:1.05rem}
   @media (max-width:560px){.secao{padding-block:80px 0}}
@@ -168,117 +156,13 @@
   .cartao .dur{position:absolute;top:14px;left:12px;z-index:1;background:rgba(15,12,10,.75);color:#fff;font-size:.74rem;font-weight:700;
     padding:4px 9px;border-radius:999px}
 
-  /* ---------- perfis atendidos ---------- */
-  .soma{margin-top:40px;display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 18px}
-  .soma strong{font-size:clamp(2.6rem,6vw,4.2rem);font-weight:800;line-height:1;color:var(--laranja-txt);letter-spacing:-.03em}
-  .soma span{color:var(--sub);font-size:1.05rem;max-width:34ch}
-  .nicho{margin-top:44px}
-  .nicho h3{display:flex;align-items:center;gap:12px;font-size:1.2rem;font-weight:800}
-  .nicho h3 small{font-size:.8rem;font-weight:600;color:var(--fraco)}
-  .perfis{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px;margin-top:16px}
-  .perfil{display:grid;grid-template-columns:auto 1fr;gap:6px 16px;align-items:center;padding:20px;border-radius:var(--raio);
-    background:var(--sup);border:1px solid var(--linha);text-decoration:none;transition:border-color .2s,transform .2s}
-  .perfil:hover{border-color:var(--laranja);transform:translateY(-2px)}
-  .perfil .foto{grid-row:span 2;width:68px;height:68px;border-radius:50%;padding:3px;
-    background:conic-gradient(from 210deg,#FF872F,#F5C542,#FF5E8A,#FF872F)}
-  .perfil .foto span{display:block;width:100%;height:100%;border-radius:50%;overflow:hidden;border:3px solid var(--sup)}
-  .perfil .foto img{width:100%;height:100%;object-fit:cover;transform:scale(1.14);display:block}
-  .perfil .arroba{font-weight:800;font-size:.95rem;display:flex;align-items:center;gap:5px;min-width:0}
-  .perfil .arroba b{overflow-wrap:anywhere;line-height:1.2}
-  .perfil .arroba svg{width:15px;height:15px;flex:none}
-  .perfil .nome{color:var(--sub);font-size:.88rem;line-height:1.3}
-  .perfil .nums{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px;padding-top:12px;border-top:1px solid var(--linha)}
-  .perfil .nums strong{display:block;font-size:1.35rem;font-weight:800;line-height:1.1}
-  .perfil .nums small{color:var(--fraco);font-size:.78rem}
-  .fonte-perfis{margin-top:18px;color:var(--fraco);font-size:.85rem}
-
+  /* ---------- como funciona ---------- */
   .passos{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:56px}
-  .passos.q4{grid-template-columns:repeat(4,1fr);margin-top:44px}
   .passo{padding:26px;border-radius:var(--raio);background:var(--sup);border:1px solid var(--linha);display:flex;flex-direction:column}
   .passo .n{font-family:"Instrument Serif",Georgia,serif;font-style:italic;font-size:2.4rem;line-height:1;color:var(--laranja-txt)}
   .passo h3{font-size:1.2rem;margin-top:14px}
   .passo p{margin-top:8px;color:var(--sub);font-size:.96rem}
-  .passo .onde{margin-top:auto;padding-top:16px;font-size:.84rem;font-weight:600;color:var(--fraco)}
-  .passo .onde.ok{color:var(--verde)}
-  @media (max-width:1000px){.passos.q4{grid-template-columns:1fr 1fr}}
   @media (max-width:760px){.passos{grid-template-columns:1fr}}
-  @media (max-width:600px){.passos.q4{grid-template-columns:1fr}}
-
-  /* ---------- tráfego: resultados por nicho ---------- */
-  .abas{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
-  .aba{border:1px solid var(--linha);background:var(--sup);color:var(--sub);border-radius:999px;padding:11px 18px;
-    font:600 .95rem/1 inherit;font-family:inherit;cursor:pointer;transition:background .15s,color .15s,border-color .15s}
-  .aba:hover{color:var(--txt);border-color:var(--fraco)}
-  .aba[aria-selected="true"]{background:var(--laranja);border-color:var(--laranja);color:#1A0F06}
-  @media (max-width:640px){.aba{padding:10px 14px;font-size:.9rem}}
-
-  .painel{margin-top:20px;padding:clamp(22px,4vw,40px);border-radius:20px;border:1px solid var(--linha);background:var(--sup)}
-  .painel .nome{font-size:clamp(1.6rem,3vw,2.1rem);font-weight:800}
-  .painel .meta{margin-top:6px;color:var(--laranja-txt);font-size:.9rem;font-weight:600}
-  .painel .desc{margin-top:16px;max-width:68ch;color:var(--sub)}
-
-  .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:28px}
-  .stat{border-radius:var(--raio);background:var(--sup2);border:1px solid var(--linha);padding:20px 22px}
-  .stat .k{font-size:.86rem;color:var(--sub)}
-  .stat strong{display:block;margin-top:6px;font-size:clamp(1.8rem,3vw,2.3rem);font-weight:800;letter-spacing:-.03em;line-height:1.05}
-  .stat .s{margin-top:6px;font-size:.88rem;color:var(--fraco)}
-  .stat .s.ok{color:var(--verde);font-weight:700}
-
-  .tabela{margin-top:24px;border-radius:var(--raio);border:1px solid var(--linha);overflow:hidden}
-  .tabela .tcab{padding:18px 22px 14px;background:var(--sup2)}
-  .tabela .tcab h4{font-size:1.02rem;font-weight:700}
-  .tabela .tcab p{font-size:.86rem;color:var(--fraco);margin-top:2px}
-  table{width:100%;border-collapse:collapse;font-size:.95rem;font-variant-numeric:tabular-nums}
-  th,td{padding:13px 22px;text-align:right;border-top:1px solid var(--linha);white-space:nowrap}
-  th:first-child,td:first-child{text-align:left}
-  thead th{font-size:.76rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--fraco)}
-  td{color:var(--sub)}
-  td:first-child{color:var(--txt);font-weight:600}
-  td.roas{color:var(--verde);font-weight:800}
-  tfoot td{font-weight:800;color:var(--txt);background:rgba(255,135,47,.08)}
-  /* no celular a tabela vira uma lista: nada para arrastar de lado */
-  @media (max-width:640px){
-    thead{display:none}
-    table,tbody,tfoot,tr,td{display:block}
-    tr{padding:12px 18px;border-top:1px solid var(--linha)}
-    td{display:flex;justify-content:space-between;gap:12px;padding:4px 0;border:0;text-align:right}
-    td::before{content:attr(data-r);color:var(--fraco);font-weight:500;text-align:left}
-    td:first-child{font-size:1.02rem;padding-bottom:6px}
-    td:first-child::before{content:none}
-    tfoot tr{background:rgba(255,135,47,.08)}
-    tfoot td{background:none}
-  }
-
-  .sub-tit{margin-top:34px;font-size:1.15rem;font-weight:800}
-  .sub-leg{font-size:.92rem;color:var(--fraco);margin-top:2px}
-  .opinioes{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px;margin-top:14px}
-  .opiniao{border-radius:var(--raio);background:var(--sup2);border:1px solid var(--linha);padding:22px 24px;display:flex;flex-direction:column;gap:16px}
-  .opiniao blockquote{margin:0;font-size:1.04rem;line-height:1.55;color:var(--txt)}
-  .opiniao blockquote::before{content:"“";display:block;font-family:"Instrument Serif",Georgia,serif;font-size:2.6rem;line-height:.6;color:var(--laranja-txt);margin-bottom:8px}
-  .opiniao .quem-diz{margin-top:auto;font-size:.88rem;color:var(--fraco)}
-  .opiniao .quem-diz b{color:var(--txt);font-weight:700}
-
-  .provas-cab{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin-top:34px}
-  .provas-cab .sub-tit{margin-top:0}
-  .provas-cab .setas button{background:var(--sup2)}
-  /* provas em carrossel infinito: anda devagar sozinho, para no mouse, setas e arrasto movem na mão */
-  .esteira{margin-top:14px;overflow:hidden;touch-action:pan-y;container-type:inline-size;cursor:grab}
-  .esteira.arrastando{cursor:grabbing}
-  .esteira.arrastando .prova{pointer-events:none}
-  .esteira .provas{display:flex;gap:14px;width:max-content;will-change:transform;padding-block:2px 6px}
-  .esteira .prova{flex:none;width:calc((100cqw - 42px) / 4)}
-  @container (max-width:820px){.esteira .prova{width:calc((100cqw - 28px) / 3)}}
-  @container (max-width:560px){.esteira .provas{gap:10px}.esteira .prova{width:calc((100cqw - 10px) / 2)}}
-  @media (max-width:520px){.setas button{width:40px;height:40px}}
-  .prova{border-radius:12px;overflow:hidden;padding:0;text-align:left;cursor:zoom-in;font:inherit;color:inherit;background:var(--sup2);
-    border:1px solid var(--linha);display:flex;flex-direction:column;transition:border-color .2s}
-  .prova:hover{border-color:var(--laranja)}
-  .prova .img{aspect-ratio:4/3;background:#fff;overflow:hidden}
-  .prova img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block}
-  .prova .txt{padding:12px 14px 14px}
-  .prova .cat{display:block;font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--laranja-txt)}
-  .prova .tit{display:block;margin-top:4px;font-size:.92rem;line-height:1.35;color:var(--txt)}
-  @media (max-width:520px){.prova .tit{font-size:.84rem}}
 
   footer{margin-top:110px;border-top:1px solid var(--linha)}
   footer .env{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:14px;padding-block:28px 40px;color:var(--fraco);font-size:.9rem}
@@ -298,7 +182,7 @@
 
   @media (prefers-reduced-motion:reduce){
     html{scroll-behavior:auto}
-    .abertura video,.porta,.porta .ir span,.perfil,.prova{transition:none}
+    .abertura video{transition:none}
   }
 </style>
 
@@ -306,9 +190,10 @@
   <div class="env">
     <a class="marca" href="#inicio" aria-label="Portfólio Bruno, início"><img src="foto.jpg" alt=""><span>Portfólio Bruno</span></a>
     <nav id="menu" aria-label="Seções">
-      <a href="#video">Edição de vídeo</a>
-      <a href="#social">Social media</a>
-      <a href="#trafego">Tráfego pago</a>
+      <a href="#video">Vídeos</a>
+      <a href="#bloco-verticais">Verticais</a>
+      <a href="#bloco-horizontais">Horizontais</a>
+      <a href="#como">Como funciona</a>
     </nav>
     <button type="button" class="menu-bt" id="menu-bt" aria-expanded="false" aria-controls="menu" aria-label="Abrir menu">
       <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 5.5h14M3 10h14M3 14.5h14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
@@ -325,10 +210,10 @@
     <div class="env">
       <div class="eu">
         <span class="foto"><img src="foto.jpg" alt="Foto do Bruno"></span>
-        <div><b>Bruno</b><span>Edição de vídeo · Social media · Tráfego pago</span></div>
+        <div><b>Bruno</b><span>Edição de vídeo · Motion design</span></div>
       </div>
       <h1>Eu edito vídeos que <em>prendem</em> até o último segundo.</h1>
-      <p class="sub">Shorts, Reels, YouTube, motion e anúncio. Também cuido de perfil no Instagram e de tráfego pago. Tudo o que fiz está aqui, separado por nicho.</p>
+      <p class="sub">Shorts, Reels, YouTube, motion, thumbnail e anúncio. Tudo o que fiz está aqui, separado por nicho.</p>
       <div class="contador" aria-label="Vídeos da abertura">
         <span id="cont">01 / 04</span>
         <div class="barrinhas" id="barrinhas"></div>
@@ -338,30 +223,9 @@
   </section>
 
   <div class="env">
-    <div class="portas">
-      <a class="porta" href="#video">
-        <p class="tipo">Edição de vídeo</p>
-        <strong id="qtd-videos">39 trabalhos</strong>
-        <p class="prova">Games, cassino, saúde, motion, empresas e vídeos com IA.</p>
-        <p class="ir">Ver os vídeos <span aria-hidden="true">→</span></p>
-      </a>
-      <a class="porta" href="#social">
-        <p class="tipo">Social media</p>
-        <strong>+970 mil</strong>
-        <p class="prova">seguidores somados nos perfis que já atendi.</p>
-        <p class="ir">Ver os perfis <span aria-hidden="true">→</span></p>
-      </a>
-      <a class="porta" href="#trafego">
-        <p class="tipo">Tráfego pago</p>
-        <strong>R$ 158 mil</strong>
-        <p class="prova">em vendas para uma loja virtual, com R$ 7 mil em anúncio.</p>
-        <p class="ir">Ver os resultados <span aria-hidden="true">→</span></p>
-      </a>
-    </div>
-
     <div class="quem" aria-label="Para quem já trabalhei">
       <small>Já fiz para</small>
-      <span>Youtubers dos EUA</span><span>Streamers de cassino</span><span>Médicos</span><span>Empresas</span><span>Lojas</span><span>Criadores de conteúdo</span>
+      <span>Youtubers dos EUA</span><span>Streamers de cassino</span><span>Médicos</span><span>Empresas</span><span>Criadores de conteúdo</span>
     </div>
 
     <!-- ===================== EDIÇÃO DE VÍDEO ===================== -->
@@ -388,179 +252,10 @@
         <div class="esteira-vp"><div class="trilho" id="horizontais"></div></div>
       </div>
 
-      <div class="passos">
+      <div class="passos" id="como">
         <div class="passo"><p class="n">1</p><h3>Você grava</h3><p>Do jeito que dá, até no celular. Depois me envia o material bruto.</p></div>
         <div class="passo"><p class="n">2</p><h3>Eu edito</h3><p>Corte, legenda, ritmo, música e imagem de apoio. Motion quando faz sentido.</p></div>
         <div class="passo"><p class="n">3</p><h3>Você recebe pronto</h3><p>No formato certo para Reels, Shorts, TikTok, YouTube ou anúncio.</p></div>
-      </div>
-    </section>
-
-    <!-- ===================== SOCIAL MEDIA ===================== -->
-    <section class="secao" id="social" aria-labelledby="tit-social">
-      <p class="olho">Social media</p>
-      <h2 class="tit" id="tit-social">Perfil bonito, postando <em>toda semana</em></h2>
-      <p class="intro">Eu monto o visual da marca uma vez e produzo carrossel e stories no mesmo padrão, toda semana, nos melhores horários. Você só aprova.</p>
-
-      <div class="soma"><strong>+970 mil</strong><span>seguidores somados nos perfis que já atendi, de médicos a músicos.</span></div>
-      <div id="perfis"></div>
-      <p class="fonte-perfis">Números públicos de cada perfil no Instagram, em outubro de 2026. Clique para abrir o perfil.</p>
-
-      <div class="passos">
-        <div class="passo"><p class="n">1</p><h3>Eu conheço a marca</h3><p>Cores, fontes, logo, jeito de falar e o que o seu cliente precisa ouvir.</p></div>
-        <div class="passo"><p class="n">2</p><h3>Monto o calendário</h3><p>Carrosséis e stories da semana, com os seus resultados e as dúvidas dos seus clientes.</p></div>
-        <div class="passo"><p class="n">3</p><h3>Você aprova, eu posto</h3><p>Tudo agendado nos melhores horários. Você não precisa abrir o Instagram para isso.</p></div>
-      </div>
-    </section>
-
-    <!-- ===================== TRÁFEGO PAGO ===================== -->
-    <section class="secao" id="trafego" aria-labelledby="tit-trafego">
-      <p class="olho">Tráfego pago</p>
-      <h2 class="tit" id="tit-trafego">Anúncio que vira <em>cliente</em>, não só curtida</h2>
-      <p class="intro">Gestão de anúncios no Instagram e no Facebook. Cada real é medido no que importa para o negócio: compra no site, contato ou contrato fechado.</p>
-
-      <div class="passos q4">
-        <div class="passo"><p class="n">1</p><h3>Público certo</h3><p>Quem precisa ver o anúncio: região, faixa etária e interesse de quem tem potencial de compra.</p><p class="onde">Segmentação por cidade e perfil</p></div>
-        <div class="passo"><p class="n">2</p><h3>Criativos em teste</h3><p>Vários anúncios rodam lado a lado, com imagem, vídeo e texto diferentes. Os números mostram qual traz resultado.</p><p class="onde">Imagem, vídeo e carrossel</p></div>
-        <div class="passo"><p class="n">3</p><h3>Verba no que funciona</h3><p>O anúncio campeão recebe mais investimento. O que não performa sai. Nenhum real fica parado em campanha fraca.</p><p class="onde ok">Mais resultado pelo mesmo valor</p></div>
-        <div class="passo"><p class="n">4</p><h3>Acompanhamento</h3><p>Toda semana eu confiro com o cliente o que virou venda de verdade. É isso que orienta o próximo ajuste.</p><p class="onde">Ajuste semanal</p></div>
-      </div>
-
-      <div class="subtit"><div><h3>Resultados por nicho</h3><p>Prints do Gerenciador de Anúncios e das conversas com os clientes. Clique para ampliar.</p></div></div>
-
-      <div class="abas" role="tablist" aria-label="Nichos">
-        <button class="aba" role="tab" id="aba-lojas" aria-controls="p-lojas" aria-selected="true">Lojas virtuais</button>
-        <button class="aba" role="tab" id="aba-servicos" aria-controls="p-servicos" aria-selected="false">Serviços locais</button>
-        <button class="aba" role="tab" id="aba-saude" aria-controls="p-saude" aria-selected="false">Saúde</button>
-        <button class="aba" role="tab" id="aba-artistas" aria-controls="p-artistas" aria-selected="false">Artistas</button>
-      </div>
-
-      <!-- LOJAS VIRTUAIS -->
-      <div class="painel" id="p-lojas" role="tabpanel" aria-labelledby="aba-lojas">
-        <h3 class="nome">Lojas virtuais</h3>
-        <p class="meta">Compras no site · Instagram e Facebook</p>
-        <p class="desc">Campanhas de venda direta, medidas pela compra concluída no site. O resultado aqui é simples de conferir: quanto entrou em venda para cada real colocado em anúncio.</p>
-
-        <div class="stats">
-          <div class="stat"><p class="k">Vendas pelos anúncios</p><strong class="num">R$ 158.474</strong><p class="s">com R$ 7.122 investidos</p></div>
-          <div class="stat"><p class="k">Retorno sobre o investimento</p><strong class="num">22x</strong><p class="s ok">R$ 22 em venda para cada R$ 1</p></div>
-          <div class="stat"><p class="k">Compras no site</p><strong class="num">476</strong><p class="s">R$ 14,96 de custo por compra</p></div>
-        </div>
-
-        <div class="tabela">
-          <div class="tcab">
-            <h4>Campanhas de uma loja virtual</h4>
-            <p>Transcrito do Gerenciador de Anúncios. O print original está nas provas abaixo.</p>
-          </div>
-          <table>
-            <thead><tr><th scope="col">Campanha</th><th scope="col">Investido</th><th scope="col">Compras</th><th scope="col">Vendas</th><th scope="col">Retorno</th></tr></thead>
-            <tbody>
-              <tr><td>Campanha 1</td><td data-r="Investido">R$ 2.749,87</td><td data-r="Compras">193</td><td data-r="Vendas">R$ 67.083,24</td><td class="roas" data-r="Retorno">24,4x</td></tr>
-              <tr><td>Campanha 2</td><td data-r="Investido">R$ 1.836,49</td><td data-r="Compras">130</td><td data-r="Vendas">R$ 41.814,01</td><td class="roas" data-r="Retorno">22,8x</td></tr>
-              <tr><td>Campanha 3</td><td data-r="Investido">R$ 908,85</td><td data-r="Compras">58</td><td data-r="Vendas">R$ 16.241,94</td><td class="roas" data-r="Retorno">17,9x</td></tr>
-              <tr><td>Campanha 4</td><td data-r="Investido">R$ 708,01</td><td data-r="Compras">52</td><td data-r="Vendas">R$ 19.160,15</td><td class="roas" data-r="Retorno">27,1x</td></tr>
-              <tr><td>Campanha 5</td><td data-r="Investido">R$ 919,59</td><td data-r="Compras">43</td><td data-r="Vendas">R$ 14.174,68</td><td class="roas" data-r="Retorno">15,4x</td></tr>
-            </tbody>
-            <tfoot><tr><td>Total</td><td data-r="Investido">R$ 7.122,81</td><td data-r="Compras">476</td><td data-r="Vendas">R$ 158.474,02</td><td class="roas" data-r="Retorno">22,2x</td></tr></tfoot>
-          </table>
-        </div>
-
-        <h4 class="sub-tit">O que os clientes dizem</h4>
-        <div class="opinioes">
-          <div class="opiniao">
-            <blockquote>Tivemos um total de R$ 5.396,40 de vendas computadas, fora as que não sabemos. Tivemos muito cliente de primeira compra esse mês.</blockquote>
-            <p class="quem-diz"><b>Loja de varejo</b></p>
-          </div>
-          <div class="opiniao">
-            <blockquote>Ontem foi o recorde de vendas na história. Data comemorativa, então o pessoal comprou bastante.</blockquote>
-            <p class="quem-diz"><b>Loja de varejo</b></p>
-          </div>
-        </div>
-
-        <div class="provas-cab">
-          <div><h4 class="sub-tit">Provas</h4><p class="sub-leg">Gerenciador de Anúncios e conversas com os clientes.</p></div>
-          <div class="setas" hidden><button type="button" data-dir="-1" aria-label="Provas anteriores">←</button><button type="button" data-dir="1" aria-label="Próximas provas">→</button></div>
-        </div>
-        <div class="provas" data-galeria="lojas"></div>
-      </div>
-
-      <!-- SERVIÇOS LOCAIS -->
-      <div class="painel" id="p-servicos" role="tabpanel" aria-labelledby="aba-servicos" hidden>
-        <h3 class="nome">Serviços locais</h3>
-        <p class="meta">Lavanderia · Eventos · Imóveis · Contatos pelo anúncio</p>
-        <p class="desc">Para quem vende serviço, a venda acontece na conversa. As campanhas levam a pessoa direto para a conversa com o cliente, e o acompanhamento semanal mede o que virou contrato fechado.</p>
-
-        <div class="stats">
-          <div class="stat"><p class="k">Lavanderia</p><strong class="num">10 por dia</strong><p class="s">novos contatos, em média</p></div>
-          <div class="stat"><p class="k">Eventos</p><strong class="num">2 contratos</strong><p class="s">fechados em uma semana</p></div>
-          <div class="stat"><p class="k">Imóveis</p><strong>1ª captação</strong><p class="s">vinda direto do anúncio</p></div>
-        </div>
-
-        <h4 class="sub-tit">O que os clientes dizem</h4>
-        <div class="opinioes">
-          <div class="opiniao">
-            <blockquote>Os números seguem bem elevados, em média 10 novos leads por dia! A partir do 2º aporte que fizemos, o número de leads qualificados subiu consideravelmente.</blockquote>
-            <p class="quem-diz"><b>Lavanderia</b></p>
-          </div>
-          <div class="opiniao">
-            <blockquote>Fechamos dois contratos essa semana. Viram pela primeira vez no anúncio, acompanharam na rede social, depois entraram em contato.</blockquote>
-            <p class="quem-diz"><b>Empresa de eventos</b></p>
-          </div>
-          <div class="opiniao">
-            <blockquote>Primeira captação 🚀</blockquote>
-            <p class="quem-diz"><b>Corretor de imóveis</b></p>
-          </div>
-        </div>
-
-        <div class="provas-cab">
-          <div><h4 class="sub-tit">Provas</h4><p class="sub-leg">Conversas originais com os clientes.</p></div>
-          <div class="setas" hidden><button type="button" data-dir="-1" aria-label="Provas anteriores">←</button><button type="button" data-dir="1" aria-label="Próximas provas">→</button></div>
-        </div>
-        <div class="provas" data-galeria="servicos"></div>
-      </div>
-
-      <!-- SAÚDE -->
-      <div class="painel" id="p-saude" role="tabpanel" aria-labelledby="aba-saude" hidden>
-        <h3 class="nome">Saúde</h3>
-        <p class="meta">Psicanálise online · Contatos pelo site</p>
-        <p class="desc">Atendimento de psicanálise online. Cinco criativos rodaram lado a lado, entre imagem e vídeo. Um deles se destacou com folga e passou a receber a verba. É o passo 3 funcionando na prática.</p>
-
-        <div class="stats">
-          <div class="stat"><p class="k">Contatos pelo site</p><strong class="num">1.399</strong><p class="s">com o criativo campeão</p></div>
-          <div class="stat"><p class="k">Custo por contato</p><strong class="num">R$ 3,52</strong><p class="s ok">por pessoa interessada</p></div>
-          <div class="stat"><p class="k">Pessoas alcançadas</p><strong class="num">96.630</strong><p class="s">197.954 impressões</p></div>
-        </div>
-
-        <div class="provas-cab">
-          <div><h4 class="sub-tit">Provas</h4><p class="sub-leg">Comparativo dos criativos no Gerenciador de Anúncios.</p></div>
-          <div class="setas" hidden><button type="button" data-dir="-1" aria-label="Provas anteriores">←</button><button type="button" data-dir="1" aria-label="Próximas provas">→</button></div>
-        </div>
-        <div class="provas" data-galeria="saude"></div>
-      </div>
-
-      <!-- ARTISTAS -->
-      <div class="painel" id="p-artistas" role="tabpanel" aria-labelledby="aba-artistas" hidden>
-        <h3 class="nome">Artistas</h3>
-        <p class="meta">Construção de marca · Rio de Janeiro e São Paulo</p>
-        <p class="desc">Aqui o objetivo não é a venda imediata, é tornar o artista conhecido pelo público certo. A verba foi concentrada no Rio e em São Paulo, os mercados prioritários do projeto, e na faixa etária com potencial de compra.</p>
-
-        <div class="stats">
-          <div class="stat"><p class="k">Contas alcançadas</p><strong class="num">54 mil</strong><p class="s">em 30 dias</p></div>
-          <div class="stat"><p class="k">Visualizações</p><strong class="num">126 mil</strong><p class="s">em 30 dias</p></div>
-        </div>
-
-        <h4 class="sub-tit">O que o cliente diz</h4>
-        <div class="opinioes">
-          <div class="opiniao">
-            <blockquote>O alcance e a visibilidade da marca cresceram de forma consistente. Os criativos estão conseguindo despertar interesse e levar novas pessoas a conhecerem o trabalho do artista.</blockquote>
-            <p class="quem-diz"><b>Equipe do artista</b></p>
-          </div>
-        </div>
-
-        <div class="provas-cab">
-          <div><h4 class="sub-tit">Provas</h4><p class="sub-leg">Relatório enviado pela equipe do artista.</p></div>
-          <div class="setas" hidden><button type="button" data-dir="-1" aria-label="Provas anteriores">←</button><button type="button" data-dir="1" aria-label="Próximas provas">→</button></div>
-        </div>
-        <div class="provas" data-galeria="artistas"></div>
       </div>
     </section>
   </div>
@@ -569,7 +264,7 @@
 <footer>
   <div class="env">
     <span class="marca"><img src="foto.jpg" alt=""><span>Portfólio Bruno</span></span>
-    <p>Edição de vídeo, social media e tráfego pago</p>
+    <p>Edição de vídeo e motion design</p>
     <a href="#inicio">Voltar ao topo ↑</a>
   </div>
 </footer>
@@ -840,7 +535,6 @@
     });
   }
   var todos = VIDEOS.verticais.concat(VIDEOS.horizontais);
-  document.getElementById("qtd-videos").textContent = todos.length + " trabalhos";
   NICHOS_VIDEO.forEach(function(n){
     var qtd = todos.filter(function(v){ return n[0] === "todos" || v[1] === n[0]; }).length;
     if(!qtd) return;
@@ -851,107 +545,6 @@
     document.getElementById("nichos").appendChild(b); botoesNicho.push(b);
   });
   filtrar("todos");
-
-  // ---------- perfis atendidos (números públicos, out/2026) ----------
-  var SELO = '<svg viewBox="0 0 24 24" aria-label="Verificado"><path fill="#3897F0" d="M12 1.5l2.6 1.9 3.2-.1 1 3 2.6 1.9-1 3 1 3-2.6 1.9-1 3-3.2-.1L12 22.5l-2.6-1.9-3.2.1-1-3L2.6 15.8l1-3-1-3 2.6-1.9 1-3 3.2.1z"/><path d="M8 12.3l2.6 2.6L16.2 9" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
-  var NICHOS = [
-    ["Saúde e estética", [
-      ["domingoscoelho_md","Domingos Sávio Coelho · Dermatologista","63 mil","1.040",false],
-      ["capilife_","Capilife · Clínica de transplante capilar","45,2 mil","1.895",false],
-      ["dr.jeffersonsilvafreitas","Dr. Jefferson · Tricologia e restauração capilar","6.348","279",false],
-      ["draluizabernardespediatra","Dra. Luiza Bernardes · Pediatra","5.082","645",false]]],
-    ["Empresas", [
-      ["icrazybr","iCrazy · Loja Apple Premium","106 mil","2.920",false],
-      ["highlinegoiania","Escola High Line · Escola bilíngue em Goiânia","12 mil","205",false],
-      ["transportegeneroso","Transporte Generoso · Transportadora","10,8 mil","1.047",true]]],
-    ["Criadores e música", [
-      ["andrelrcavalcante","André Cavalcante · Músico e produtor","420 mil","1.049",true],
-      ["geracaotechs","Glauton Filho · Tecnologia e IA","218 mil","989",false],
-      ["samuell.music","Samuell Gonçalves · Violonista","85,5 mil","209",true]]]
-  ];
-  var caixa = document.getElementById("perfis");
-  NICHOS.forEach(function(n){
-    var bloco = document.createElement("div"); bloco.className = "nicho";
-    var h = document.createElement("h3"); h.textContent = n[0];
-    var q = document.createElement("small"); q.textContent = n[1].length + " perfis"; h.appendChild(q);
-    var grade = document.createElement("div"); grade.className = "perfis";
-    n[1].forEach(function(p){
-      var a = document.createElement("a");
-      a.className = "perfil"; a.href = "https://www.instagram.com/" + p[0] + "/"; a.target = "_blank"; a.rel = "noopener";
-      a.innerHTML = '<span class="foto"><span><img loading="lazy" alt=""></span></span>' +
-        '<span class="arroba"><b></b>' + (p[4] ? SELO : "") + '</span><span class="nome"></span>' +
-        '<span class="nums"><span class="seg"><strong></strong><small>seguidores</small></span><span><strong></strong><small>posts</small></span></span>';
-      a.querySelector("img").src = "../perfis/" + p[0] + ".jpg";
-      a.querySelector(".arroba b").textContent = "@" + p[0];
-      a.querySelector(".nome").textContent = p[1];
-      a.querySelector(".seg strong").textContent = p[2];
-      a.querySelectorAll(".nums strong")[1].textContent = p[3];
-      grade.appendChild(a);
-    });
-    bloco.appendChild(h); bloco.appendChild(grade); caixa.appendChild(bloco);
-  });
-
-  // ---------- tráfego: provas ----------
-  var GALERIAS = {
-    lojas: [
-      ["tf-ads-67083-conversao-193compras","Gerenciador","R$ 158 mil em vendas com R$ 7,1 mil investidos"],
-      ["tf-ads-roas-979-detalhado","Gerenciador","Retorno de até 9,8x por campanha na mesma loja"],
-      ["tf-ads-tabela-98compras-36856","Gerenciador","98 compras a R$ 3,87 cada, R$ 36.856 em vendas"],
-      ["tf-depo-varejo-5396","Depoimento","R$ 5.396 em vendas e muito cliente novo no mês"],
-      ["tf-depo-varejo-recorde","Depoimento","Recorde de vendas da história da loja"]
-    ],
-    servicos: [
-      ["tf-depo-lavanderia-10-leads-dia","Lavanderia","Média de 10 novos contatos por dia"],
-      ["tf-depo-eventos-dois-contratos","Eventos","Dois contratos fechados na semana"],
-      ["tf-depo-imoveis-primeira-captacao","Imóveis","Primeira captação vinda do anúncio"]
-    ],
-    saude: [
-      ["tf-ads-psicanalise-1399-contatos","Gerenciador","1.399 contatos a R$ 3,52 com o criativo campeão"]
-    ],
-    artistas: [
-      ["tf-depo-artista-54mil-alcance","Relatório","54 mil contas alcançadas e 126 mil visualizações"]
-    ]
-  };
-  document.querySelectorAll("[data-galeria]").forEach(function(caixa){
-    var itens = (GALERIAS[caixa.getAttribute("data-galeria")] || []).map(function(it){
-      var src = "trf/" + it[0] + ".jpg", b = document.createElement("button");
-      b.type = "button"; b.className = "prova";
-      b.setAttribute("data-src", src); b.setAttribute("data-txt", it[2]);
-      b.innerHTML = '<span class="img"><img loading="lazy" decoding="async" alt=""></span>' +
-                    '<span class="txt"><span class="cat"></span><span class="tit"></span></span>';
-      b.querySelector("img").src = src; b.querySelector("img").alt = it[2];
-      b.querySelector(".cat").textContent = it[1]; b.querySelector(".tit").textContent = it[2];
-      return b;
-    });
-    // todas as provas viram carrossel infinito; quando cabem inteiras na tela, ficam paradas
-    var vp = document.createElement("div"); vp.className = "esteira";
-    caixa.parentNode.insertBefore(vp, caixa); vp.appendChild(caixa);
-    var cab = vp.previousElementSibling, setas = cab && cab.querySelector(".setas");
-    esteira(vp, caixa, setas, 14).itens(itens);
-    caixa.addEventListener("click", function(e){
-      var p = e.target.closest(".prova"); if(p) abrirFoto(p.getAttribute("data-src"), p.getAttribute("data-txt"), "print");
-    });
-  });
-
-  // ---------- tráfego: abas dos nichos ----------
-  var abas = [].slice.call(document.querySelectorAll(".aba"));
-  function abrirAba(aba){
-    abas.forEach(function(a){
-      var on = a === aba;
-      a.setAttribute("aria-selected", on ? "true" : "false");
-      a.tabIndex = on ? 0 : -1;
-      document.getElementById(a.getAttribute("aria-controls")).hidden = !on;
-    });
-  }
-  abas.forEach(function(aba, i){
-    aba.addEventListener("click", function(){ abrirAba(aba); });
-    aba.addEventListener("keydown", function(e){
-      var d = e.key === "ArrowRight" ? 1 : e.key === "ArrowLeft" ? -1 : 0;
-      if(!d) return; e.preventDefault();
-      var p = abas[(i + d + abas.length) % abas.length]; p.focus(); abrirAba(p);
-    });
-  });
-  abrirAba(abas[0]);
 })();
 </script>
 
