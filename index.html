@@ -566,7 +566,10 @@
   }
   function abrirVideo(src, legenda){
     paginas = []; ant.hidden = prox.hidden = true;
-    var v = document.createElement("video"); v.src = src; v.controls = true; v.autoplay = true; v.playsInline = true;
+    // abre o vídeo inteiro (media/completo); se não tiver versão completa, fica o trecho de 12 s
+    var v = document.createElement("video"); v.controls = true; v.autoplay = true; v.playsInline = true; v.setAttribute("playsinline", "");
+    v.addEventListener("error", function(){ if(v.getAttribute("src") !== src) v.src = src; });
+    v.src = src.replace("media/", "media/completo/");
     abrir(v, legenda);
   }
   function mostrarPagina(){

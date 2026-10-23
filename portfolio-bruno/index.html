@@ -203,6 +203,8 @@
       ["ia-3d","h","Luta 3D estilo videogame"]]]
   ];
   function caminho(id){ return (id.indexOf("cassino-") === 0 ? "media/" : "../media/") + id; }
+  // vídeo inteiro para a lupa: os de cassino já são inteiros; os do site principal ficam em /media/completo/
+  function inteiro(id){ return id.indexOf("cassino-") === 0 ? caminho(id) + ".mp4" : "../media/completo/" + id + ".mp4"; }
 
   // ---------- monta menu e grades ----------
   var menu = document.getElementById("menu"), caixa = document.getElementById("nichos");
@@ -226,7 +228,7 @@
         b.querySelector("img").src = caminho(t[0]) + ".jpg";
         b.querySelector("img").alt = t[2];
         b.querySelector(".tit").textContent = t[2];
-        var item = {src: caminho(t[0]) + (img ? ".jpg" : ".mp4"), img: img, leg: n[1] + " · " + t[2], lista: lista, i: lista.length};
+        var item = {src: caminho(t[0]) + (img ? ".jpg" : ".mp4"), inteiro: img ? "" : inteiro(t[0]), img: img, leg: n[1] + " · " + t[2], lista: lista, i: lista.length};
         lista.push(item);
         b.addEventListener("click", function(){ abrir(item); });
         if(!img && !toque && !calmo){
@@ -265,12 +267,16 @@
   var lupa = document.getElementById("lupa"), area = document.getElementById("lupa-midia"), txt = document.getElementById("lupa-txt"), atual = null;
   var ant = document.getElementById("lupa-ant"), prox = document.getElementById("lupa-prox");
   function abrir(item){
-    if(!lupa.showModal){ location.href = item.src; return; }
+    if(!lupa.showModal){ location.href = item.inteiro || item.src; return; }
     atual = item; area.innerHTML = "";
     var el;
     if(item.img){ el = document.createElement("img"); el.alt = item.leg; }
-    else { el = document.createElement("video"); el.controls = true; el.autoplay = true; el.playsInline = true; el.setAttribute("playsinline", ""); }
-    el.src = item.src; area.appendChild(el); txt.textContent = item.leg;
+    else {
+      el = document.createElement("video"); el.controls = true; el.autoplay = true; el.playsInline = true; el.setAttribute("playsinline", "");
+      // sem versão completa, fica o trecho de 12 s
+      el.addEventListener("error", function(){ if(el.getAttribute("src") !== item.src) el.src = item.src; });
+    }
+    el.src = item.inteiro || item.src; area.appendChild(el); txt.textContent = item.leg;
     ant.hidden = prox.hidden = item.lista.length < 2;
     if(!lupa.open) lupa.showModal();
   }
