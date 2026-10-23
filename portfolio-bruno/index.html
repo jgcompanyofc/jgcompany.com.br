@@ -31,15 +31,15 @@
   *{box-sizing:border-box}
   html{scroll-behavior:smooth}
   body{margin:0;background:var(--bg);color:var(--txt);font-family:"Inter Tight","Helvetica Neue",Arial,sans-serif;
-    font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased;overflow-x:clip}
+    font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased;overflow-x:clip;-webkit-text-size-adjust:100%;-webkit-tap-highlight-color:transparent}
   h1,h2,p{margin:0}
   a{color:inherit;text-decoration:none}
   :focus-visible{outline:2px solid var(--txt);outline-offset:3px}
-  .env{width:min(1280px,100%);margin-inline:auto;padding-inline:32px}
-  @media (max-width:640px){.env{padding-inline:16px}}
+  .env{width:min(1280px,100%);margin-inline:auto;padding-inline:max(32px,env(safe-area-inset-left)) max(32px,env(safe-area-inset-right))}
+  @media (max-width:640px){.env{padding-inline:max(16px,env(safe-area-inset-left)) max(16px,env(safe-area-inset-right))}}
 
   /* topo: nome e nichos, fixo */
-  .topo{position:sticky;top:0;z-index:10;background:rgba(250,250,248,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--linha)}
+  .topo{position:sticky;top:0;z-index:10;background:rgba(250,250,248,.92);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border-bottom:1px solid var(--linha)}
   .topo .env{display:flex;align-items:center;gap:32px;min-height:60px}
   .topo .nome{font-weight:600;flex:none}
   .topo nav{display:flex;gap:24px;overflow-x:auto;scrollbar-width:none;font-size:.94rem;color:var(--sub);margin-left:auto}
@@ -92,16 +92,17 @@
   footer a:hover{color:var(--txt)}
 
   /* lupa */
-  dialog.lupa{border:0;padding:0;background:transparent;max-width:100vw;max-height:100vh;width:100vw;height:100vh;color:#fff}
+  dialog.lupa{border:0;padding:0;background:transparent;max-width:100vw;max-height:100vh;width:100vw;height:100vh;height:100dvh;max-height:100dvh;color:#fff}
   dialog.lupa::backdrop{background:rgba(12,12,12,.94)}
-  .lupa-in{height:100%;display:grid;grid-template-rows:auto 1fr;gap:12px;padding:16px 20px 24px}
+  .lupa-in{height:100%;display:grid;grid-template-columns:minmax(0,1fr);grid-template-rows:auto minmax(0,1fr);gap:12px;padding:max(16px,env(safe-area-inset-top)) 20px max(24px,env(safe-area-inset-bottom))}
+  @media (max-width:640px){.lupa-in{padding-inline:12px}.lupa button{min-width:44px;min-height:44px}}
   .lupa .barra{display:flex;align-items:center;justify-content:space-between;gap:16px;font-size:.95rem}
-  .lupa .barra p{color:#d8d8d4;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .lupa .barra p{flex:1;min-width:0;color:#d8d8d4;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
   .lupa .bts{display:flex;gap:8px;flex:none}
   .lupa button{border:1px solid #3a3a38;background:transparent;color:#fff;border-radius:4px;padding:8px 12px;font:500 .9rem/1 "Inter Tight",Arial,sans-serif;cursor:pointer}
   .lupa button:hover{border-color:#fff}
   .lupa button[hidden]{display:none}
-  .lupa .midia{min-height:0;display:flex;align-items:center;justify-content:center}
+  .lupa .midia{min-height:0;min-width:0;display:flex;align-items:center;justify-content:center}
   .lupa video,.lupa img{max-width:100%;max-height:100%;display:block;border-radius:4px;background:#000}
 
   @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.item video{transition:none}}
@@ -264,13 +265,14 @@
   var lupa = document.getElementById("lupa"), area = document.getElementById("lupa-midia"), txt = document.getElementById("lupa-txt"), atual = null;
   var ant = document.getElementById("lupa-ant"), prox = document.getElementById("lupa-prox");
   function abrir(item){
+    if(!lupa.showModal){ location.href = item.src; return; }
     atual = item; area.innerHTML = "";
     var el;
     if(item.img){ el = document.createElement("img"); el.alt = item.leg; }
-    else { el = document.createElement("video"); el.controls = true; el.autoplay = true; el.playsInline = true; }
+    else { el = document.createElement("video"); el.controls = true; el.autoplay = true; el.playsInline = true; el.setAttribute("playsinline", ""); }
     el.src = item.src; area.appendChild(el); txt.textContent = item.leg;
     ant.hidden = prox.hidden = item.lista.length < 2;
-    if(!lupa.open && lupa.showModal) lupa.showModal();
+    if(!lupa.open) lupa.showModal();
   }
   function passar(d){ if(atual) abrir(atual.lista[(atual.i + d + atual.lista.length) % atual.lista.length]); }
   ant.addEventListener("click", function(){ passar(-1); });
