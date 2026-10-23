@@ -109,6 +109,14 @@
   .grade.v{grid-template-columns:repeat(auto-fill,minmax(200px,1fr))}
   .grade.h{grid-template-columns:repeat(auto-fill,minmax(360px,1fr));margin-top:18px}
   @media (max-width:640px){.grade{gap:12px;margin-top:28px}.grade.v{grid-template-columns:1fr 1fr}.grade.h{grid-template-columns:minmax(0,1fr);margin-top:12px}}
+  /* carrossel infinito dos vídeos em pé: ocupa a largura toda, passa sozinho e para no mouse; no celular dá para arrastar */
+  .carrossel{margin-top:32px;margin-inline:calc(50% - var(--tela,100vw) / 2);overflow-x:auto;overscroll-behavior-x:contain;scrollbar-width:none;
+    -webkit-mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent);mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent)}
+  .carrossel::-webkit-scrollbar{display:none}
+  .carrossel .trilho{display:flex;gap:18px;width:max-content;padding-block:8px 14px}
+  .carrossel .item{flex:none;width:220px;aspect-ratio:9/16}
+  .carrossel + .grade.h{margin-top:18px}
+  @media (max-width:640px){.carrossel{margin-top:22px}.carrossel .trilho{gap:12px}.carrossel .item{width:158px}.carrossel + .grade.h{margin-top:10px}}
   .item{position:relative;display:block;width:100%;border:0;padding:0;background:#dfe6ec;border-radius:20px;overflow:hidden;cursor:pointer;font:inherit;color:#fff;text-align:left;
     box-shadow:var(--sombra);transition:transform .25s,box-shadow .25s}
   .item:hover{transform:translateY(-3px);box-shadow:0 2px 4px rgba(11,26,44,.05),0 16px 36px rgba(11,26,44,.12)}
@@ -232,8 +240,8 @@
           <a class="bt leve zap" href="#" target="_blank" rel="noopener">Falar no WhatsApp</a>
         </div>
         <div class="numeros">
-          <div><strong>+970 mil</strong><span>seguidores somados nos perfis em que editei</span></div>
-          <div><strong>21</strong><span>vídeos inteiros para assistir aqui</span></div>
+          <div><strong>+980 mil</strong><span>seguidores somados nos perfis em que editei</span></div>
+          <div><strong>30</strong><span>vídeos inteiros para assistir aqui</span></div>
         </div>
       </div>
       <div class="celulares" id="celulares"></div>
@@ -245,7 +253,7 @@
       <div class="cab">
         <span class="etiqueta">Saúde</span>
         <h2>Vídeos para médicos</h2>
-        <p>Pediatria e saúde, com legenda que reforça a fala e imagem de apoio no ponto certo. Clique para assistir com som.</p>
+        <p>Pediatria, psicologia e saúde, com legenda que reforça a fala e imagem de apoio no ponto certo. Clique para assistir com som.</p>
       </div>
       <div id="saude"></div>
     </div>
@@ -255,8 +263,8 @@
     <div class="env">
       <div class="cab">
         <span class="etiqueta">Outros trabalhos</span>
-        <h2>Anúncio, motion e IA</h2>
-        <p>O mesmo cuidado em outros formatos, que também servem para a sua clínica.</p>
+        <h2>Advocacia, anúncio, motion e IA</h2>
+        <p>O mesmo cuidado em outros nichos e formatos, que também servem para a sua clínica.</p>
       </div>
       <div class="abas" role="tablist" id="abas"></div>
       <p class="aba-desc" id="aba-desc"></p>
@@ -269,9 +277,9 @@
       <div class="cab">
         <span class="etiqueta">Perfis</span>
         <h2>Perfis em que editei os vídeos</h2>
-        <p>Médicos, clínicas, empresas e criadores que já postaram vídeos editados por mim.</p>
+        <p>Médicos, psicóloga, advogada, clínicas, empresas e criadores que já postaram vídeos editados por mim.</p>
       </div>
-      <div class="soma"><strong>+970 mil</strong><span>seguidores somados</span></div>
+      <div class="soma"><strong>+980 mil</strong><span>seguidores somados</span></div>
       <div id="lista-perfis"></div>
       <p class="fonte">Números públicos de cada perfil no Instagram, em outubro de 2026. Clique para abrir o perfil.</p>
     </div>
@@ -349,8 +357,14 @@
     ["pediatras-2","v","Texto que reforça a fala"],
     ["pediatras-1","v","Palavra-chave em destaque"],
     ["pediatras-4","v","Desmame explicado"],
+    ["psicologa-1","v","Psicóloga: saber dizer não"],
+    ["psicologa-2","v","Evoluir também é abrir mão"],
+    ["psicologa-3","v","Parar de viver esperando"],
     ["corporativos-2","h","Institucional sobre tabagismo"]];
   var OUTROS = [
+    ["advocacia", "Advocacia", "Advogada do INSS explicando direitos com clareza, no mesmo estilo dos vídeos de saúde.", [
+      ["advocacia-1","v","Direitos no Outubro Rosa"],["advocacia-2","v","Menos de 12 contribuições?"],["advocacia-3","v","Benefício cortado?"],
+      ["advocacia-4","v","Câncer de mama e INSS: mito ou verdade"],["advocacia-5","v","Servidor público e as regras do INSS"],["advocacia-6","v","Dia do Servidor Público"]]],
     ["anuncios", "Anúncios e institucional", "Criativos para anúncio e vídeos institucionais.", [
       ["motions-br-4","v","Anúncio para loja de celulares"],
       ["motions-br-5","v","Anúncio para comunicação visual"],
@@ -394,16 +408,63 @@
     }
     return b;
   }
+  // Vídeos em pé viram carrossel infinito quando são 4 ou mais; com 2 ou 3 (e os 16:9) fica a grade.
+  var MIN_CARROSSEL = 4;
   function grades(caixa, trabalhos, leg){
     var lista = [];
-    ["v", "h"].forEach(function(f){
-      var itens = trabalhos.filter(function(t){ return t[1] === f; });
-      if(!itens.length) return;
-      var g = document.createElement("div"); g.className = "grade " + f;
-      itens.forEach(function(t){ g.appendChild(cartao(t, itemDe(t, lista, leg))); });
-      caixa.appendChild(g);
-    });
+    var v = trabalhos.filter(function(t){ return t[1] === "v"; }), h = trabalhos.filter(function(t){ return t[1] === "h"; });
+    if(v.length >= MIN_CARROSSEL) carrossel(caixa, v, v.map(function(t){ return itemDe(t, lista, leg); }));
+    else if(v.length) grade(caixa, "v", v, lista, leg);
+    if(h.length) grade(caixa, "h", h, lista, leg);
     return lista;
+  }
+  function grade(caixa, f, trabalhos, lista, leg){
+    var g = document.createElement("div"); g.className = "grade " + f;
+    trabalhos.forEach(function(t){ g.appendChild(cartao(t, itemDe(t, lista, leg))); });
+    caixa.appendChild(g);
+  }
+
+  // Três "voltas" iguais lado a lado; a rolagem fica sempre na do meio e pula uma volta inteira
+  // quando passa do fim (ou do começo), então nunca acaba. Cada volta é pelo menos da largura da tela.
+  var VEL = 28; // px por segundo
+  // largura da tela sem a barra de rolagem do Windows (100vw conta a barra e a página sobraria para o lado)
+  function tela(){ document.documentElement.style.setProperty("--tela", document.documentElement.clientWidth + "px"); }
+  tela(); addEventListener("resize", tela);
+  function carrossel(caixa, trabalhos, itens){
+    var c = document.createElement("div"), tr = document.createElement("div");
+    c.className = "carrossel"; tr.className = "trilho"; c.appendChild(tr); caixa.appendChild(c);
+    function copia(oculta){
+      trabalhos.forEach(function(t, i){
+        var b = cartao(t, itens[i]);
+        if(oculta){ b.tabIndex = -1; b.setAttribute("aria-hidden", "true"); }
+        tr.appendChild(b);
+      });
+    }
+    copia(false);
+    var n = trabalhos.length, gap = parseFloat(getComputedStyle(tr).columnGap) || 0;
+    var base = n * (tr.children[0].offsetWidth + gap);
+    var r = Math.max(1, Math.ceil(Math.max(c.clientWidth, screen.width || 0) / base));
+    for(var k = 1; k < 3 * r; k++) copia(true);
+    var volta = tr.children[n * r].offsetLeft - tr.children[0].offsetLeft;
+    var pos = volta, parado = false, ate = 0, visivel = true, ultimo = null;
+    c.scrollLeft = pos;
+    c.addEventListener("mouseenter", function(){ parado = true; });
+    c.addEventListener("mouseleave", function(){ parado = false; });
+    c.addEventListener("touchstart", function(){ ate = Infinity; }, {passive: true});
+    c.addEventListener("touchend", function(){ ate = performance.now() + 2500; }, {passive: true});
+    c.addEventListener("wheel", function(){ ate = performance.now() + 2500; }, {passive: true});
+    if("IntersectionObserver" in window) new IntersectionObserver(function(es){ visivel = es[0].isIntersecting; }).observe(c);
+    function passo(ts){
+      if(!c.isConnected) return;
+      var anda = !calmo && visivel && !parado && !lupa.open && ts > ate;
+      if(anda && ultimo !== null) pos += VEL * Math.min(ts - ultimo, 100) / 1000;
+      else if(!anda) pos = c.scrollLeft;
+      ultimo = ts;
+      if(pos >= 2 * volta) pos -= volta; else if(pos < volta) pos += volta;
+      if(Math.abs(c.scrollLeft - pos) >= .5) c.scrollLeft = pos;
+      requestAnimationFrame(passo);
+    }
+    requestAnimationFrame(passo);
   }
 
   // ---------- saúde ----------
@@ -448,11 +509,13 @@
       ["domingoscoelho_md","Domingos Sávio Coelho · Dermatologista","63 mil",false],
       ["capilife_","Capilife · Clínica de transplante capilar","45,2 mil",false],
       ["dr.jeffersonsilvafreitas","Dr. Jefferson · Tricologia e restauração capilar","6.348",false],
-      ["draluizabernardespediatra","Dra. Luiza Bernardes · Pediatra","5.082",false]]],
-    ["Empresas", [
+      ["draluizabernardespediatra","Dra. Luiza Bernardes · Pediatra","5.082",false],
+      ["dorysberaldi","Dorys Beraldi · Psicóloga","4.266",true]]],
+    ["Empresas e advocacia", [
       ["icrazybr","iCrazy · Loja Apple Premium","106 mil",false],
       ["highlinegoiania","Escola High Line · Escola bilíngue em Goiânia","12 mil",false],
-      ["transportegeneroso","Transporte Generoso · Transportadora","10,8 mil",true]]],
+      ["transportegeneroso","Transporte Generoso · Transportadora","10,8 mil",true],
+      ["julianascopel.adv","Juliana Scopel · Advogada do INSS","7.786",true]]],
     ["Criadores e música", [
       ["andrelrcavalcante","André Cavalcante · Músico e produtor","420 mil",true],
       ["geracaotechs","Glauton Filho · Tecnologia e IA","218 mil",false],
